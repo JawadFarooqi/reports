@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BotPool Competitor Flows</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#ffffff;--surface:#f6f7fb;--card:#ffffff;--ink:#14161f;--muted:#5e6275;--line:#e7e8f0;
+  --glass:rgba(255,255,255,.74);--glass-line:rgba(255,255,255,.9);
+  --lov:#ff3d7f;--b44:#ff9414;--bp:#2f6bff;--bpc:#0fa38f;
+  --lov-soft:#ffe6ef;--b44-soft:#fff0dc;--bp-soft:#e4ecff;--bpc-soft:#daf4ef;
+  --g1:#ff6a4d;--g2:#ff4fa3;--g3:#ffc24a;--g4:#38d9c4;
+  --s1:#ffd9d6;--s2:#ffe6cc;--s3:#fff3bf;--s4:#d6f5dd;--s5:#b3edc4;--sN:#f0f1f6;
+  --gap-bg:#fff0ee;--win-bg:#eafaf0;
+  --why-bg:linear-gradient(120deg,#fff1e6,#ffe6f1 55%,#e6fbf7);--why-ink:#14161f;--why-lab:#8a4b2e;
+  --mk-yes:#b3edc4;--mk-yes-ink:#0f5132;--mk-part:#fff3bf;--mk-part-ink:#6b5200;--mk-no:#ffd9d6;--mk-no-ink:#8a1c1c;--mk-paid:#e3e6f0;--mk-paid-ink:#3d4256;
+  --high:#e5383b;--med:#b7860b;--low:#16a34a;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"Figtree",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gutter:clamp(16px,3.2vw,56px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;
+  --bg:#0d0e14;--surface:#14161f;--card:#181a25;--ink:#f3f4f8;--muted:#a3a7ba;--line:#262938;
+  --glass:rgba(20,22,31,.62);--glass-line:rgba(255,255,255,.12);
+  --lov-soft:#3a1624;--b44-soft:#3a2710;--bp-soft:#16224a;--bpc-soft:#0f302b;
+  --s1:#4a1f22;--s2:#4a3017;--s3:#46401a;--s4:#1c4128;--s5:#175631;--sN:#1f2230;
+  --gap-bg:#2a1719;--win-bg:#13261b;--med:#e2b33c;
+  --why-bg:linear-gradient(120deg,#231a1f,#1f1a26 55%,#15232a);--why-ink:#f3f4f8;--why-lab:#ffb38a;
+  --mk-yes:#2e9e5b;--mk-yes-ink:#fff;--mk-part:#c79a1c;--mk-part-ink:#1a1400;--mk-no:#c2413f;--mk-no-ink:#fff;--mk-paid:#3a3f55;--mk-paid-ink:#f3f4f8;
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0d0e14;--surface:#14161f;--card:#181a25;--ink:#f3f4f8;--muted:#a3a7ba;--line:#262938;
+  --glass:rgba(20,22,31,.62);--glass-line:rgba(255,255,255,.12);
+  --lov-soft:#3a1624;--b44-soft:#3a2710;--bp-soft:#16224a;--bpc-soft:#0f302b;
+  --s1:#4a1f22;--s2:#4a3017;--s3:#46401a;--s4:#1c4128;--s5:#175631;--sN:#1f2230;
+  --gap-bg:#2a1719;--win-bg:#13261b;--med:#e2b33c;
+  --why-bg:linear-gradient(120deg,#231a1f,#1f1a26 55%,#15232a);--why-ink:#f3f4f8;--why-lab:#ffb38a;
+  --mk-yes:#2e9e5b;--mk-yes-ink:#fff;--mk-part:#c79a1c;--mk-part-ink:#1a1400;--mk-no:#c2413f;--mk-no-ink:#fff;--mk-paid:#3a3f55;--mk-paid-ink:#f3f4f8;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1640px;margin:0 auto;padding-inline:var(--gutter);padding-block:20px 96px}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,4.4vw,64px);line-height:1.03;font-weight:800}
+h2{font-size:clamp(26px,2.6vw,38px);line-height:1.1;font-weight:700}
+h3{font-size:20px;font-weight:700;margin:30px 0 10px}
+p{margin:0}
+.lede{color:var(--muted);font-size:16px;max-width:70ch;margin-top:8px}
+.ph{color:var(--muted);font-style:italic}
+.num{font-variant-numeric:tabular-nums}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--bp);outline-offset:3px;border-radius:6px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:3px;vertical-align:middle;flex:none}
+.lab{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:3px}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px 40px;flex-wrap:wrap}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;border-radius:28px;overflow:hidden;padding:clamp(22px,3.6vw,56px);isolation:isolate;
+  display:grid;grid-template-columns:1.15fr 1fr;gap:28px 48px;align-items:center;
+  background:
+    radial-gradient(50% 90% at 0% 0%,var(--g1) 0%,transparent 60%),
+    radial-gradient(45% 80% at 100% 0%,var(--g2) 0%,transparent 62%),
+    radial-gradient(50% 80% at 90% 100%,var(--g4) 0%,transparent 60%),
+    radial-gradient(50% 90% at 10% 100%,var(--g3) 0%,transparent 62%),
+    #ffe9dc}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.22;
+  background-image:radial-gradient(rgba(255,255,255,.9) 1px,transparent 1px);background-size:18px 18px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.78);backdrop-filter:blur(8px);
+  padding:6px 12px;border-radius:999px;font-size:14px;font-weight:600;color:#14161f}
+.badge i{width:8px;height:8px;border-radius:50%;background:#16a34a;box-shadow:0 0 0 4px rgba(22,163,74,.18)}
+.hero .eyebrow{margin-top:0;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7a2e1a}
+.hero h1{color:#14161f;margin-top:8px;max-width:18ch}
+.hero .verdict{color:#2b2d3a;font-size:20px;max-width:58ch;margin-top:14px}
+.hero .verdict.ph{color:#4a4d5c}
+.hero-cards{display:grid;gap:12px}
+.hc{background:var(--glass);border:1px solid var(--glass-line);backdrop-filter:blur(14px);border-radius:18px;padding:16px 20px;color:var(--ink);
+  display:grid;grid-template-columns:1.1fr auto 1fr;gap:6px 20px;align-items:center}
+.hc .who{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px}
+.hc .who small{display:block;font-weight:500;font-size:12px;color:var(--muted)}
+.hc .bigwrap{text-align:right}
+.hc .big{font-family:var(--display);font-weight:800;font-size:44px;line-height:1}
+.hc .big-l{font-size:12px;color:var(--muted)}
+.hc .rows{display:grid;gap:4px;font-size:14px;border-left:1px solid var(--line);padding-left:18px}
+.hc .rows div{display:flex;justify-content:space-between;gap:10px}
+.hc .rows b{font-variant-numeric:tabular-nums}
+.meta{display:flex;gap:8px 22px;flex-wrap:wrap;margin-top:22px;font-size:14px;color:#2b2d3a}
+.meta b{font-weight:600;color:#14161f}
+
+/* ---------- NAV ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;margin:18px calc(var(--gutter)*-1) 0;padding:10px var(--gutter);
+  background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
+  display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.nav a{flex:none;text-decoration:none;font-size:14px;font-weight:600;color:var(--ink);background:var(--surface);border:1px solid var(--line);padding:7px 14px;border-radius:999px;transition:background .15s,color .15s,border-color .15s}
+.nav a:hover{color:var(--bp);border-color:var(--bp)}
+
+/* ---------- SECTIONS ---------- */
+section{padding-top:68px;scroll-margin-top:60px}
+.kicker{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--bp);background:var(--bp-soft);padding:4px 10px;border-radius:999px;margin-bottom:12px}
+.panel{background:var(--surface);border-radius:20px;padding:clamp(14px,2.4vw,28px);margin-top:22px}
+.legend{display:flex;gap:8px 16px;flex-wrap:wrap;align-items:center;font-size:14px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+
+/* chips + tags */
+.chip{display:inline-block;min-width:38px;text-align:center;padding:3px 8px;border-radius:8px;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
+.sN{background:var(--sN);color:var(--muted)}.s1{background:var(--s1)}.s2{background:var(--s2)}.s3{background:var(--s3)}.s4{background:var(--s4)}.s5{background:var(--s5)}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:3px 8px;border-radius:5px;white-space:nowrap}
+.tag.High,.tag.P1{background:color-mix(in srgb,var(--high) 14%,transparent);color:var(--high)}
+.tag.Med,.tag.Medium,.tag.P2{background:color-mix(in srgb,var(--med) 16%,transparent);color:var(--med)}
+.tag.Low,.tag.P3{background:color-mix(in srgb,var(--low) 14%,transparent);color:var(--low)}
+.tag.P4{background:var(--sN);color:var(--muted)}
+.tag.None{background:var(--sN);color:var(--muted)}
+.tag.only{background:var(--bp-soft);color:var(--bp)}
+
+/* ---------- DIFFERENT BY DESIGN ---------- */
+.dbd{display:grid;grid-template-columns:1.9fr 1fr;gap:18px;margin-top:22px}
+.paths{background:var(--surface);border-radius:20px;padding:clamp(16px,2.4vw,28px);display:grid;gap:16px}
+.path{display:grid;grid-template-columns:150px 1fr auto;gap:14px;align-items:center}
+.path .who{display:flex;align-items:center;gap:8px;font-weight:700}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.node{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 11px;font-size:14px;font-weight:600;white-space:nowrap}
+.node.detour{background:repeating-linear-gradient(135deg,var(--bp-soft) 0 6px,var(--card) 6px 12px);border-color:var(--bp);color:var(--bp)}
+.node.goal{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.node.ph{font-weight:500}
+.arrow{color:var(--muted);font-size:14px}
+.path .cnt{font-size:14px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.hh{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hh>div{border-radius:20px;padding:18px 20px}
+.hh .helps{background:var(--win-bg)}.hh .costs{background:var(--gap-bg)}
+.hh h4{margin:0 0 8px;font-family:var(--display);font-size:20px}
+.hh ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:14px}
+.hh .q{grid-column:1/-1;background:var(--surface)}
+
+/* ---------- FUNNEL ---------- */
+.fgrid{display:grid;grid-template-columns:230px 1fr 190px;gap:18px;align-items:center}
+.fhead{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding-bottom:8px;border-bottom:1px solid var(--line)}
+.fhead span:last-child{text-align:right}
+.scale{display:block;position:relative;height:14px;margin-top:4px;font-size:12px;letter-spacing:0;text-transform:none;font-weight:600}
+.scale i{position:absolute;font-style:normal;transform:translateX(-50%)}
+.scale i:first-child{transform:none}
+.bars{position:relative}
+.bars .tick{position:absolute;top:-6px;bottom:-6px;border-left:1px dashed var(--line);pointer-events:none}
+.bars>div{position:relative}
+.frow{padding:12px 0;border-bottom:1px dashed var(--line)}
+.frow:last-child{border-bottom:0}
+.frow.only{background:linear-gradient(90deg,var(--bp-soft),transparent 70%);border-radius:12px;padding-inline:10px;margin-inline:-10px}
+.frow .lbl{text-decoration:none;font-size:14px;font-weight:700;line-height:1.3}
+.frow .lbl small{display:block;color:var(--muted);font-weight:500;font-size:12px;margin-top:2px}
+.frow .lbl:hover{color:var(--bp);text-decoration:underline}
+.frow .lbl .arr{color:var(--bp)}
+.bars{display:grid;gap:5px}
+.bar{height:18px;border-radius:999px;min-width:22px;font-size:12px;font-weight:700;line-height:18px;padding:0 8px;color:#fff;text-align:right;font-variant-numeric:tabular-nums}
+.bar.detour{background:repeating-linear-gradient(135deg,var(--bp) 0 6px,#6d95ff 6px 12px)!important}
+.bar.empty{background:var(--sN);color:var(--muted);text-align:left;width:max-content!important;font-weight:600}
+.bar.na{background:transparent;color:var(--muted);text-align:left;width:max-content!important;font-weight:600;padding-left:0}
+.chips{display:grid;gap:5px;justify-items:end}
+.chips .chip{height:18px;line-height:12px}
+
+/* ---------- TABLES ---------- */
+.tbl{overflow-x:auto;margin-top:16px}
+table{width:100%;border-collapse:separate;border-spacing:0 6px;font-size:14px}
+th{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:left;padding:4px 12px;white-space:nowrap}
+td{background:var(--card);padding:12px;vertical-align:top}
+.step td,#tactics td,#ship td{background:var(--surface)}
+tr td:first-child{border-radius:12px 0 0 12px}
+tr td:last-child{border-radius:0 12px 12px 0}
+.pc{text-align:center}
+td.gap{background:var(--gap-bg)!important}
+td.win{background:var(--win-bg)!important}
+td.na{color:var(--muted);font-style:italic}
+.cmp td:first-child{font-weight:600;width:18%;min-width:170px}
+.cmp{table-layout:fixed;min-width:760px}
+.cmp th.pc{text-align:left}
+.cmp th:first-child{width:18%}
+.yes,.no,.part,.paid{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;font-weight:800;font-size:14px;font-style:normal}
+.yes{background:var(--mk-yes);color:var(--mk-yes-ink)}.no{background:var(--mk-no);color:var(--mk-no-ink)}.part{background:var(--mk-part);color:var(--mk-part-ink);font-size:20px}.paid{background:var(--mk-paid);color:var(--mk-paid-ink)}
+.jump{font-size:14px;font-weight:700;color:var(--bp);text-decoration:none;white-space:nowrap}
+.jump:hover{text-decoration:underline}
+
+/* ---------- STEPS ---------- */
+.step-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:18px 32px;align-items:center}
+.step-head{display:flex;gap:16px;align-items:center}
+.step-no{flex:none;min-width:56px;height:56px;padding:0 10px;border-radius:18px;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:24px;color:#fff;
+  background:var(--ink);color:var(--bg)}
+.step-no.only{background:repeating-linear-gradient(135deg,var(--bp) 0 8px,#5a8bff 8px 16px)}
+.step-head p{color:var(--muted);font-size:14px}
+.diff{border-radius:18px;padding:18px 22px;background:#14161f;color:#fff}
+.diff .lab{color:#ffb38a}
+.diff p{font-family:var(--display);font-size:clamp(18px,1.7vw,22px);font-weight:500;line-height:1.35}
+.diff p.ph{color:#b9bccb}
+.step-body{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:24px;margin-top:8px;align-items:start}
+.side{display:grid;gap:14px;margin-top:22px}
+.why{padding:14px 0 4px;color:var(--ink);border-top:1px solid var(--line)}
+.why .lab{color:var(--why-lab)}
+.evid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:18px}
+.prod{border-radius:18px;padding:12px;display:flex;flex-direction:column;gap:10px}
+.prod.lov{background:var(--lov-soft)}.prod.b44{background:var(--b44-soft)}.prod.bp{background:var(--bp-soft)}.prod.bpc{background:var(--bpc-soft)}
+.prod-h{display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:700;padding:2px 4px}
+.prod-h .mini{font-size:12px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.shot{aspect-ratio:16/10;max-width:100%;border-radius:12px;background:var(--card);border:1.5px dashed var(--line);display:grid;place-items:center;font-size:14px;color:var(--muted);text-align:center;padding:10px}
+.prod .note{background:var(--card);border-radius:12px;padding:12px 14px;font-size:14px}
+.na-note{border:1.5px dashed var(--line);border-radius:18px;padding:18px;color:var(--muted);font-size:14px;display:grid;place-items:center;text-align:center}
+.fixes{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:14px}
+.fix{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:10px;scroll-margin-top:70px}
+.fix-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.fix-id{font-size:12px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+.fix h4{margin:0;font-family:var(--display);font-size:20px;line-height:1.25}
+.fix .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fix .grid div{background:var(--surface);border-radius:10px;padding:10px 12px;font-size:14px}
+.fix .grid .wide{grid-column:1/-1}
+.fixes>.fix:only-child{grid-column:1/-1}
+@media (min-width:1000px){.fix:only-child .grid{grid-template-columns:2fr 2fr 1fr 1fr}.fix:only-child .grid .wide{grid-column:auto}}
+
+/* audience */
+.aud{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:18px;margin-top:22px;align-items:start}
+.aud td,.aud th{vertical-align:top}
+.aud td{background:var(--surface)}
+.aud td.quote{font-style:italic}
+.winbox{border-radius:20px;padding:22px;color:#fff;background:#14161f;border:1px solid var(--line)}
+.winbox .lab{color:#ffb38a}
+.winbox h4{margin:4px 0 12px;font-family:var(--display);font-size:20px;line-height:1.25;font-weight:700}
+.winbox h4.ph{color:#c9cbd8;font-weight:500}
+.winbox ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:14px}
+.winbox li.ph{color:#b9bccb}
+/* features */
+.ftally{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.ftally div{display:flex;align-items:center;gap:10px;background:var(--surface);border-radius:14px;padding:10px 16px;font-weight:600}
+.ftally b{font-family:var(--display);font-size:24px;font-weight:800;font-variant-numeric:tabular-nums}
+.ftally small{color:var(--muted);font-weight:500}
+#featTable td{background:var(--surface)}
+.shot.ev{aspect-ratio:auto;min-height:120px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:4px;text-align:left;padding:12px 14px;border-style:solid}
+.shot.ev a{color:var(--bp);font-weight:600;font-size:12px;word-break:break-all;text-decoration:none}
+.shot.ev p{margin:0;color:var(--ink);font-size:14px}
+.shot.ev em{margin-top:auto;font-size:12px;color:var(--muted)}
+#mobTable td{background:var(--surface)}
+#featTable tr.grp td{background:transparent;padding:18px 4px 4px;font-family:var(--display);font-size:16px;font-weight:700}
+/* manual-test badge */
+.tag.manual{background:color-mix(in srgb,var(--g2) 16%,transparent);color:var(--g2)}
+.manual-note{margin-top:14px;border:1.5px dashed var(--g2);border-radius:16px;padding:12px 16px;font-size:14px;color:var(--muted)}
+.manual-note b{color:var(--ink)}
+@media (max-width:1180px){.aud{grid-template-columns:1fr}}
+
+/* hero number */
+.hnum{background:var(--glass);border:1px solid var(--glass-line);backdrop-filter:blur(14px);border-radius:22px;padding:24px 26px;color:var(--ink)}
+.hero .hnum,.hero .hstats div{background:rgba(255,255,255,.72);border-color:rgba(255,255,255,.9);color:#14161f}
+.hero .hnum .src{color:#3d4050}
+.hnum .n{font-family:var(--display);font-weight:800;font-size:clamp(64px,8vw,110px);line-height:.95;letter-spacing:-.03em}
+.hnum .l{font-family:var(--display);font-size:20px;font-weight:600;margin-top:6px;line-height:1.25}
+.hnum .src{font-size:12px;color:var(--muted);margin-top:8px}
+.hnum .src a{color:inherit}
+.hstats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.hstats div{background:var(--glass);border:1px solid var(--glass-line);border-radius:14px;padding:12px 14px;color:var(--ink);font-size:14px;line-height:1.35}
+.hstats b{display:block;font-family:var(--display);font-size:24px;font-weight:800;margin-bottom:2px}
+/* in short */
+.short{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:18px;margin-top:22px;align-items:start}
+.short .verdict-box{align-self:stretch;display:flex;align-items:center;background:#14161f;color:#fff;border-radius:20px;padding:22px 24px;font-family:var(--display);font-size:clamp(18px,1.6vw,22px);line-height:1.4;font-weight:500}
+.short ol{margin:0;padding:0;list-style:none;display:grid;gap:0}
+.short li{padding:12px 0;border-bottom:1px solid var(--line)}
+.short li:first-child{padding-top:0}
+.short li b{display:block}
+.short li span{font-size:14px;color:var(--muted)}
+.short .evl{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:8px}
+#searchTable td{background:var(--surface)}
+.cards-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+/* market */
+.mstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:22px}
+.mstat{padding:14px 0 0;border-top:2px solid var(--ink)}
+.mstat b{display:block;font-family:var(--display);font-size:34px;font-weight:800;line-height:1}
+.mstat p{margin:8px 0 0;font-size:14px}
+.mstat small{display:block;margin-top:8px;font-size:12px;color:var(--muted)}
+.mstat small a{color:inherit}
+#rivalTable td,#fitTable td,#painTable td{background:var(--surface)}
+#rivalTable tr.us td{background:var(--bp-soft)}
+.fitv{display:inline-block;font-size:12px;font-weight:700;padding:3px 8px;border-radius:5px;white-space:nowrap}
+.fitv.Strong{background:color-mix(in srgb,var(--low) 14%,transparent);color:var(--low)}
+.fitv.Weak{background:color-mix(in srgb,var(--high) 14%,transparent);color:var(--high)}
+.fitv.Mixed{background:color-mix(in srgb,var(--med) 16%,transparent);color:var(--med)}
+.fitv.Unknown{background:var(--sN);color:var(--muted)}
+.cards-row .hc{grid-template-columns:1fr auto;background:var(--surface);border-color:var(--line)}
+.cards-row .hc .rows{grid-column:1/-1;border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:8px}
+.need{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:10px;margin-top:12px;padding:0;list-style:none}
+.need li{border:1.5px dashed var(--line);border-radius:14px;padding:12px 14px;font-size:14px}
+@media (max-width:1180px){.short{grid-template-columns:1fr}}
+@media (max-width:760px){.hstats,.cards-row{grid-template-columns:1fr}}
+
+@keyframes flash{0%,40%{box-shadow:0 0 0 3px var(--bp);background-color:var(--bp-soft)}100%{box-shadow:0 0 0 0 transparent}}
+.fix:target,.gapc:target,.mstats:target{animation:flash 2.4s ease}
+tr:target td{animation:flash 2.4s ease}
+tr,.fix,.gapc{scroll-margin-top:80px}
+@media (prefers-reduced-motion:reduce){.fix:target,.gapc:target,tr:target td{animation:none;box-shadow:0 0 0 3px var(--bp)}}
+/* stands / lacking / direction */
+.mapwrap{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:18px;margin-top:22px;align-items:start}
+.map{background:var(--surface);border-radius:20px;padding:16px}
+.map svg{width:100%;height:auto;display:block}
+.who3{display:grid;gap:10px}
+.who3 div{padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.who3 .tk{display:block;margin-top:8px;font-size:14px;font-weight:600;color:var(--bp)}
+.who3 b{display:flex;align-items:center;gap:8px;font-size:14px;margin-bottom:4px}
+.gaps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:22px}
+.gapc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.gapc h4{margin:0;font-family:var(--display);font-size:20px}
+.gapc .two{display:grid;gap:8px}
+.gapc .two div{border-radius:12px;padding:10px 12px;font-size:14px}
+.gapc .us{background:var(--gap-bg)}.gapc .them{background:var(--surface)}
+.gapc .links{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:auto}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.opt{border-radius:18px;padding:18px;border:1px solid var(--line);background:var(--card);display:flex;flex-direction:column;gap:8px}
+.opt.rec{border:2px solid var(--bp);background:var(--bp-soft)}
+.opt h4{margin:0;font-family:var(--display);font-size:20px;line-height:1.25}
+.opt p{font-size:14px}
+.verd{align-self:flex-start;display:inline-block;white-space:nowrap;line-height:1.4;font-size:12px;font-weight:700;padding:3px 8px;border-radius:5px}
+.verd.v-no{background:color-mix(in srgb,var(--high) 14%,transparent);color:var(--high)}
+.verd.v-yes{background:var(--bp);color:#fff}
+.verd.v-also{background:color-mix(in srgb,var(--low) 14%,transparent);color:var(--low)}
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.pillar{background:var(--surface);border-radius:16px;padding:16px}
+.pillar h4{margin:0 0 8px;font-family:var(--display);font-size:16px}
+.pillar ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:14px}
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.road>div{padding:4px 0 0;border-top:1px solid var(--line)}
+.road h4{margin:0 0 2px;font-family:var(--display);font-size:20px}
+.road small{color:var(--muted);font-size:12px}
+.road ul{margin:10px 0 0;padding-left:18px;display:grid;gap:6px;font-size:14px}
+.road a,.pillar a,.gapc a.il{color:var(--bp);text-decoration:none;font-weight:600}
+.gapc a.il{white-space:nowrap}
+#weakTable td{background:var(--surface)}
+@media (max-width:1180px){.mapwrap,.pillars,.road{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.mapwrap,.opts,.pillars,.road{grid-template-columns:1fr}}
+.backbtn{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:20;background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:10px 16px;font:600 14px var(--body);box-shadow:0 6px 20px rgba(0,0,0,.25);cursor:pointer}
+.backbtn:focus-visible{outline:3px solid var(--bp);outline-offset:3px}
+.evtoggle{margin-top:14px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.evtoggle>summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:var(--sN);color:var(--ink);transition:background .15s}
+.evtoggle>summary:hover{background:color-mix(in srgb,var(--ink) 9%,var(--sN))}
+.evtoggle>summary:focus-visible{outline:3px solid var(--bp);outline-offset:-3px}
+.evtoggle>summary::-webkit-details-marker{display:none}
+.evtoggle .evl b{font-weight:700;font-size:14px}
+.evtoggle .evl small{display:block;font-size:12px;color:var(--muted);margin-top:1px}
+.evtoggle .hide,.evtoggle[open] .show{display:none}
+.evtoggle[open] .hide{display:inline}
+.evtoggle .chev{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:1px solid var(--line);font-style:normal;font-size:14px;transition:transform .2s}
+.evtoggle .chev::before{content:"";width:7px;height:7px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg);margin-top:-4px}
+.evtoggle[open] .chev{transform:rotate(180deg)}
+.evtoggle>:not(summary){margin:16px}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin-top:14px}
+.shots figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.shots a{display:block;line-height:0}
+.shots img{width:100%;max-width:100%;aspect-ratio:13/10;object-fit:cover;object-position:top;display:block;background:var(--surface)}
+.shots figcaption{padding:10px 12px;font-size:14px;line-height:1.45;border-top:1px solid var(--line)}
+.shots figcaption b{display:flex;align-items:center;gap:6px;font-size:14px}
+.shots figcaption span{color:var(--muted)}
+.shots a:focus-visible{outline:3px solid var(--bp);outline-offset:-3px}
+.shotrow{margin-top:26px}
+.shotrow h3{margin-top:0}
+.scope{display:grid;grid-template-columns:1fr 1fr;gap:18px 40px;margin-top:18px;align-items:start}
+ul.limits{margin:0;padding-left:20px;display:grid;gap:6px}
+.crit{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:10px}
+.crit div{background:var(--surface);border-radius:14px;padding:12px 14px;font-size:14px}
+.crit b{display:block;font-family:var(--display);font-size:16px}
+.crit span{color:var(--muted)}
+.foot-bar{margin-top:72px;padding-top:20px;border-top:1px solid var(--line);font-size:14px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:1180px){
+  .hero,.dbd,.step-top,.step-body,.scope{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .hc{grid-template-columns:1fr auto}
+  .hc .rows{grid-column:1/-1;border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:8px}
+  .fgrid{grid-template-columns:1fr;gap:8px}
+  .fhead span:not(:first-child){display:none}
+  .chips{grid-auto-flow:column;justify-content:start}
+  .path{grid-template-columns:1fr}
+  .hh{grid-template-columns:1fr}
+  .fixes{grid-template-columns:1fr}
+}
+@media (max-width:480px){.fix .grid{grid-template-columns:1fr}}
+@media (min-width:761px){
+  table{border-spacing:0}
+  td{background:transparent!important;border-bottom:1px solid var(--line);border-radius:0!important}
+  td.gap{background:var(--gap-bg)!important}
+  td.win{background:var(--win-bg)!important}
+  #rivalTable tr.us td{background:var(--bp-soft)!important}
+  #featTable tr.grp td{border-bottom:0}
+}
+@media (max-width:760px){
+  .nav{flex-wrap:wrap;overflow-x:visible}
+  .nav a{padding:6px 11px;font-size:14px}
+  .hero h1{font-size:28px}
+  .hero .verdict{font-size:14px}
+  .hero .eyebrow{font-size:12px}
+  .hnum{padding:18px 20px}
+  .hnum .n{font-size:56px}
+  .map{overflow-x:auto}
+  .map svg{min-width:560px}
+  .tbl{overflow-x:visible}
+  table.stack{border-spacing:0;min-width:0!important;table-layout:auto!important}
+  table.stack thead{display:none}
+  table.stack,table.stack tbody,table.stack tr{display:block;width:100%}
+  table.stack tr{background:var(--surface);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+  table.stack tr.us{background:var(--bp-soft)}
+  table.stack td{display:block;width:auto!important;min-width:0!important;background:transparent!important;padding:5px 0;border-radius:8px!important;text-align:left}
+  table.stack td:first-child{font-weight:700;font-size:14px;padding-top:0}
+  table.stack td[data-label]::before{content:attr(data-label);display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:2px}
+  table.stack td.gap{background:var(--gap-bg)!important;padding:6px 8px}
+  table.stack td.win{background:var(--win-bg)!important;padding:6px 8px}
+  table.stack td.pc{display:inline-flex;align-items:center;gap:6px;margin:4px 14px 4px 0;padding:4px 8px 4px 0}
+  table.stack td.pc.gap,table.stack td.pc.win{padding:4px 8px}
+  table.stack td.pc[data-label]::before{display:inline;margin:0}
+  table.stack tr.grp{background:transparent;padding:14px 0 2px;margin:0}
+  table.stack tr.grp td{font-size:16px}
+  table.stack td:empty{display:none}
+}
+@media print{.nav{display:none}.step{break-before:page}.fix{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- 1. HEADER -->
+<header class="hero">
+  <div>
+    <div class="eyebrow">BotPool Create vs Lovable, Base44 and small-business builders</div>
+    <h1>Small businesses still need websites. BotPool Create has an edge no rival has, but it isn't reaching small businesses yet.</h1>
+    <p class="verdict">BotPool is the only AI builder where a real expert can take over your site. Today botpool.ai's first screen is about hiring freelancers, the builder is a menu link, it doesn't show up for small-business searches, and some of its claims can't be backed up.</p>
+  </div>
+  <div>
+    <div class="hnum">
+      <div class="n">1 in 5</div>
+      <div class="l">small businesses still have no website</div>
+      <div class="src">UK 22%, about 1.2 million (<a href="https://www.gov.uk/government/statistics/uk-business-data-survey-2026/uk-business-data-survey-2026" target="_blank" rel="noopener">UK Government survey</a>) · EU small firms 23% (Eurostat) · US 17–33% (Clutch, Small Business Majority)</div>
+    </div>
+    <div class="hstats">
+      <div><b>58%</b>of US small businesses already use AI, up from 40% a year earlier (US Chamber of Commerce)</div>
+      <div><b>1 of 3</b>the only builder here where a real expert can take over your site</div>
+      <div><b>18 vs ~5</b>actions (clicks and form fields) from homepage to a first website (BotPool vs Lovable)</div>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Sections">
+  <a href="#short">Summary</a><a href="#market">Market &amp; position</a><a href="#direction">Direction</a><a href="#funnel">Evidence</a><a href="#polish">UI polish</a><a href="#ship">Fixes</a>
+</nav>
+
+<section id="short">
+  <h2>In short</h2>
+  <div class="short">
+    <div class="verdict-box" id="verdictBox"></div>
+    <ol id="shortList"></ol>
+    <p style="grid-column:1/-1;margin:0"><a class="jump" href="#direction">See the recommended direction →</a></p>
+  </div>
+  <div class="cards-row hero-cards" id="heroCards"></div>
+</section>
+
+<section id="market">
+  <h2>Is there a market for BotPool Create?</h2>
+  <p class="lede">Yes: many small businesses still have no website, most already use AI, and interest in AI website builders has grown about four times in the last two years. But the market is crowded, and BotPool is not yet set up to win it.</p>
+  <p class="lede" style="font-size:14px;margin-top:6px">The share without a website and AI use are in the figures at the top.</p>
+  <div class="mstats" id="mStats"></div>
+
+  <h3>Lovable and Base44, next to website-first builders</h3>
+  <p class="lede" style="margin-top:0">Lovable (about $500M a year in revenue) and Base44 (about $200M, owned by Wix) are BotPool's main comparison, and both are chasing apps and large companies. Wix, Durable and Squarespace are shown for context: they are the website builders many small-business owners already know.</p>
+  <div class="tbl"><table id="rivalTable"></table></div>
+  <p class="lede" style="font-size:14px">First-year cost = cheapest yearly plan that allows your own domain, plus the domain (about $12–20 when not included). Review scores from Trustpilot.</p>
+
+  <h3>What small-business owners complain about</h3>
+  <div class="tbl"><table id="painTable"></table></div>
+
+  <h3>How well BotPool Create fits the market today</h3>
+  <div class="tbl"><table id="fitTable"></table></div>
+  <h3 id="searches" style="scroll-margin-top:80px">The 6 small-business searches</h3>
+  <p class="lede" style="margin-top:0">Google search, US results, first page. BotPool didn't appear for any of the six small-business searches, but it comes first when you search its own name.</p>
+  <div class="tbl"><table id="searchTable"></table></div>
+
+  <h3>What would prove it: numbers only BotPool has</h3>
+  <p class="lede" style="margin-top:0">This review shows market fit on paper. Real product-market fit shows up in BotPool's own numbers:</p>
+  <ul class="need" id="needList" style="scroll-margin-top:80px"></ul>
+  <p style="margin-top:22px"><a class="jump" href="#marketFixesHead">See the market fixes →</a></p>
+</section>
+
+<section id="stands">
+  <h2>Where BotPool Create stands</h2>
+  <p class="lede">Two questions separate the three products: what you end up with, and who finishes it. BotPool Create is the only one that pairs a business website with a real person who can take it over.</p>
+  <div class="mapwrap">
+    <div class="map"><svg viewBox="0 0 640 440" role="img" aria-label="Map: what you end up with (business website to any app) against who finishes it (AI only to AI plus a real person)">
+  <rect x="110" y="40" width="510" height="340" rx="14" style="fill:var(--card);stroke:var(--line)"/>
+  <rect x="110.5" y="40.5" width="254" height="169" rx="14" style="fill:var(--bp-soft);fill-opacity:.55;stroke:var(--bp);stroke-opacity:.6"/>
+  <line x1="365" y1="40" x2="365" y2="380" style="stroke:var(--line);stroke-dasharray:4 5"/>
+  <line x1="110" y1="210" x2="620" y2="210" style="stroke:var(--line);stroke-dasharray:4 5"/>
+  <text x="12" y="56" style="fill:var(--muted);font:600 12px var(--body)">AI +</text>
+  <text x="12" y="72" style="fill:var(--muted);font:600 12px var(--body)">a person</text>
+  <text x="12" y="366" style="fill:var(--muted);font:600 12px var(--body)">AI only</text>
+  <text x="110" y="402" style="fill:var(--muted);font:12px var(--body)">A business website</text>
+  <text x="620" y="402" text-anchor="end" style="fill:var(--muted);font:12px var(--body)">Any app or software</text>
+  <text x="365" y="428" text-anchor="middle" style="fill:var(--muted);font:600 14px var(--body)">What you end up with</text>
+  <text x="124" y="62" style="fill:var(--bp);font:700 12px var(--body)">WEBSITE + A PERSON</text>
+  <text x="124" y="78" style="fill:var(--bp);font:12px var(--body)">Only BotPool: an expert takes</text>
+  <text x="124" y="92" style="fill:var(--bp);font:12px var(--body)">over inside the builder</text>
+  <text x="379" y="62" style="fill:var(--muted);font:700 12px var(--body)">APP + A PERSON</text>
+  <text x="124" y="228" style="fill:var(--muted);font:700 12px var(--body)">WEBSITE, AI ONLY</text>
+  <text x="606" y="372" text-anchor="end" style="fill:var(--muted);font:700 12px var(--body)">APP, AI ONLY</text>
+  <circle cx="200" cy="132" r="15" style="fill:var(--bp)"/>
+  <text x="222" y="130" style="fill:var(--ink);font:700 14px var(--display)">BotPool Create</text>
+  <text x="222" y="147" style="fill:var(--muted);font:12px var(--body)">expert after the first site</text>
+  <line x1="503" y1="262" x2="392" y2="214" style="stroke:var(--lov);stroke-width:2;stroke-dasharray:6 5"/>
+  <path d="M388 212 l12 -1 l-6 10 z" style="fill:var(--lov)"/>
+  <text x="500" y="186" text-anchor="middle" style="fill:var(--lov);font:600 12px var(--body)">moving towards</text>
+  <text x="500" y="200" text-anchor="middle" style="fill:var(--lov);font:600 12px var(--body)">small businesses</text>
+  <circle cx="520" cy="272" r="14" style="fill:var(--lov)"/>
+  <text x="520" y="302" text-anchor="middle" style="fill:var(--ink);font:700 14px var(--display)">Lovable</text>
+  <text x="520" y="317" text-anchor="middle" style="fill:var(--muted);font:12px var(--body)">partner list</text>
+  <circle cx="440" cy="322" r="14" style="fill:var(--b44)"/>
+  <text x="440" y="352" text-anchor="middle" style="fill:var(--ink);font:700 14px var(--display)">Base44</text>
+  <text x="440" y="367" text-anchor="middle" style="fill:var(--muted);font:12px var(--body)">owned by Wix · partner list</text>
+  <circle cx="220" cy="292" r="12" style="fill:var(--muted)"/>
+  <text x="220" y="320" text-anchor="middle" style="fill:var(--ink);font:700 14px var(--display)">Wix</text>
+  <text x="220" y="335" text-anchor="middle" style="fill:var(--muted);font:12px var(--body)">partner directory</text>
+</svg>
+<p style="margin:8px 4px 0;font-size:14px;color:var(--muted)">Positions reflect what each product offers today. Wix, Lovable and Base44 link to partner lists outside the builder. BotPool's expert option appears inside the builder once a site is built.</p></div>
+    <div class="who3">
+      <div><b><i class="dot" style="background:var(--bp)"></i>BotPool Create</b>A finished business website, with a marketplace of real people behind it.<span class="tk">Takeaway: the one corner nobody else holds. Show the expert option earlier to make it count.</span></div>
+      <div><b><i class="dot" style="background:var(--lov)"></i>Lovable</b>Builds any software, for teams and large companies. Now adding payments, search visibility and business tools, so it's moving towards small businesses.<span class="tk">Takeaway: the biggest threat to its corner.</span></div>
+      <div><b><i class="dot" style="background:var(--b44)"></i>Base44</b>Apps and business tools, owned by Wix, with Wix's money and reach behind it. Websites are one option among four.<span class="tk">Takeaway: big reach, but app-first and weak on trust (2.8 on Trustpilot).</span></div>
+      <div><b><i class="dot" style="background:var(--muted)"></i>Wix</b>A website builder for everyone, with experts in a separate partner directory.<span class="tk">Takeaway: the website brand most owners already know.</span></div>
+    </div>
+  </div>
+  <h3 id="audience" style="scroll-margin-top:80px">Who each one is built for</h3>
+  <p class="lede" style="margin-top:0">Who each product speaks to, the job it promises to do, and how it says it.</p>
+  <div class="aud">
+    <div class="tbl" style="margin-top:0"><table class="cmp" id="audTable"></table></div>
+    <div class="winbox">
+      <span class="lab">Where BotPool can win</span>
+      <h4 id="winHead">Small-business owners who want a finished website, not an app</h4>
+      <ul id="winList"></ul>
+    </div>
+  </div>
+</section>
+
+<section id="lacking">
+  <h2>Gaps against Lovable and Base44</h2>
+  <p class="lede">Five gaps, each with what BotPool does today, what the competitors do, and links to the evidence and fixes.</p>
+  <div class="gaps" id="gapCards"></div>
+</section>
+
+<section id="direction">
+  <h2>Direction</h2>
+  <p class="lede">Three possible directions. Recommended: the second, with the third alongside it.</p>
+  <div class="opts" id="optCards"></div>
+
+  <h3>The plan</h3>
+  <div class="road" id="roadmap"></div>
+
+  <h3>Where Lovable and Base44 are weak, and how BotPool can win</h3>
+  <div class="tbl"><table id="weakTable"></table></div>
+  <p class="lede" style="font-size:14px">Measuring progress: the numbers in <a class="jump" href="#needList">What would prove it →</a></p>
+</section>
+
+<section id="funnel">
+  <h2>Actions from first visit to being asked to pay</h2>
+  <p class="lede">Actions (clicks and form fields) needed to finish each stage, with a score out of 5 beside it. Shorter bars mean less effort. BotPool's numbers were counted on a real sign-up on staging. “~” marks an estimate for Lovable and Base44 (real sign-up test: TBD): their sign-up assumes Google sign-up, and their first build assumes your idea carries through sign-up, as their pages say. The striped bar is the extra stage inside BotPool. Click a stage to see the details. Speed and ease scores come from the counted actions; clarity, next step and pricing are the reviewer's judgement. Every product in a stage is scored on the same questions. Speed and ease scale: 0–1 actions = 5, 2 = 4, 3–4 = 3, 5–8 = 2, 9 or more = 1, minus 1 for each dead end.</p>
+  <div class="panel">
+    <div class="legend" id="funnelLegend" style="margin-bottom:14px"></div>
+    <div class="fgrid fhead"><span>Stage</span><span>Actions (clicks + fields)<span class="scale" id="funnelScale"></span></span><span>Score out of 5</span></div>
+    <div id="funnelRows"></div>
+  </div>
+</section>
+
+<section id="tactics">
+  <h2>What moves visitors to the next stage</h2>
+  <p class="lede">What each product does to move a first-time visitor to the next stage, and what BotPool is missing. Each link goes to the matching fix or evidence.</p>
+  <div class="tbl"><table id="tacticsTable"></table></div>
+  <div class="legend" style="margin-top:10px"><span><i class="yes">✓</i>uses it</span><span><i class="part">–</i>partly</span><span><i class="no">✕</i>doesn't</span></div>
+</section>
+
+<section id="features">
+  <h2>What each one can actually do</h2>
+  <p class="lede">Features grouped by what a builder needs, from first draft to a live site. Red marks a BotPool gap; the last column says whether that gap matters to BotPool's audience, to avoid chasing features nobody needs.</p>
+  <div class="ftally" id="fTally"></div>
+  <div class="tbl"><table id="featTable"></table></div>
+  <div class="legend" style="margin-top:10px"><span><i class="yes">✓</i>has it</span><span><i class="part">–</i>partly (see note)</span><span><i class="paid">$</i>paid plans only</span><span><i class="no">✕</i>doesn't</span></div>
+</section>
+
+<section id="mobile">
+  <h2>On a phone, and how fast it loads</h2>
+  <p class="lede">Each product's website-builder page on a phone-sized screen, plus two loading tests per page on a computer. All three show the typing box straight away on a phone. BotPool hides its menu and Log in, and is the slowest to respond.</p>
+  <div class="tbl"><table class="cmp" id="mobTable"></table></div>
+  <p class="lede" style="font-size:14px">Pages: botpool.ai/create, lovable.dev/build/website-builder, base44.com/ai-website-builder. Speed comes from two tests on a computer; the second may have been faster because the page was already stored. Speed was measured on a computer only. Phone speed test: TBD (Google's phone speed-test service had reached its daily limit).</p>
+  <p><a class="jump" href="#fix-2-3">See the fix for phones →</a> &nbsp; <a class="jump" href="#fix-2-4">See the fix for speed →</a></p>
+</section>
+
+<section id="polish">
+  <h2>How polished each one looks</h2>
+  <p class="lede">Side by side on the three screens a new user meets: the builder's first screen, the templates, and the plans. Click a screenshot to see it full size. BotPool screens are from staging; Lovable and Base44 from their live apps.</p>
+  <div class="tbl"><table id="polishTable"></table></div>
+  <div class="legend" style="margin-top:10px"><span><i class="yes">✓</i>yes</span><span><i class="part">–</i>partly</span><span><i class="no">✕</i>no</span></div>
+  <div class="shotrow"><h3 id="shots-templates" style="scroll-margin-top:80px">Templates and starting points</h3><div class="shots" id="shotsTemplates"></div></div>
+  <div class="shotrow"><h3 id="shots-home" style="scroll-margin-top:80px">The builder's first screen</h3><div class="shots" id="shotsHome"></div></div>
+  <div class="shotrow"><h3 id="shots-plans" style="scroll-margin-top:80px">Plans and upgrade</h3><div class="shots" id="shotsPlans"></div></div>
+  <h3 id="polishFixesHead">UI fixes</h3>
+  <div class="fixes" id="polishFixes"></div>
+</section>
+
+<section id="design">
+  <div class="sec-head"><div>
+    <h2>How BotPool's route differs</h2>
+    <p class="lede">BotPool is a platform: a marketplace, with Create as its website builder. Lovable and Base44 are only builders. This report follows a visitor who wants to build a website, so the extra platform steps are counted, not hidden.</p>
+  </div></div>
+  <div class="dbd">
+    <div class="paths" id="paths"></div>
+    <div class="hh">
+      <div class="helps"><h4>Where the platform helps</h4><ul id="helps"></ul></div>
+      <div class="costs"><h4>Where it costs</h4><ul id="costs"></ul></div>
+      <div class="q"><span class="lab">Verdict</span><span id="platformVerdict">The marketplace is BotPool's best upsell and its weakest front door: bring it in after the first site is built, not before it.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="journey">
+  <h2>The visitor's journey, stage by stage</h2>
+  <p class="lede">Each stage opens with the biggest difference and why it matters, then the fixes. Open “Show evidence” for the side-by-side comparison. Red cells show where BotPool is behind; green where it leads.</p>
+</section>
+<div id="steps"></div>
+
+<section id="ship">
+  <h2>Fixes in priority order</h2>
+  <p class="lede">Every fix in this report, in order: do first, do next, later, then housekeeping. Housekeeping items are worth fixing, but they aren't why visitors don't convert. Each one links to its fix card.</p>
+  <div class="tbl"><table id="planTable"></table></div>
+  <h3 id="marketFixesHead" style="scroll-margin-top:80px">Market fixes</h3>
+  <div class="fixes" id="marketFixes"></div>
+</section>
+
+<footer class="foot-bar"><span>BotPool · Competitor flow review</span></footer>
+</div>
+
+<button type="button" class="backbtn" id="backBtn" hidden title="Return to the spot you jumped from">↩ Back to where you were</button>
+<script>
+/* ================= DATA ================= */
+const PRODUCTS=[
+  {key:"bp", name:"BotPool",  color:"var(--bp)"},
+  {key:"lov",name:"Lovable",  color:"var(--lov)"},
+  {key:"b44",name:"Base44",   color:"var(--b44)"}
+];
+const BP_CREATE={key:"bpc",name:"BotPool Create page",color:"var(--bpc)"};
+const PRI={P1:"Do first",P2:"Do next",P3:"Later",P4:"Housekeeping"};
+
+const CRITERIA=[
+  ["Clarity","Can a new visitor tell what it does in 5 seconds?"],
+  ["Speed","How many actions (clicks and fields) until the next step or a first result?"],
+  ["Ease","How many fields, checks, choices or dead ends?"],
+  ["Next step & trust","Is the next action obvious, and backed by proof?"],
+  ["Fair pricing","Is payment asked for after the visitor has seen value?"]
+];
+
+const SCALE=n=>n<=1?5:n===2?4:n<=4?3:n<=8?2:1;
+const ZERO_BY_DEFINITION=["1","5"];
+
+const PATHS={
+  bp: [["botpool.ai (hire freelancers)",""],["“Create” link in the menu",""],["Create page: type idea + Build",""],["Sign up + confirm email",""],["Log in again","detour"],["Freelancer marketplace","detour"],["Click “Create”","detour"],["Type the idea again","detour"],["Website builder","goal"]],
+  lov:[["lovable.dev (prompt box)",""],["Get started",""],["Sign up (Google or email)",""],["Website builder","goal"]],
+  b44:[["base44.com (prompt box)",""],["Start building",""],["Sign up",""],["Website builder","goal"]]
+};
+const HELPS=[
+  "A human expert can take over the site from inside the builder. Neither competitor offers this; they only link to lists of partners.",
+  "One account covers both: someone who builds a site is one click away from hiring help with SEO, copy or design.",
+  "A large marketplace is a strong trust signal, once the numbers are checked."
+];
+const COSTS=[
+  "botpool.ai opens on “Hire Top AI Freelancers”. The builder is a “Create NEW” link in the menu.",
+  "New users land in the freelancer marketplace, not the builder (seen in the first review and again on a real sign-up on staging).",
+  "Freelancer accounts can't use the builder at all: “available to client accounts only”.",
+  "The Create page doesn't notice signed-in freelancers: it still shows Log in and Start free (signed-in clients are recognised)."
+];
+const PLATFORM_VERDICT="The marketplace is BotPool's best upsell and its weakest front door: bring it in after the first site is built, not before it.";
+
+const STEPS=[
+  {label:"1",title:"First look",desc:"The first 5 seconds on the site",twoEntries:true,
+   compare:["What it says it is","Who it's for","First thing you can do","Is it obvious you can build a website?"],
+   diff:"Lovable and Base44 open on a box where you type what you want to build. botpool.ai opens on hiring freelancers; the builder is only obvious if you land on the Create page.",
+   cells:{
+    "What it says it is":{bp:["“Hire Top AI Freelancers”","gap"],bpc:["“Create a Website in Minutes”","win"],lov:"“Build something Lovable”: a builder for apps and websites",b44:"“Every builder needs a base”: apps, websites and AI assistants"},
+    "Who it's for":{bp:"People hiring AI freelancers",bpc:"Small businesses (the examples: a tattoo studio, yoga, a bakery, a dentist)",lov:"Anyone building software, from founders to large companies",b44:"“Builders”: makers, founders, small teams"},
+    "First thing you can do":{bp:["Search for freelancers","gap"],bpc:"Describe your business and press Build",lov:"Describe your idea and press “Get started for free”",b44:"Describe your idea and press Build; pick Apps, Websites, Games or Tools"},
+    "Is it obvious you can build a website?":{bp:["No: only a “Create NEW” link in the menu","gap"],bpc:["Yes: websites only, with a live example","win"],lov:"Partly: apps first, websites second",b44:"Partly: one of four options"}
+   },
+   data:{
+    bp:{clicks:0,scores:[2,null,null,2,null],friction:"Someone who wants a website sees a freelancer search and categories."},
+    bpc:{clicks:0,scores:[5,null,null,4,null],friction:"Very little. “Open Studio” looks like a button but is the name of a design style."},
+    lov:{clicks:0,scores:[4,null,null,5,null],friction:"Words like “software” and “production-grade” may feel technical to a local business owner."},
+    b44:{clicks:0,scores:[4,null,null,4,null],friction:"Jargon (“vibe coding”); websites are one option of four."}
+   },
+   why:"Both competitors make the product the first thing you touch: a box to type your idea into, right at the top. That turns curiosity into action within seconds. BotPool already has this on the Create page, but not on the homepage most people reach first.",
+   fixes:[{title:"Give people who want a website a way in from botpool.ai's first screen",problem:"botpool.ai opens on “Hire Top AI Freelancers”. The only way to the builder is a small “Create NEW” link in the menu, so someone who wants a website doesn't see it.",fix:"Add a choice at the top of the homepage (“Hire an expert” or “Build a website”), or a small “describe your business” box that opens the Create page with the text kept. Also send all website-related ads and search traffic straight to the Create page.",metric:"How many homepage visitors go on to the Create page",impact:"High",effort:"Medium",priority:"P1"}]
+  },
+  {label:"2",title:"Landing page",desc:"Scrolling the main page",twoEntries:true,
+   compare:["Headline","Main button","Can you start before making an account?","Proof shown","Examples","Prices shown","What you see without scrolling"],
+   diff:"The Create page matches the competitors on clarity and does better at showing prices. Its proof is weaker, and its claim that experts are “vetted” isn't true.",
+   cells:{
+    "Headline":{bp:"Hire Top AI Freelancers",bpc:"Create a Website in Minutes",lov:"Build something Lovable",b44:"Every builder needs a base"},
+    "Main button":{bp:"Search / Post a Job",bpc:"Build · Start free · Build my website for free",lov:"Get started · Get started for free",b44:"Start building"},
+    "Can you start before making an account?":{bp:"Not applicable",bpc:"You can type; Build then asks you to sign up, and at the time of the review your text was lost",lov:"Yes: type on the main page, sign up when you send it, and your text is kept (Lovable help pages)",b44:"Yes: what you type is passed to sign-up, and the app starts building once you're in (seen in page code)"},
+    "Proof shown":{bp:"Freelancer cards with ratings",bpc:["“Backed by 26,000+ BotPool experts” (BotPool's press release counts 26,000 registered members); the page calls them “vetted”, which the owner says isn't true","gap"],lov:"Adidas, Nvidia and Zendesk logos; a customer saving $2M+; 60 million projects",b44:"A founder story ($1M a year in revenue within 3 months); 10M+ users; owned by Wix"},
+    "Examples":{bp:"None",bpc:["6 real sites made with it, and one site shown in 3 styles","win"],lov:"Website templates on the builder page",b44:"6 templates you can copy or preview"},
+    "Prices shown":{bp:"None",bpc:["All plans, credit costs and questions on the page","win"],lov:"Link to a separate page",b44:"Free vs “from $16 a month”"},
+    "What you see without scrolling":{bp:"Search box and categories",bpc:"Headline, the typing box, a trust line and a live example",lov:"Headline and the typing box",b44:"Headline, the typing box and the four options"}
+   },
+   data:{
+    bp:{clicks:1,dead:1,deadWhy:"the homepage is about hiring; the builder is behind a menu link",scores:[2,null,null,3,null],friction:"One extra click (the “Create” link in the menu) to reach the builder's page."},
+    bpc:{clicks:0,scores:[5,null,null,3,null],friction:"Proof is one line: no customer names, reviews or number of sites built."},
+    lov:{clicks:0,scores:[4,null,null,5,null],friction:"Prices are on a separate page; the page is long and focused on apps."},
+    b44:{clicks:0,scores:[4,null,null,4,null],friction:"Many products on one page (apps, websites, assistants)."}
+   },
+   why:"Competitors put strong proof right next to the main button: famous logos and hard numbers. The Create page has better product proof (real sites it made) but weak proof from customers, and the one number it uses counts registered members, not proven experts.",
+   fixes:[
+    {title:"Remove the “vetted” claims from the Create page",problem:"The Create page promises a “vetted expert” and “26,000+ vetted members”. The owner confirms there is no vetting, so this is a trust and legal risk on the page that sells the product.",fix:"Use wording that's true, e.g. “Hand your site to a BotPool expert”, with a checked member count. The client home lists about 2,178 developers, so check where 26,000 comes from. The “Hire an Expert” window inside the builder also offers “a vetted team”.",metric:"Wording changed on the live page",impact:"Low",effort:"Low",priority:"P4"},
+    {title:"Put real customer proof next to the Build button",problem:"The only proof under the typing box is “Backed by 26,000+ BotPool experts”. Lovable shows famous logos and revenue stories; Base44 a founder story and “10M+ builders”.",fix:"Add 2 or 3 real customers (their site and a one-line quote), or a live count of sites published, right under the typing box.",metric:"How many visitors press Build",impact:"Medium",effort:"Low",priority:"P2"},
+    {title:"Add a menu with Log in to the Create page on phones",problem:"On a phone, the Create page hides How it works, Showcase, Pricing and Log in, and shows no menu button. Returning users can't log in from the page, and the chat bubble covers the example site. Signed in, the menu is wider than the screen and “Start free” is cut off.",fix:"Add a menu button with Log in, Pricing and Showcase. Move the chat bubble lower, or hide it until the visitor scrolls.",metric:"Log-ins and sign-ups from phones on the Create page",impact:"Medium",effort:"Low",priority:"P2"},
+    {title:"Make the Create page respond faster",problem:"The Create page took the longest to start loading in both tests (1.2 s and 0.6 s, against Base44's 0.2 s and 0.04 s).",fix:"Serve the page from a cache close to visitors (it rarely changes), then run a proper mobile speed test to confirm.",metric:"Main content visible within 2.5 s on a phone",impact:"Low",effort:"Medium",priority:"P4"}
+   ]
+  },
+  {label:"3",title:"Getting to sign-up",desc:"From the main page to the sign-up form",
+   compare:["Ways to reach sign-up","Clicks from the main page","Takes you back to where you started","If you're already signed in"],
+   diff:"All three reach sign-up in 2 actions (type your idea, press Build or send), but only Lovable and Base44 bring you back to what you were doing. BotPool shows “Your brief is saved” on the sign-up page, then loses it after the email confirmation; its “Start free” forgets where you came from.",
+   cells:{
+    "Ways to reach sign-up":{bp:"Start free, Build, start blank, Start building, Choose Pro or Business, Build my website for free",lov:"Get started (top), Get started for free, typing your idea",b44:"Start building (top, middle, prices, bottom), Customize template"},
+    "Clicks from the main page":{bp:"2 from the Create page (type your idea, press Build); 3 from botpool.ai",lov:"2 (type your idea, send)",b44:"2 (type your idea, send)"},
+    "Takes you back to where you started":{bp:["Log in does; Start free doesn't","gap"],lov:"Yes, from every sign-up link",b44:"Yes, from every Start building link"},
+    "If you're already signed in":{bp:["Clients: recognised (“My websites”, and Start free opens the builder). Freelancers: still Log in and Start free, which sends them to their dashboard with no message","gap"],lov:"Takes you straight to your dashboard",b44:"Takes you straight to your dashboard"}
+   },
+   data:{
+    bp:{clicks:2,scores:[3,null,null,3,null],friction:"Counted: type your idea and press Build (2). Sign-up forgets where the visitor came from; signed-in freelancers are treated as strangers."},
+    lov:{clicks:2,scores:[5,null,null,4,null],friction:"Type your idea and send it (2). None seen"},
+    b44:{clicks:2,scores:[5,null,null,4,null],friction:"Type your idea and send it (2). None seen"}
+   },
+   why:"Remembering where you came from and what you typed makes sign-up feel like part of building, not a detour. Lovable and Base44 do this on every link.",
+   fixes:[
+    {title:"Keep what the visitor typed through sign-up",problem:"On a real sign-up on staging, the sign-up page said “Your brief is saved”, but after confirming the email and logging in again the builder's box was empty, so the idea had to be typed again. Start free also leads to a general sign-up with no way back to the builder (Log in has one).",fix:"After sign-up and email confirmation, open the builder with the visitor's text already filled in.",metric:"How many new sign-ups build a site",impact:"High",effort:"Low",priority:"P1"},
+    {title:"Notice signed-in freelancers on the Create page",problem:"Signed-in clients are recognised (“My websites”, and Start free opens the builder). Signed-in freelancers still see Log in and Start free, and pressing Start free lands them on their dashboard with no explanation.",fix:"For freelancer accounts, explain that the builder needs a client account and offer to add one in a click, or let freelancers use it too.",metric:"Signed-in visitors who leave the Create page",impact:"Low",effort:"Low",priority:"P4"}
+   ]
+  },
+  {label:"4",title:"Sign-up form",desc:"Making an account",
+   compare:["Ways to sign up","What you have to fill in","Email confirmation","Extra questions before you start"],
+   diff:"Lovable and Base44 both let you sign up in one click with Google (Lovable also offers GitHub and Apple). BotPool's builder sign-up takes 12 actions: a five-field form with a terms box, an email confirmation, and then logging in again.",
+   cells:{
+    "Ways to sign up":{bp:["Email and password form; no Google option on the form (checked in the page code). Google appears on the log-in page. Staging (the next release) now shows “Sign in with Google” on the Create sign-up page","gap"],lov:"Google, GitHub, Apple, email or company sign-in (help pages and page code)",b44:"Google, GitHub, Apple or email (page code)"},
+    "What you have to fill in":{bp:["First name, last name, email, password, country, and a terms box","gap"],lov:"Nothing with Google, GitHub or Apple; email and password otherwise",b44:"Nothing with Google or GitHub; email and password otherwise"},
+    "Email confirmation":{bp:"Yes, before you can start, and then you have to log in again (counted on a real sign-up on staging)",lov:"None needed with Google, GitHub or Apple",b44:"None with Google, GitHub or Apple; a verification code for email sign-up (page code)"},
+    "Extra questions before you start":{bp:"None",lov:"None: you go straight to the dashboard (help pages)",b44:"None: you land on the dashboard with three ways to start"}
+   },
+   data:{
+    bp:{clicks:12,dead:1,deadWhy:"you have to log in again after confirming your email",scores:[null,null,null,null,null],friction:"Counted on a real sign-up on staging: 12 actions. First name, last name, email, password (4), country typed then picked from a list (2), the terms box (1), Sign Up (1), the email link (1), then logging in again: email, password, Log in (3)."},
+    lov:{clicks:2,est:true,scores:[null,null,null,null,null],friction:"From Lovable's help pages and page code. 2 clicks with Google sign-up."},
+    b44:{clicks:2,est:true,scores:[null,null,null,null,null],friction:"From Base44's page code: “Sign up to watch it come to life”. 2 clicks with Google sign-up; email sign-up needs a verification code."}
+   },
+   why:"Every field, and every trip to the inbox, before the first result loses people. One-click sign-up with Google turns making an account into one click.",
+   fixes:[{title:"Make builder sign-up one click",problem:"Builder sign-up asks for first name, last name, email, password and country, a terms box, then an email confirmation and a second log-in: 12 actions, counted on staging, before building.",fix:"Put “Continue with Google” at the top (BotPool already supports Google sign-in), drop the country field (ask when they pay), sign people in automatically when they click the email link (saves 3 actions), and let people build before they confirm their email.",metric:"How many people who start sign-up finish it",impact:"High",effort:"Medium",priority:"P1"}]
+  },
+  {label:"5",title:"After sign-up",desc:"The first screen once you're in",
+   compare:["First screen","Help getting started","Free credits shown","Obvious next step"],
+   diff:"Lovable and Base44 greet you by name with the box to type your idea. BotPool opens on a list of freelancers.",
+   cells:{
+    "First screen":{bp:["The client home: “Your freelance dream team, powered by AI” (from the site map)","gap"],lov:"“What should we build, [name]?” and the typing box",b44:"“Hi [name]. What will you build next?” and the typing box"},
+    "Help getting started":{bp:"Freelancer cards and Explore AI Developers",lov:"Templates and “Chat with Lovable for free”",b44:"A grid of templates"},
+    "Free credits shown":{bp:"Only inside the builder (150 of 150)",lov:"Not on this screen",b44:"Not on this screen"},
+    "Obvious next step":{bp:["Hire someone, not build","gap"],lov:"Type your idea",b44:"Type your idea or pick a template"}
+   },
+   data:{
+    bp:{clicks:0,scores:[2,null,null,2,null],friction:"The builder you signed up for isn't on the screen."},
+    lov:{clicks:0,scores:[5,null,null,4,null],friction:"An “Upgrade to Pro” button is always there from day one."},
+    b44:{clicks:0,scores:[5,null,null,4,null],friction:"A 48-hour countdown for 30% off shows before you've built anything."}
+   },
+   why:"The first screen after sign-up repeats the promise that got the sign-up. Both competitors put you straight back in front of the typing box, so the next step is obvious.",
+   fixes:[{title:"Take new builder sign-ups straight to the builder",problem:"Client accounts open on the client home, a list of freelancers. Someone who came to build a website has to find “Create” in the menu.",fix:"If someone signed up from the Create page, open the builder with their text filled in. Keep the marketplace home for people who signed up from botpool.ai.",metric:"How many builder sign-ups start a site on their first visit",impact:"High",effort:"Low",priority:"P1"}]
+  },
+  {label:"6",title:"Finding the builder",desc:"Only in BotPool: getting from the marketplace to the website builder",only:"bp",
+   compare:["Where the builder is","Clicks from the client home","Is the name clear to a newcomer?","Can every account use it?"],
+   diff:"Inside BotPool the builder is a one-word “Create” link, and freelancer accounts can't open it at all.",
+   cells:{
+    "Where the builder is":{bp:"In the client menu, next to Post A Job"},
+    "Clicks from the client home":{bp:"1"},
+    "Is the name clear to a newcomer?":{bp:["No: “Create” could mean create a job or a profile","gap"]},
+    "Can every account use it?":{bp:["No: freelancers see “BotPool Create is available to client accounts only”","gap"]}
+   },
+   data:{bp:{clicks:1,dead:1,deadWhy:"new users land in the marketplace, not the builder",scores:[2,null,null,2,null],friction:"An extra step, an unclear name, and freelancers blocked completely."}},
+   why:"Builders that do only one thing have no such stage. Every stage between sign-up and the typing box is a chance for someone to leave.",
+   fixes:[{title:"Rename and show the builder inside BotPool",problem:"The builder is a one-word “Create” link next to “Post A Job”, and freelancer accounts don't have it.",fix:"Call it “Website builder” with the NEW badge, add a “Build your website” card on the client home, and decide whether freelancers (who need portfolio sites) should get it too.",metric:"How many clients open the builder from their home screen",impact:"Low",effort:"Low",priority:"P4"}]
+  },
+  {label:"7",title:"First website",desc:"Building a first site in each product",manual:"the BotPool team",
+   compare:["How you start","Help with what to type","Cost shown before building","Free allowance"],
+   diff:"BotPool is the only one that tells you what a build costs before you press the button: 75 of your 150 free credits.",
+   cells:{
+    "How you start":{bp:"Type, answer a few quick questions, or start blank",lov:"Type or pick a template",b44:"Type (and pick an AI model) or pick a template"},
+    "Help with what to type":{bp:"Suggestions (Bakery, Law firm, Fitness studio), and 9 industry templates in the “New Website” window, as text cards without previews",lov:"An example in the box; templates",b44:"Templates; the four options on the main page"},
+    "Cost shown before building":{bp:["Yes: full site 75, change 15, question 5","win"],lov:"Only after you send it",b44:"Not shown"},
+    "Free allowance":{bp:["150 credits a month, enough for 2 full sites","win"],lov:"5 credits a day, up to 30 a month",b44:"5 messages a day, up to 25 a month"}
+   },
+   data:{bp:{clicks:2,dead:1,deadWhy:"the idea typed before sign-up is lost",scores:[null,null,null,null,5],friction:"Counted on staging: the idea typed before sign-up was gone (despite “Your brief is saved”), so it had to be typed again before pressing Build (2). Only 3 suggestions to start from, and the free allowance is shown as “150 credits” rather than “2 sites”."},lov:{clicks:1,est:true,scores:[null,null,null,null,3],friction:"The cost of a message is only shown after it's sent; free use stops at 30 credits a month."},b44:{clicks:1,est:true,scores:[null,null,null,null,2],friction:"No cost shown before building; free use stops at 25 messages a month."}},
+   why:"Knowing the price before you press Build takes away the fear of wasting credits, which is the top complaint about both Lovable and Base44. BotPool is the only one that shows it, and its free plan covers two full sites, while the competitors limit free use to 5 a day.",
+   fixes:[{title:"Say “2 free sites” next to the Build button",problem:"BotPool's free plan is the clearest (a known cost per site), but it's shown as “150 credits”, which means nothing to a newcomer.",fix:"Next to Build, say “Free: build 2 full sites this month”. Keep the cost of each action visible.",metric:"How many free users build their first site",impact:"Low",effort:"Low",priority:"P4"}]
+  },
+  {label:"8",title:"Asking for payment",desc:"Where and how each one asks for money",
+   compare:["What prompts it","Plans offered","Cheapest paid plan","What stays free","Deadline or discount"],
+   diff:"Base44 shows a 48-hour 30%-off offer the moment you arrive; Lovable keeps “Upgrade to Pro” always visible. BotPool asks most gently, and doesn't mention its expert option at this point.",
+   cells:{
+    "What prompts it":{bp:"Plan limits in the builder (“0 of 1 on Free plan”, “150 of 150 left”); an upgrade window (Pro $19, Business $49 a month); extra credit packs; buying a domain inside the builder on Pro. At 0 credits: “You're out of credits this month. Upgrade for a bigger monthly credit allowance to keep building.” Other upgrade prompts: site limit, branding, own domain, design styles, a full multi-page site, export",lov:"“Upgrade to Pro” always in the side menu; a daily credit limit",b44:"The welcome offer banner; “Upgrade your plan” in the side menu"},
+    "Plans offered":{bp:"Free, Pro, Business",lov:"Pro, Business, Enterprise, each with credit sizes",b44:"Starter, Builder, Pro, Elite"},
+    "Cheapest paid plan":{bp:["$15 a month paid yearly, or $19 monthly","win"],lov:"$21 a month paid yearly, or $25 monthly",b44:"$16 a month paid yearly"},
+    "What stays free":{bp:"1 one-page site (a full multi-page site needs a paid plan), a BotPool web address, security, contact forms, search settings, visitor stats",lov:"Publishing on a Lovable web address, up to 30 credits a month",b44:"Up to 5 apps, logins, a database, visitor stats"},
+    "Deadline or discount":{bp:"Yearly price shown",lov:"“Yearly: 2 months free”",b44:"48-hour countdown: 30% off yearly plans"}
+   },
+   data:{
+    bp:{clicks:1,scores:[4,null,null,3,5],friction:"No reason to upgrade at the moment you need more, and the expert option isn't offered there."},
+    lov:{clicks:1,scores:[4,null,null,4,3],friction:"Credit sizes make prices hard to compare."},
+    b44:{clicks:1,scores:[3,null,null,4,3],friction:"Pressure from a countdown before anything is built."}
+   },
+   why:"Competitors give you a reason to pay now: a deadline, or a daily limit you keep hitting. BotPool has a better reason that nobody else has: a real person who can finish the job.",
+   fixes:[{title:"Offer an expert, not only an upgrade, when credits run out",problem:"BotPool's unique option (hand the site to an expert) isn't offered when a free user hits a limit.",fix:"When credits run out or someone asks for their own domain, offer two choices: upgrade to Pro, or “Have an expert finish it”. Try a first-week discount on yearly plans.",metric:"Free users who pay, and expert jobs started from the builder",impact:"High",effort:"Medium",priority:"P2"}]
+  }
+].map(s=>({diff:"",cells:{},why:"",fixes:[],...s,data:{bp:{},bpc:{},lov:{},b44:{},...(s.data||{})}}));
+
+const TACTICS=[
+  {tactic:"A box to type your idea on the main page",to:"fix-1-1",lab:"See the fix",bp:"part",lov:"yes",b44:"yes",gap:"On the Create page, but not on botpool.ai",step:"1"},
+  {tactic:"Sign-up brings you back to what you were doing",to:"fix-3-1",lab:"See the fix",bp:"no",lov:"yes",b44:"yes",gap:"Start free forgets where you came from",step:"3"},
+  {tactic:"One-click sign-up with Google, GitHub or Apple",to:"fix-4-1",lab:"See the fix",bp:"part",lov:"yes",b44:"yes",gap:"No Google option on the sign-up form (staging now has one)",step:"4"},
+  {tactic:"Free plan without a card",to:"row-8-what-stays-free",lab:"See the comparison",bp:"yes",lov:"yes",b44:"yes",gap:"Nothing: all three offer it",step:"4"},
+  {tactic:"Straight into the builder after sign-up",to:"fix-5-1",lab:"See the fix",bp:"no",lov:"yes",b44:"yes",gap:"New clients land in the freelancer marketplace",step:"6"},
+  {tactic:"Templates or examples to start from",to:"row-7-help-with-what-to-type",lab:"See the comparison",bp:"part",lov:"yes",b44:"yes",gap:"9 industry templates, but as text cards with no previews",step:"7"},
+  {tactic:"Customer proof next to the main button",to:"fix-2-2",lab:"See the fix",bp:"part",lov:"yes",b44:"yes",gap:"One number: registered members, not proven experts",step:"2"},
+  {tactic:"Cost shown before you build",to:"fix-7-1",lab:"See the fix",bp:"yes",lov:"part",b44:"no",gap:"BotPool is ahead: keep it",step:"7"},
+  {tactic:"Limited-time offer for new users",to:"row-8-deadline-or-discount",lab:"See the comparison",bp:"no",lov:"part",b44:"yes",gap:"No reason to upgrade now",step:"8"},
+  {tactic:"A human expert available inside the builder",to:"fix-market-4",lab:"See the fix",bp:"yes",lov:"no",b44:"no",gap:"BotPool is ahead: show it earlier",step:"8"},
+  {tactic:"Free credits for inviting friends",to:"gap-growth",lab:"See what's missing",bp:"part",lov:"yes",b44:"part",gap:"Referral links exist, but no invite screen or reward",step:"5"},
+  {tactic:"Student discount",to:"row-8-deadline-or-discount",lab:"See the comparison",bp:"no",lov:"yes",b44:"yes",gap:"Both give 50% off; less important for small businesses",step:"8"},
+  {tactic:"Pages for specific industries",to:"fix-market-1",lab:"See the fix",bp:"yes",lov:"part",b44:"yes",gap:"BotPool is ahead: 8 industry pages",step:"2"},
+  {tactic:"Menu with Log in on phones",to:"fix-2-3",lab:"See the fix",bp:"no",lov:"yes",b44:"yes",gap:"The Create page hides the menu and Log in on phones",step:"2"},
+  {tactic:"Main page notices you're already signed in",to:"fix-3-2",lab:"See the fix",bp:"part",lov:"yes",b44:"part",gap:"Clients yes (“My websites”); freelancers still see “Start free”",step:"3"}
+];
+
+const MOBILE_ROWS=["Typing box and Build button visible without scrolling","Menu on phones","Log in easy to find","Notices you're signed in","Speak instead of type","Chat bubble covering the page","Time for the server to respond (2 tests)","Time to fully load (2 tests)","Page size"];
+const MOBILE={
+  "Typing box and Build button visible without scrolling":{bp:["Yes","win"],lov:"Yes",b44:"Yes"},
+  "Menu on phones":{bp:["None: How it works, Showcase and Pricing are hidden, with no menu button","gap"],lov:"Menu button",b44:"Menu button"},
+  "Log in easy to find":{bp:["No: only “Start free” shows","gap"],lov:"Yes, in the menu",b44:"Yes, in the menu"},
+  "Notices you're signed in":{bp:["Clients: yes (“My websites”). Freelancers: no","gap"],lov:"Yes: “Open Lovable”",b44:"This page doesn't; base44.com takes you to your dashboard"},
+  "Speak instead of type":{bp:"No",lov:"Yes",b44:"Yes"},
+  "Chat bubble covering the page":{bp:"Covers the example site",lov:"No",b44:"No"},
+  "Time for the server to respond (2 tests)":{bp:["1.2 s and 0.6 s: slowest","gap"],lov:"0.4 s and 0.5 s",b44:"0.2 s and 0.04 s"},
+  "Time to fully load (2 tests)":{bp:"4.2 s and 1.9 s",lov:"7.3 s and 0.6 s",b44:"0.7 s and 0.2 s"},
+  "Page size":{bp:"0.7 MB",lov:"1.6 MB",b44:"0.9 MB"}
+};
+
+const EVIDENCE={
+  "1":{bp:["https://www.botpool.ai/","Headline “Hire Top AI Freelancers”, freelancer search, categories"],bpc:["https://www.botpool.ai/create","Headline “Create a Website in Minutes”, typing box and Build, live example"],lov:["https://lovable.dev/","Headline “Build something Lovable”, typing box, “Get started for free”"],b44:["https://base44.com/","Headline “Every builder needs a base”, typing box, four options"]},
+  "2":{bp:["https://www.botpool.ai/","The builder is reached through the “Create NEW” link in the menu"],bpc:["https://www.botpool.ai/create","Trust line, 6 real sites, 3 styles, all prices, questions"],lov:["https://lovable.dev/","Famous logos, customer stories, 60 million projects; prices on another page"],b44:["https://base44.com/","Founder story, Free vs “from $16 a month”, questions"]},
+  "3":{bp:["https://www.botpool.ai/create","Signed in: still “Log in” and “Start free”; Start free opens a freelancer's dashboard"],lov:["https://lovable.dev/pricing","Every Get started link brings you back to the page you were on"],b44:["https://base44.com/","Start building opens sign-up and remembers where you came from"]},
+  "4":{bp:["BotPool staging, Create sign-up page","Staging, real sign-up: 5 fields and a terms box, Sign Up, email link, then log in again (12 actions)"],lov:["https://docs.lovable.dev/introduction/create-an-account","Email, Google, GitHub, Apple, company sign-in"],b44:["https://app.base44.com/register","Sign up with Google, GitHub or Apple, or email with a verification code; “Sign up to watch it come to life”"]},
+  "5":{bp:["From the site map","Client home: “Your freelance dream team, powered by AI”"],lov:["https://lovable.dev/dashboard","“What should we build, [name]?”, Upgrade to Pro, credits for inviting friends"],b44:["https://app.base44.com/","“Hi [name]. What will you build next?”, 30%-off countdown, templates"]},
+  "6":{bp:["https://www.botpool.ai/portal/client/create","Freelancer account: sent to the dashboard with “available to client accounts only”"]},
+  "7":{bp:["From the site map","Builder: suggestions, 150 credits, full site 75, change 15"],lov:["https://lovable.dev/pricing","A landing page costs about 1.7 credits; cost shown after sending"],b44:["https://app.base44.com/","Typing box with AI model choice, and templates"]},
+  "8":{bp:["https://www.botpool.ai/create","Free; Pro $19 ($15 paid yearly); Business $49 ($39 paid yearly)"],lov:["Lovable settings, Plans","Pro $25 for 100 credits, Business $50, “Yearly: 2 months free”"],b44:["https://app.base44.com/billing","“Pick a plan. Keep building.” 30% off yearly for 48 hours"]}
+};
+
+
+const SEARCHES=[
+  {q:"AI website builder for restaurants",who:"butternut.ai, owner.com, reddit.com, figma.com, manus.im, nuxa.ai, canva.com, finedinemenu.com, playcode.io",bp:"No"},
+  {q:"AI website builder for salons",who:"yola.com, butternut.ai, squarespace.com, inminutes.app, wix.com, glammatic.com, replit.com, lokuma.ai, dothebeauty.com",bp:"No"},
+  {q:"AI website builder for dentists",who:"butternut.ai, replit.com, yola.com, reddit.com, inminutes.app, manus.im, zarla.com, instantsite.app",bp:"No"},
+  {q:"AI website builder small business",who:"durable.com, squarespace.com, reddit.com, trickle.so, wix.com, titan.email, readdy.ai, tech-insider.org, base44.com",bp:"No"},
+  {q:"free AI website builder",who:"base44.com, wix.com, reddit.com, figma.com, design.com, jotform.com, bookipi.com, webwave.me, canva.com",bp:"No"},
+  {q:"website builder for estate agents",who:"reddit.com, wix.com, housingwire.com, websiteplanet.com, placester.com, and others",bp:"No"},
+  {q:"BotPool Create",who:"botpool.ai/create first, then press coverage (Yahoo Finance, Dealroom, CityBiz)",bp:"Yes, first"}
+];
+const SHORT=[
+  {t:"Get BotPool Create found by small businesses",d:"Google shows it for its own name, but it didn't show up in any of the 6 small-business searches checked.",href:"#fix-market-1",ev:[["searches","See the 6 searches"],["fix-market-1","See the fix"]]},
+  {t:"Show the expert option before sign-up",d:"BotPool's one unique advantage, a real expert who can take over your site, only appears after a site is built. Put it on the Create page and in the empty builder.",href:"#fix-market-4",ev:[["fix-market-4","See what the expert window offers"],["lacking","See the gaps"]]},
+  {t:"Let website builders start building straight away",d:"A way in from botpool.ai, one-click sign-up, and new users landing in the builder, not the marketplace.",href:"#fix-1-1",ev:[["funnel","See the actions: 18 vs ~5"],["step1","See the homepage"],["step4","See the sign-up form"]]}
+];
+const MSTATS=[
+  {n:"16%",t:"of businesses without a site say cost is the reason. The top reason is “not relevant to my business” (34%). Ease and relevance matter more than price.",s:"Clutch",u:"https://clutch.co/resources/state-of-small-business-websites-2025"},
+  {n:"4–5×",t:"more searches for “AI website builder” than two years ago, though interest has cooled since its peak.",s:"Google Trends, worldwide",u:"https://trends.google.com/trends/explore?date=2024-01-01%202026-09-20&q=AI%20website%20builder,vibe%20coding,AI%20app%20builder,website%20for%20small%20business"},
+  {n:"$200–600",t:"a year is what small businesses typically pay for a do-it-yourself builder; an agency or freelancer site usually costs $1,000–10,000.",s:"Squarespace and Wix pricing · Clutch pricing guide",u:"https://clutch.co/web-designers/pricing"}
+];
+const RIVALS=[
+  {name:"BotPool Create",us:true,aud:"Local small businesses",cost:"About $195",local:"Contact forms with inbox, search settings, visitor stats. No bookings, Google listing, reviews or maps",expert:"Yes: an expert takes over the same site (not yet visible on the marketplace)",rev:"No reviews yet"},
+  {name:"Lovable",aud:"App builders, teams, large companies",cost:"About $265",local:"Anything, if you ask the AI to build it",expert:"List of partners",rev:"4.2 (1,723)"},
+  {name:"Base44",aud:"App builders (owned by Wix)",cost:"About $210",local:"App-style features",expert:"List of partners",rev:"2.8 (891)"},
+  {name:"Wix (owns Base44)",aud:"Everyone",cost:"About $205 (about $350 with bookings)",local:"Bookings, customer list, email marketing, search tools",expert:"Separate directory of Wix partners",rev:"3.5 (29,049)"},
+  {name:"Durable",aud:"Sole traders and local businesses",cost:"About $265",local:"Bookings, Google Business Profile, review requests, customer list, invoices",expert:"Onboarding call only",rev:"4.7 (322)"},
+  {name:"Squarespace",aud:"Design-led small businesses",cost:"About $230",local:"Invoices, forms, newsletter; bookings cost extra",expert:"“Hire an expert” matching",rev:"3.6 (5,388)"}
+];
+const PAINS=[
+  {p:"Credits run out fast and the cost is hard to predict",w:"Lovable, Base44, Wix AI",b:["BotPool shows the cost before each build (75 credits a site). Say “2 free sites a month” in plain words.","win"]},
+  {p:"Paying for the AI's mistakes, with no refunds",w:"Lovable, Base44",b:["Offer a human expert when the AI can't get it right. No rival does this.","win"]},
+  {p:"Sites that Google can't read properly",w:"Older Lovable sites; Base44 on free addresses",b:["Test on a live BotPool Create site: TBD (none could be found, and the examples on the Create page aren't live).","gap"]},
+  {p:"Can't take the site or domain elsewhere",w:"Durable, Wix, Base44",b:["BotPool offers HTML export on Pro, but doesn't say what happens if you stop paying.","gap"]},
+  {p:"Hard to reach a real person",w:"Wix, Lovable (free plan), Base44",b:["BotPool's builder has a “Hire an Expert” window once a site exists. It isn't shown before that.","win"]},
+  {p:"Surprise charges and hard-to-cancel plans",w:"Base44, Wix",b:["BotPool's prices are simple. Keep cancelling just as simple.","win"]}
+];
+const FIT=[
+  {a:"Is there demand?",to:"mStats",v:"Strong",d:"Many small businesses still have no website, and most already use AI."},
+  {a:"Is it for a clear audience?",to:"audience",v:"Strong",d:"The only builder in this review speaking plainly to local businesses, with 8 industry pages (from salons to trades)."},
+  {a:"Is the price right?",to:"row-8-cheapest-paid-plan",v:"Strong",d:"The cheapest first year of the builders compared (about $195 with your own domain), and the only one that shows the cost of each build up front."},
+  {a:"Does it do what local businesses need?",to:"fix-market-5",v:"Weak",d:"No bookings, Google listing, reviews or maps. Wix and Durable include them, and Lovable and Base44 can build them on request."},
+  {a:"Is there a unique advantage?",to:"fix-market-4",v:"Strong",d:"A human expert can take over the same site. No rival offers this inside the builder. Confirmed: a “Hire an Expert from BotPool” window inside the builder."},
+  {a:"Can people find it?",to:"searches",v:"Mixed",d:"Google shows the Create page first for “BotPool Create”. But it didn't appear on Google's first page for any of the 6 small-business searches checked, and botpool.ai's first screen is about hiring, with Create as a menu link."},
+  {a:"Can people trust it?",to:"fix-market-3",v:"Mixed",d:"Early days: Create has only just launched, so no reviews yet is expected. Housekeeping to do: “Vetted” claims the owner says are false. Member counts that don't match (26,000+ on Create, 20,000+ on One, about 2,178 listed). The terms mention Create only in their page description."},
+  {a:"Do the published sites work?",to:"fix-market-2",v:"Mixed",d:"Yes: published sites live at name.botpool.ai. But the examples on the Create page show a botpool.site address that doesn't exist, and the example site isn't live."},
+  {a:"Does the marketplace feed it (and the reverse)?",to:"fix-market-4",v:"Mixed",d:"The two link to each other: menu links both ways, and a “Hire an Expert” window inside the builder once a site exists. But there's no website category, and the SEO gigs have no reviews yet."}
+];
+const NEED=[
+  "Visitors to the Create page each week, and where they come from",
+  "Share of visitors who start sign-up, and share who finish",
+  "Share of new sign-ups who build a first site, and how long it takes",
+  "Share of sites that get published, and still get edits after 30 days",
+  "Free users who upgrade to Pro, and in which month",
+  "How many sites get handed to an expert, and what that job is worth",
+  "Who the users are: business type, country, clients vs freelancers",
+  "What people who left say (a short exit survey)"
+];
+const SHOT={
+  templates:[
+    {k:"bp",src:"images/templates-botpool.jpg",full:"images/templates-botpool.png",t:"BotPool: “New Website” window",d:"9 industry templates as text-only cards; 5 of 9 names cut off; titles sit at different heights; asks for a name and a site address before building."},
+    {k:"lov",src:"images/templates-lovable.jpg",full:"images/templates-lovable.png",t:"Lovable: template gallery",d:"207 templates with large previews, search, and filters for websites, apps and topics. Mostly apps and portfolios, few local businesses."},
+    {k:"b44",src:"images/templates-base44.jpg",full:"images/templates-base44.png",t:"Base44: template gallery",d:"Previews, search, sort, category chips, a “Free” badge and how many times each was used. App-first examples."}],
+  home:[
+    {k:"bp",src:"images/empty-botpool.jpg",full:"images/empty-botpool.png",t:"BotPool: builder home",d:"A typing box and a separate “Build My First Site” button that opens a different form. Clear credit costs (full site 75, revision 15). Plain grey, inside the marketplace header."},
+    {k:"lov",src:"images/empty-lovable.jpg",full:"images/empty-lovable.png",t:"Lovable: home",d:"One typing box on a full-screen gradient, greeting you by name, templates below, projects in the side menu."},
+    {k:"b44",src:"images/empty-base44.jpg",full:"images/empty-base44.png",t:"Base44: home",d:"Greets you by name, one typing box with a model picker and voice input, templates below. A 30%-off countdown sits at the top."}],
+  plans:[
+    {k:"bp",src:"images/plans-botpool.jpg",full:"images/plans-botpool.png",t:"BotPool: “Upgrade your plan” window",d:"Clean three-column window with a Monthly/Annual switch. No plan marked as recommended, and the switch doesn't say what Annual saves."},
+    {k:"lov",src:"images/plans-lovable.jpg",full:"images/plans-lovable.png",t:"Lovable: pricing page",d:"“Yearly: 2 months free” on the switch; each plan has a credit-size picker, which makes prices harder to compare."},
+    {k:"b44",src:"images/plans-base44.jpg",full:"images/plans-base44.png",t:"Base44: “Pick a plan”",d:"“Most popular” plan highlighted, struck-through prices, 30%-off badges, “part of Wix, trusted by 250M+”, and a countdown."}]
+};
+const POLISH=[
+  {q:"Templates show a picture of the result",bp:"no",lov:"yes",b44:"yes",n:"BotPool shows text cards only",to:"shots-templates"},
+  {q:"Template names readable in full",bp:"no",lov:"part",b44:"yes",n:"BotPool cuts off 5 of 9 names; Lovable cuts long names in its home strip",to:"shots-templates"},
+  {q:"Search and filters for templates",bp:"no",lov:"yes",b44:"yes",n:"BotPool has 9 fixed cards",to:"shots-templates"},
+  {q:"Templates made for small businesses",bp:"yes",lov:"part",b44:"part",n:"BotPool's 9 are all local-business types; the others are mostly apps",to:"shots-templates"},
+  {q:"Cards line up neatly",bp:"no",lov:"yes",b44:"yes",n:"BotPool titles shift with the length of the description",to:"shots-templates"},
+  {q:"One clear way to start",bp:"part",lov:"yes",b44:"yes",n:"BotPool has a typing box and a separate form that asks for a name and site address",to:"shots-home"},
+  {q:"Greets you by name",bp:"no",lov:"yes",b44:"yes",n:"Lovable and Base44 open with “What should we build, [name]?”; BotPool opens on “Create a Website in Minutes”",to:"shots-home"},
+  {q:"Wording matches across screens",bp:"no",lov:"yes",b44:"yes",n:"BotPool's page says “No code, no templates” above a template picker",to:"shots-home"},
+  {q:"Credit costs shown on the home screen",bp:"yes",lov:"no",b44:"no",n:"BotPool is ahead: keep it",to:"shots-home"},
+  {q:"Plans screen points to a recommended plan",bp:"no",lov:"part",b44:"yes",n:"Base44 marks “Most popular”; Lovable colours the Pro button",to:"shots-plans"},
+  {q:"Yearly saving shown on the switch",bp:"no",lov:"yes",b44:"yes",n:"BotPool's switch only says “Annual” (it saves about 20%)",to:"shots-plans"}
+];
+const POLISH_FIXES=[
+  {title:"Show a preview picture for each template",problem:"The “New Website” window lists 9 industry templates as text cards. Visitors can't see what they'll get, 5 of the 9 names are cut off, and the titles don't line up. Lovable and Base44 show a picture of every template.",fix:"Add a thumbnail to each card (the 6 real sites on the Create page are a start), let names wrap to two lines, and line up titles at the top.",metric:"Share of new sites started from a template",impact:"Medium",effort:"Medium",priority:"P2"},
+  {title:"Use one way to start a site",problem:"The builder home has a typing box and a separate “Build My First Site” button that opens a form asking for a business name and a site address before anything is built.",fix:"Make “Build My First Site” focus the typing box (with templates below it), and ask for the site address after the first draft, filled in from the business name.",metric:"Share of new users who start a first build",impact:"Medium",effort:"Low",priority:"P2"},
+  {title:"Make the Create page wording match the builder",problem:"The Create page says “No code, no templates”, but the builder offers an “Industry template” picker.",fix:"Change the line to “No code. Start from your description or an industry template.”",metric:"Wording changed on the live page",impact:"Low",effort:"Low",priority:"P4"},
+  {title:"Point to a plan in the upgrade window",problem:"The “Upgrade your plan” window marks no plan as recommended, and the Annual switch doesn't say what it saves. Base44 highlights “Most popular” and shows the discount.",fix:"Mark Pro as “Most popular”, and label the switch “Annual: save 20%”.",metric:"Upgrades from the window",impact:"Low",effort:"Low",priority:"P3"}
+];
+const MARKET_FIXES=[
+  {title:"Rank for small-business searches",problem:"Google shows the Create page first for “BotPool Create”, but it didn't appear on Google's first page for any of the 6 small-business searches checked (restaurants, salons, dentists, small business, free AI builder, estate agents; see the table above). botpool.ai's first screen is about hiring; Create is only a menu link. The 8 industry pages are in the sitemap.",fix:"Confirm rankings in Google Search Console, add real, specific content to each industry page (examples, prices, questions), and give Create a place on the homepage itself, not only in the menu. Target searches like “website for my salon”.",metric:"Visits from search to the Create pages",impact:"High",effort:"Medium",priority:"P1"},
+  {title:"Fix the example addresses on the Create page",problem:"Published sites live at name.botpool.ai, and that works. But the examples on the Create page show addresses on botpool.site, which doesn't exist, and the example site (ironbound-tattoo.botpool.ai) says “This site isn't available”.",fix:"Show the real address format (name.botpool.ai) and link each example to a live, published site.",metric:"Every example on the page opens a live site",impact:"Low",effort:"Low",priority:"P4"},
+  {title:"Use one true number, and add Create to the terms",problem:"BotPool says 26,000+ experts on Create and 20,000+ on One, but lists about 2,178 developers (2,176 public profiles in its sitemap). The terms mention Create only in their page description: no word on credits, who owns the site, AI-written content, or what happens if you stop paying.",fix:"Pick one checked figure and word it honestly (“registered members”). Add a Create section to the terms, and a short FAQ entry: “Your site, your content, and what happens if you cancel.”",metric:"Claims checked and signed off",impact:"Low",effort:"Low",priority:"P4"},
+  {title:"Show the expert option before the first site, with example prices",problem:"The builder has a “Hire an Expert from BotPool” window (freelancer, agency or managed by BotPool, with a budget range and progress tracking), but it only appears once a site exists. Visitors can't see it before signing up, it has no fixed prices, and the marketplace has no website category or reviewed website gigs.",fix:"Show the expert option on the Create page and in the empty builder, with 2–3 fixed-price starting points (e.g. “Finish my Create site”), and add a “Website help” category with reviewed experts.",metric:"Expert jobs started from Create each month",impact:"High",effort:"Medium",priority:"P1"},
+  {title:"Add the local-business basics",problem:"Wix and Durable offer bookings, Google Business Profile help, review requests and maps, and Lovable and Base44 can build payments and bookings on request. BotPool Create offers none of these.",fix:"Start with the two most asked for: a booking or appointment form, and a map with opening hours. Then help people set up their Google Business Profile.",metric:"Share of sites using each feature",impact:"Medium",effort:"High",priority:"P2"},
+  {title:"Start collecting reviews",problem:"BotPool Create has no reviews on Trustpilot, G2 or Capterra. Durable shows 4.7 from 322 reviews.",fix:"Ask for a review after someone publishes their first site, and show the best ones next to the Build button.",metric:"Number of public reviews",impact:"Medium",effort:"Low",priority:"P4"}
+];
+
+const GAPS=[
+  {id:"gap-entry",t:"Getting in",us:"botpool.ai's first screen is about hiring; the builder is a “Create NEW” link in the menu. Sign-up takes 12 actions (five fields, a terms box, an email check and a second log-in), and new users land in the freelancer marketplace (seen again on staging).",them:"A box to type your idea on the first screen, one-click sign-up with Google, and straight back into the builder afterwards.",links:[["fix-1-1","A way in from botpool.ai"],["fix-4-1","One-click sign-up"],["fix-5-1","Land in the builder"]]},
+  {id:"gap-product",t:"What the product can do",us:"Websites only: no payments, no bookings, no connecting other tools, and no templates to start from.",them:"Payments, logins, databases and many connected tools (Stripe, Google, email), plus template galleries.",links:[["features","Feature comparison"],["fix-market-5","Add the local-business basics"]]},
+  {id:"gap-trust",t:"Trust",us:"Early days: Create has only just launched, so there are no public reviews yet. Housekeeping: “vetted” claims the owner says are false, member numbers that don't match, and terms that don't mention Create. Worth tidying, but not why visitors don't convert.",them:"Lovable: 4.2 on Trustpilot from 1,723 reviews, plus famous customer logos. Base44: 2.8 from 891 reviews, but backed by Wix.",links:[["fix-2-1","Remove “vetted”"],["fix-market-3","One true number"],["fix-market-6","Collect reviews"]]},
+  {id:"gap-growth",t:"Growth engine",us:"No visible invite rewards (referral links exist in the code, but no invite screen or reward was found), no student plans, no community sharing of sites, and no website category in the marketplace to send people on to experts.",them:"Lovable: 100 credits per paying friend, and over 1 million new projects a week. Base44: Wix's marketing and customer base.",links:[["tactics","What works"],["fix-market-4","Show the expert option earlier"]]},
+  {id:"gap-search",t:"Being found",us:"Google shows the Create page first for its own name, but it didn't show up in the small-business searches checked, and the example site addresses don't exist.",them:"Base44 appears for “free AI website builder”. Lovable publishes guides and website templates aimed at website searches.",links:[["fix-market-1","Rank for small-business searches"],["fix-market-2","Fix the example addresses"]]}
+];
+const OPTIONS=[
+  {t:"Compete as another app builder",v:"no",vl:"Not recommended",d:"Lovable (about $500M a year, valued at $13.3B) and Base44 (about $200M a year, owned by Wix) are far ahead on features, money and reach. BotPool would start behind on everything."},
+  {t:"Own the finished small-business website, with a real person on call",v:"yes",vl:"Recommended",d:"It's the one corner of the map nobody else holds. It suits owners who care more about time and relevance than price (84% of businesses without a site give reasons other than cost). And it turns BotPool's marketplace into an advantage instead of a detour."},
+  {t:"Use Create as the way into the marketplace",v:"also",vl:"Do alongside",d:"Every site built is a chance to sell expert work (copy, design, search, bookings) and earn BotPool's 10% commission. Create can stay cheap because the marketplace earns the money."}
+];
+const PILLARS=[
+  {t:"Product",i:[["A site ready for a local business on day one: bookings, map and opening hours, Google listing help","fix-market-5"],["Show the expert option before the first site, with fixed prices","fix-market-4"],["Keep showing the cost before each build","fix-7-1"]]},
+  {t:"Way in",i:[["Create on botpool.ai's first screen","fix-1-1"],["One-click sign-up","fix-4-1"],["Land in the builder with your text kept","fix-3-1"]]},
+  {t:"Trust",i:[["Only claims you can back up","fix-2-1"],["One true member number, and Create in the terms","fix-market-3"],["Ask for a review after every published site","fix-market-6"]]},
+  {t:"Being found",i:[["Rank for small-business searches","fix-market-1"],["Example sites with real, live addresses","fix-market-2"],["A menu and Log in on phones","fix-2-3"]]}
+];
+const ROADMAP=[
+  {t:"Now",s:"Next 30 days: remove what stops people starting",i:[["Link Create from botpool.ai","fix-1-1"],["Show the expert option before sign-up","fix-market-4"],["Rank for small-business searches","fix-market-1"],["Keep typed text through sign-up","fix-3-1"]]},
+  {t:"Next",s:"1–3 months: make the way in and the expert real",i:[["One-click sign-up","fix-4-1"],["Land new sign-ups in the builder","fix-5-1"],["Fixed prices for expert help","fix-market-4"],["Keep showing the cost before each build","fix-7-1"],["A menu and Log in on phones","fix-2-3"],["Template previews and one way to start","fix-polish-1"]]},
+  {t:"Later",s:"3–6 months: grow and prove fit",i:[["Bookings, maps and Google listing help","fix-market-5"],["Offer the expert when credits run out","fix-8-1"],["Decide whether freelancers get Create","fix-6-1"],["Measure fit with BotPool's own numbers","needList"]]},
+  {t:"Housekeeping",s:"Any time: worth fixing, not why visitors don't convert",i:[["Remove “vetted” and use one true number","fix-2-1"],["Add Create to the terms","fix-market-3"],["Fix the example addresses","fix-market-2"],["Start collecting reviews","fix-market-6"],["Speed up the Create page","fix-2-4"],["Recognise signed-in freelancers","fix-3-2"],["Rename Create in the portal","fix-6-1"],["Say “2 free sites” next to Build","fix-7-1"],["Match the Create page wording","fix-polish-3"]]}
+];
+const WEAK=[
+  {w:"Base44 has a 2.8 Trustpilot score. More than half its reviews are 1-star, many about surprise charges and hard cancelling.",b:"Keep prices simple and cancelling easy, and say so on the pricing page."},
+  {w:"Lovable and Base44 users spend credits on the AI's mistakes, with no refunds.",b:"When the AI can't get it right, a person can. Make that the promise."},
+  {w:"No human help on Lovable's free plan; Base44 users report support replies taking days.",b:"BotPool already has this: a “Hire an Expert” window inside the builder. Show it before the first site too."},
+  {w:"Older Lovable sites, and Base44 sites on free addresses, are hard for Google to read.",b:"Make every BotPool site readable by Google from day one. Test on a live site: TBD (the example sites aren't live)."},
+  {w:"Both speak to app builders, with jargon like “vibe coding”.",b:"Keep talking plainly to local business owners, as the Create page already does."}
+];
+const VERDICT="Lovable and Base44 put a box to type your idea in front of every visitor, and bring new sign-ups straight back to it. BotPool's Create page is strong, but people who want a website are routed through a freelancer homepage, a long sign-up form and the freelancer marketplace. Fix that route, and BotPool's clearer pricing and its human experts become real advantages.";
+
+const AUDIENCE_ROWS=["Main audience","What it promises","Their own words","Tone","Technical skill expected","Proof they use","Starting price"];
+const AUDIENCE={
+  "Main audience":{bp:"Small local businesses: studios, clinics, salons, restaurants, firms (8 industry pages)",lov:"Founders, product and business teams, large companies",b44:"Solo makers, founders, small teams (owned by Wix)"},
+  "What it promises":{bp:"A complete business website in minutes, published for free, with an expert on call",lov:"Real apps and websites built from a description",b44:"Apps, websites and AI assistants, with everything behind them included"},
+  "Their own words":{bp:"“Create a Website in Minutes”",lov:"“Build something Lovable”",b44:"“Every builder needs a base”"},
+  "Tone":{bp:"Calm, practical, reassuring (“Boring where it counts”)",lov:"Ambitious: big numbers and famous logos",b44:"Energetic, with jargon (“vibe coding”)"},
+  "Technical skill expected":{bp:"None: “No code, no templates”",lov:"None, but code is there if you want it",b44:"None, with optional code"},
+  "Proof they use":{bp:"26,000+ registered members; 6 real sites it made",lov:"Adidas, Nvidia, Zendesk; 60 million projects",b44:"10M+ users; owned by Wix (250M+ users)"},
+  "Starting price":{bp:"Free, or Pro at $15 a month paid yearly",lov:"Free, or Pro at $21 a month paid yearly",b44:"Free, or Starter at $16 a month paid yearly"}
+};
+const WIN={head:"Small-business owners who want a finished website, not an app",points:[
+  "Both competitors talk about apps and software, with jargon. BotPool is the only one speaking plainly to a bakery or a dental practice.",
+  "The most generous free plan for a website: 2 full sites a month, with contact forms, search settings and visitor stats included. Say it in those words.",
+  "The only builder with a human expert one click away. Make it the answer to “what if the AI can't do it?”"
+]};
+
+const FEATURES=[
+  {group:"Building",items:[
+    {f:"Describe it and get a site",bp:"yes",lov:"yes",b44:"yes",matters:"High",note:"All three"},
+    {f:"Click on the page to edit it",bp:"part",lov:"yes",b44:"yes",matters:"High",note:"BotPool: one-tap design styles only"},
+    {f:"Templates to start from",bp:"part",lov:"yes",b44:"yes",matters:"Medium",note:"BotPool: 9 industry templates as text cards, no previews"},
+    {f:"Change it by asking",bp:"yes",lov:"yes",b44:"yes",matters:"High",note:"A change costs 15 credits on BotPool"}]},
+  {group:"Behind the site",items:[
+    {f:"Store data (a database)",bp:"no",lov:"yes",b44:"yes",matters:"Low",note:"Not needed for a simple business site"},
+    {f:"Logins for your site's visitors",bp:"no",lov:"yes",b44:"yes",matters:"Low",note:"Members' areas are rare for local businesses"},
+    {f:"Take payments on your site",bp:"no",lov:"yes",b44:"yes",matters:"Medium",note:"Bookings and deposits matter to salons and studios"},
+    {f:"Download contact-form submissions",bp:"yes",lov:"yes",b44:"yes",matters:"Medium",note:"Lovable and Base44: CSV export of data"},
+    {f:"Contact forms with an inbox",bp:"yes",lov:"part",b44:"part",matters:"High",note:"BotPool: inbox and alerts on the free plan"}]},
+  {group:"Going live",items:[
+    {f:"One-click publishing with security",bp:"yes",lov:"yes",b44:"yes",matters:"High",note:"All give a free web address"},
+    {f:"Your own domain name",bp:"paid",lov:"paid",b44:"paid",matters:"High",note:"Paid plans only on all three"},
+    {f:"Buy a domain inside the builder",bp:"paid",lov:"yes",b44:"yes",matters:"Medium",note:"BotPool: Pro and Business only"},
+    {f:"Search engine settings",bp:"yes",lov:"yes",b44:"yes",matters:"High",note:"Base44 adds a search dashboard"},
+    {f:"Visitor stats",bp:"yes",lov:"yes",b44:"yes",matters:"Medium",note:"Included free on BotPool"}]},
+  {group:"Extras",items:[
+    {f:"Connect other tools (payments, email, maps)",bp:"no",lov:"yes",b44:"yes",matters:"Medium",note:"Maps and booking tools are common requests"},
+    {f:"Download the site's code",bp:"paid",lov:"yes",b44:"paid",matters:"Low",note:"BotPool: on Pro; Lovable: free; Base44: on higher plans"},
+    {f:"Work on it as a team",bp:"no",lov:"yes",b44:"yes",matters:"Low",note:"Not mentioned for BotPool"},
+    {f:"A human expert takes over your site",bp:"yes",lov:"part",b44:"part",matters:"High",note:"Competitors only link to lists of partners"}]},
+  {group:"Plans",items:[
+    {f:"Free plan without a card",bp:"yes",lov:"yes",b44:"yes",matters:"High",note:"All three"},
+    {f:"Free allowance",bp:"2 full sites a month",lov:"5 a day, up to 30 a month",b44:"5 a day, up to 25 a month",matters:"High",note:"Credits aren't directly comparable between products"},
+    {f:"Cheapest paid plan",bp:"$15 a month",lov:"$21 a month",b44:"$16 a month",matters:"Medium",note:"When paid yearly"}]}
+];
+
+/* ================= RENDER (no need to edit below) ================= */
+const $=id=>document.getElementById(id);
+const slug=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const ph=t=>`<span class="ph">${t}</span>`;
+/* speed and ease come from the counted actions, not judgement */
+STEPS.forEach(s=>{if(ZERO_BY_DEFINITION.includes(s.label))return;Object.values(s.data).forEach(d=>{if(d.clicks==null||!d.scores)return;d.scores[1]=SCALE(d.clicks);d.scores[2]=Math.max(1,SCALE(d.clicks)-(d.dead||0));});});
+const avg=a=>{a=(a||[]).filter(v=>v!=null);return a.length?a.reduce((x,y)=>x+y,0)/a.length:null};
+const inPath=(s,k)=>!s.only||s.only===k;
+const pScore=k=>avg(STEPS.filter(s=>inPath(s,k)).map(s=>avg(s.data[k].scores)));
+const chip=(v,est)=>v==null?`<span class="chip sN">–</span>`:`<span class="chip s${Math.min(5,Math.max(1,Math.round(v)))}"${est?' title="Based on an estimated count"':""}>${est?"~":""}${v.toFixed(1)}</span>`;
+const sum=(k,f,stopBefore)=>{let out=[],miss=false;for(const s of STEPS){if(stopBefore&&s.label===stopBefore)break;if(!inPath(s,k))continue;if(s.data[k][f]!=null)out.push(s.data[k][f]);else miss=true}if(!out.length)return null;const v=out.reduce((a,b)=>a+b,0);return miss?v+"+":v};
+const sumR=(k,stopBefore)=>{let lo=0,hi=0,n=0;for(const s of STEPS){if(stopBefore&&s.label===stopBefore)break;if(!inPath(s,k))continue;const d=s.data[k];if(d.clicks==null)continue;n++;lo+=d.clicks;hi+=d.clicksMax??d.clicks}return n?(STEPS.some(s=>(!stopBefore||+s.label<+stopBefore)&&inPath(s,k)&&s.data[k].est)?"~":"")+(hi>lo?lo+"–"+hi:String(lo)):null};
+const fmtTime=s=>s==null?"–":s>=60?`${Math.floor(s/60)}m ${String(s%60).padStart(2,"0")}s`:`${s}s`;
+const colsFor=s=>s.twoEntries?[PRODUCTS[0],BP_CREATE,PRODUCTS[1],PRODUCTS[2]]:PRODUCTS;
+const head=cols=>cols.map(p=>`<th class="pc"><i class="dot" style="background:${p.color}"></i> ${p.name}</th>`).join("");
+const isBp=k=>k==="bp"||k==="bpc";
+
+
+
+/* header cards */
+$("heroCards").innerHTML=PRODUCTS.map(p=>{const v=pScore(p.key),a=sumR(p.key,"8"),b=sumR(p.key),t=sum(p.key,"seconds");
+  return `<div class="hc">
+    <div class="who"><i class="dot" style="background:${p.color}"></i><div>${p.name}<small>Score ${v==null?"–":v.toFixed(1)}/5</small></div></div>
+    <div class="bigwrap"><div class="big num">${a??"–"}</div><div class="big-l">actions to a first website</div></div>
+    <div class="rows"><div><span>Actions until asked to pay</span><b>${b??"–"}</b></div><div><span>Stages where a rival did better</span><b>${(()=>{const tot=STEPS.filter(s=>inPath(s,p.key)&&avg(s.data[p.key].scores)!=null).length;const n=v==null?null:STEPS.filter(s=>inPath(s,p.key)&&avg(s.data[p.key].scores)!=null&&PRODUCTS.some(q=>q.key!==p.key&&inPath(s,q.key)&&avg(s.data[q.key].scores)!=null&&avg(s.data[q.key].scores)>avg(s.data[p.key].scores))).length;return n==null?"–":n+" of "+tot})()}</b></div></div>
+  </div>`}).join("");
+
+/* different by design */
+$("paths").innerHTML=PRODUCTS.map(p=>{const path=PATHS[p.key]||[];const extra=path.filter(n=>n[1]==="detour").length;
+  return `<div class="path"><div class="who"><i class="dot" style="background:${p.color}"></i>${p.name}</div>
+  <div class="flow">${path.map((n,i)=>`${i?'<span class="arrow">→</span>':""}<span class="node ${n[1]} ${n[0].startsWith("[")?"ph":""}">${n[0]}</span>`).join("")}</div>
+  <div class="cnt">${extra?`${extra} extra stages`:""}</div></div>`}).join("")+
+  `<div class="legend"><span><i class="node detour" style="padding:2px 10px">&nbsp;</i>extra stage in BotPool</span><span><i class="node goal" style="padding:2px 10px">&nbsp;</i>reaches the builder</span></div>`;
+const li=(a,t)=>a.length?a.map(x=>`<li>${x}</li>`).join(""):`<li class="ph">${t}</li><li class="ph">…</li>`;
+$("helps").innerHTML=li(HELPS,"[e.g. marketplace templates to start from]");
+$("costs").innerHTML=li(COSTS,"[e.g. extra clicks before reaching the builder]");
+if(PLATFORM_VERDICT){$("platformVerdict").textContent=PLATFORM_VERDICT;$("platformVerdict").classList.remove("ph")}
+
+/* audience */
+$("audTable").innerHTML=`<thead><tr><th></th>${head(PRODUCTS)}</tr></thead><tbody>`+
+  AUDIENCE_ROWS.map(r=>{const c=AUDIENCE[r]||{};const q=r.startsWith("Their own words");
+    return `<tr><td>${r}</td>${PRODUCTS.map(p=>`<td class="${q?"quote":""}">${c[p.key]||ph(q?"[Headline, quoted]":"–")}</td>`).join("")}</tr>`}).join("")+`</tbody>`;
+if(WIN.head){$("winHead").textContent=WIN.head;$("winHead").classList.remove("ph")}
+$("winList").innerHTML=WIN.points.length?WIN.points.map(x=>`<li>${x}</li>`).join(""):
+  `<li class="ph">[Unserved need or segment]</li><li class="ph">[What BotPool already has that fits it]</li><li class="ph">[How to say it on the landing page]</li>`;
+
+/* features */
+const mark2=v=>v==="paid"?`<span class="paid">$</span>`:v==="yes"?`<span class="yes">✓</span>`:v==="no"?`<span class="no">✕</span>`:v==="part"?`<span class="part">–</span>`:(v?`<span>${v}</span>`:`<span class="ph">–</span>`);
+const allF=FEATURES.flatMap(g=>g.items);
+$("fTally").innerHTML=PRODUCTS.map(p=>{const n=allF.filter(i=>i[p.key]==="yes").length,filled=allF.some(i=>i[p.key]);
+  return `<div><i class="dot" style="background:${p.color}"></i>${p.name}<b>${filled?n:"–"}</b><small>of ${allF.length}</small></div>`}).join("");
+$("featTable").innerHTML=`<thead><tr><th>Feature</th>${head(PRODUCTS)}<th>Matters to BotPool's audience?</th><th>Note</th></tr></thead><tbody>`+
+  FEATURES.map(g=>`<tr class="grp"><td colspan="${PRODUCTS.length+3}">${g.group}</td></tr>`+
+    g.items.map(i=>`<tr><td><b>${i.f}</b></td>${PRODUCTS.map(p=>`<td class="pc${p.key==="bp"&&i.bp==="no"?" gap":""}${p.key==="bp"&&i.bp==="yes"&&i.lov!=="yes"&&i.b44!=="yes"?" win":""}">${mark2(i[p.key])}</td>`).join("")}
+    <td>${i.matters?`<span class="tag ${i.matters}">${i.matters}</span>`:ph("H/M/L")}</td><td>${i.note||ph("[Note / source]")}</td></tr>`).join("")).join("")+`</tbody>`;
+
+/* funnel */
+$("funnelLegend").innerHTML=PRODUCTS.map(p=>`<span><i class="dot" style="background:${p.color}"></i>${p.name}</span>`).join("")+
+  `<span><i class="bar detour" style="width:28px;height:10px;display:inline-block;padding:0;min-width:0"></i>Extra stage inside BotPool</span><span><b style="color:var(--ink)">~</b>&nbsp;estimate (real test TBD)</span>`;
+const maxC=Math.max(6,...STEPS.flatMap(s=>PRODUCTS.map(p=>Math.max(s.data[p.key].clicks||0,s.data[p.key].clicksMax||0))));
+$("funnelScale").innerHTML=[0,5,10].map(n=>`<i style="left:${n/maxC*100}%">${n}</i>`).join("");
+const ticks=[5,10].map(n=>`<i class="tick" style="left:${n/maxC*100}%"></i>`).join("");
+$("funnelRows").innerHTML=STEPS.map(s=>`<div class="fgrid frow ${s.only?"only":""}">
+  <a class="lbl" href="#step${s.label}">${s.label}. ${s.title} <span class="arr">→</span><small>${s.desc}</small></a>
+  <div class="bars">${ticks}${PRODUCTS.map(p=>{
+    if(!inPath(s,p.key))return `<div><span class="bar na">${p.name} · no such stage</span></div>`;
+    const d=s.data[p.key],c=d.clicks,cm=d.clicksMax??c,lab=(d.est?"~":"")+(cm>c?c+"–"+cm:c);
+    return c==null?`<div><span class="bar empty">${p.name} · –</span></div>`
+      :`<div class="bar ${s.only?"detour":""}" style="width:${Math.max(6,cm/maxC*100)}%;background:${p.color}" title="${p.name}${d.est?" (estimate)":""}">${lab}</div>`}).join("")}</div>
+  <div class="chips">${PRODUCTS.map(p=>inPath(s,p.key)?chip(avg(s.data[p.key].scores),s.data[p.key].est):`<span class="chip" style="color:var(--muted)">n/a</span>`).join("")}</div></div>`).join("");
+
+/* tactics */
+const mark=v=>v==="yes"?`<span class="yes">✓</span>`:v==="no"?`<span class="no">✕</span>`:v==="part"?`<span class="part">–</span>`:`<span class="ph">–</span>`;
+$("tacticsTable").innerHTML=`<thead><tr><th>Tactic</th>${head(PRODUCTS)}<th>What BotPool is missing</th><th></th></tr></thead><tbody>`+
+  TACTICS.map(t=>`<tr><td><b>${t.tactic}</b></td>${PRODUCTS.map(p=>`<td class="pc${p.key==="bp"&&t.bp==="no"?" gap":""}">${mark(t[p.key])}</td>`).join("")}
+  <td>${t.gap||ph("[What BotPool is missing]")}</td><td><a class="jump" href="#${t.to}">${t.lab} →</a></td></tr>`).join("")+`</tbody>`;
+
+/* steps */
+const cellHTML=(c,k,s)=>{
+  if(!inPath(s,k))return `<td class="na">n/a</td>`;
+  const [t,f]=Array.isArray(c)?c:[c,""];return `<td class="${isBp(k)&&f?f:""}">${t||ph("–")}</td>`};
+const STAGE_SHOTS={"5":SHOT.home.filter(x=>x.k!=="bp"),"6":SHOT.home.filter(x=>x.k==="bp"),"7":SHOT.templates,"8":SHOT.plans};
+const dotFor=k=>`<i class="dot" style="background:${(PRODUCTS.find(p=>p.key===k)||{}).color}"></i>`;
+const shotHTML=list=>list.map(s=>`<figure><a href="${s.full}" target="_blank" rel="noopener" aria-label="Open full-size screenshot: ${s.t}"><img src="${s.src}" alt="${s.t}" loading="lazy"></a><figcaption><b>${dotFor(s.k)}${s.t}</b><span>${s.d}</span></figcaption></figure>`).join("");
+let fixNo=0;const ALL_FIXES=[];
+$("steps").innerHTML=STEPS.map(s=>{
+  const cols=colsFor(s);
+  const fixes=(s.fixes.length?s.fixes:[{},{}]).map((f,i)=>{const id=`fix-${s.label}-${i+1}`;ALL_FIXES.push({...f,id,step:s.label,blank:!f.title});return {...f,id}});
+  const evidence=s.only
+    ? `<div class="prod bp">${prodCard(PRODUCTS[0],s)}</div><div class="na-note">Lovable and Base44 have no equivalent stage: visitors land in the builder right after sign-up.<br>Checked: both open on a box to type your idea as soon as you sign in.</div>`
+    : cols.map(p=>`<div class="prod ${p.key}">${prodCard(p,s)}</div>`).join("");
+  return `
+<section class="step" id="step${s.label}">
+  <div class="step-top">
+    <div class="step-head"><div class="step-no ${s.only?"only":""}">${s.label}</div>
+      <div><h2>${s.title} ${s.only?'<span class="tag only">Only in BotPool</span>':""}</h2><p>${s.desc}</p></div></div>
+    <div class="diff"><span class="lab">Biggest difference</span><p class="${s.diff?"":"ph"}">${s.diff||"[One sentence: what the best product does here that BotPool doesn't]"}</p></div>
+  </div>
+  ${s.manual?`<div class="manual-note"><b>Hand test: TBD.</b> Time to a first draft, its quality and the credits used in each product (it spends credits, so ${s.manual} will run it). Everything else in this stage comes from the products' own pages and the staging sign-up.</div>`:""}
+  <div class="why" style="margin-top:16px"><span class="lab">Why it works</span>${s.why||ph("What the best product at this stage does right, and the principle behind it")}</div>
+  <details class="evtoggle"><summary><span class="evl"><b class="show">Show evidence</b><b class="hide">Hide evidence</b><small>Side-by-side comparison table and what was observed in each product</small></span><i class="chev" aria-hidden="true"></i></summary>
+    <div class="tbl"><table class="cmp"><thead><tr><th>Compared</th>${head(cols)}</tr></thead><tbody>
+      ${s.compare.map(r=>{const c=s.cells[r]||{};return `<tr id="row-${s.label}-${slug(r)}"><td>${r}</td>${cols.map(p=>cellHTML(c[p.key],p.key,s)).join("")}</tr>`}).join("")}
+    </tbody></table></div>
+    <div class="evid">${evidence}</div>
+    ${STAGE_SHOTS[s.label]?`<span class="lab" style="margin-top:18px">Screenshots</span><div class="shots">${shotHTML(STAGE_SHOTS[s.label])}</div>`:""}
+  </details>
+  <h3>Fixes</h3>
+  <div class="fixes">${fixes.map(f=>`
+    <article class="fix" id="${f.id}">
+      <div class="fix-top"><span class="fix-id">Stage ${s.label} · ${s.title}</span><span class="tag ${f.priority||"None"}">${PRI[f.priority]||"Priority"}</span></div>
+      <h4>${f.title||ph(s.only?"[e.g. Take visitors who chose 'Build a website' straight into Create after sign-up]":"[Fix in one line, e.g. Let visitors type a prompt before signing up]")}</h4>
+      <div class="grid">
+        <div class="wide"><span class="lab">Problem</span>${f.problem||ph("What happens today, and what it costs")}</div>
+        <div class="wide"><span class="lab">Fix</span>${f.fix||ph("Exact change: copy, UI or flow, plus an alternative")}</div>
+        <div><span class="lab">How to measure it</span>${f.metric||ph("e.g. sign-up → first creation rate")}</div>
+        <div><span class="lab">Impact · Effort</span>${f.impact?`<span class="tag ${f.impact}">${f.impact}</span>`:ph("H/M/L")} · ${f.effort||ph("H/M/L")}</div>
+      </div>
+    </article>`).join("")}</div>
+</section>`}).join("");
+function prodCard(p,s){const d=s.data[p.key]||{};
+  return `<div class="prod-h"><span>${p.name}</span><span class="mini">${d.clicks==null?"–":(d.est?"~":"")+d.clicks} ${d.clicks===1?"action":"actions"} · ${chip(avg(d.scores),d.est)}</span></div>
+  ${(()=>{const e=(EVIDENCE[s.label]||{})[p.key];return e?`<div class="shot ev"><span class="lab">Evidence</span>${e[0].startsWith("http")?`<a href="${e[0]}" target="_blank" rel="noopener">${e[0].replace("https://","")}</a>`:`<span class="lab" style="text-transform:none">${e[0]}</span>`}<p>${e[1]}</p></div>`:``})()}
+  <div class="note"><span class="lab">Friction</span>${d.friction||ph("What slows or confuses the visitor")}${d.dead?`<br><b>Dead end:</b> ${d.deadWhy}.`:""}</div>`}
+
+
+/* in short + market */
+$("verdictBox").textContent=VERDICT;
+$("shortList").innerHTML=SHORT.map(x=>`<li><div><b><a href="${x.href}" style="text-decoration:none">${x.t}</a></b><span>${x.d}</span>${x.ev?`<div class="evl">${x.ev.map(e=>`<a class="jump" href="#${e[0]}">${e[1]} →</a>`).join("")}</div>`:""}</div></li>`).join("");
+$("searchTable").innerHTML=`<thead><tr><th>Search</th><th>Who showed up</th><th>BotPool?</th></tr></thead><tbody>`+SEARCHES.map(s=>`<tr><td><b>${s.q}</b></td><td>${s.who}</td><td class="${s.bp==="No"?"gap":"win"}">${s.bp}</td></tr>`).join("")+`</tbody>`;
+$("mStats").innerHTML=MSTATS.map(x=>`<div class="mstat"><b>${x.n}</b><p>${x.t}</p><small><a href="${x.u}" target="_blank" rel="noopener">${x.s}</a></small></div>`).join("");
+$("rivalTable").innerHTML=`<thead><tr><th>Builder</th><th>Made for</th><th>First year with your own domain</th><th>Local-business features</th><th>Human expert</th><th>Trustpilot</th></tr></thead><tbody>`+
+  RIVALS.map(r=>`<tr class="${r.us?"us":""}"><td><b>${r.name}</b></td><td>${r.aud}</td><td class="num">${r.cost}</td><td>${r.local}</td><td>${r.expert}</td><td class="num">${r.rev}</td></tr>`).join("")+`</tbody>`;
+$("painTable").innerHTML=`<thead><tr><th>Complaint</th><th>Heard about</th><th>BotPool's position</th></tr></thead><tbody>`+
+  PAINS.map(x=>{const [txt,f]=x.b;return `<tr><td><b>${x.p}</b></td><td>${x.w}</td><td class="${f}">${txt}</td></tr>`}).join("")+`</tbody>`;
+$("fitTable").innerHTML=`<thead><tr><th>Question</th><th>Today</th><th>Why</th></tr></thead><tbody>`+
+  FIT.map(x=>`<tr><td><b>${x.a}</b></td><td><span class="fitv ${x.v}">${x.v}</span></td><td>${x.d} <a class="jump" href="#${x.to}">Details →</a></td></tr>`).join("")+`</tbody>`;
+$("needList").innerHTML=NEED.map(x=>`<li>${x}</li>`).join("");
+const MF=MARKET_FIXES.map((f,i)=>{const id="fix-market-"+(i+1);ALL_FIXES.push({...f,id,step:"market",blank:false});return {...f,id}});
+$("marketFixes").innerHTML=MF.map(f=>`
+    <article class="fix" id="${f.id}">
+      <div class="fix-top"><span class="fix-id">Market</span><span class="tag ${f.priority}">${PRI[f.priority]}</span></div>
+      <h4>${f.title}</h4>
+      <div class="grid">
+        <div class="wide"><span class="lab">Problem</span>${f.problem}</div>
+        <div class="wide"><span class="lab">Fix</span>${f.fix}</div>
+        <div><span class="lab">How to measure it</span>${f.metric}</div>
+        <div><span class="lab">Impact · Effort</span><span class="tag ${f.impact}">${f.impact}</span> · ${f.effort}</div>
+      </div>
+    </article>`).join("");
+
+/* ui polish */
+$("shotsTemplates").innerHTML=shotHTML(SHOT.templates);
+$("shotsHome").innerHTML=shotHTML(SHOT.home);
+$("shotsPlans").innerHTML=shotHTML(SHOT.plans);
+$("polishTable").innerHTML=`<thead><tr><th>Checked</th>${head(PRODUCTS)}<th>Note</th><th></th></tr></thead><tbody>`+
+  POLISH.map(r=>`<tr><td><b>${r.q}</b></td>${PRODUCTS.map(p=>`<td class="pc${p.key==="bp"&&r.bp==="no"?" gap":""}${p.key==="bp"&&r.bp==="yes"&&r.lov!=="yes"&&r.b44!=="yes"?" win":""}">${mark(r[p.key])}</td>`).join("")}<td>${r.n}</td><td><a class="jump" href="#${r.to}">See it →</a></td></tr>`).join("")+`</tbody>`;
+const PF=POLISH_FIXES.map((f,i)=>{const id="fix-polish-"+(i+1);ALL_FIXES.push({...f,id,step:"polish",blank:false});return {...f,id}});
+$("polishFixes").innerHTML=PF.map(f=>`
+    <article class="fix" id="${f.id}">
+      <div class="fix-top"><span class="fix-id">UI polish</span><span class="tag ${f.priority}">${PRI[f.priority]}</span></div>
+      <h4>${f.title}</h4>
+      <div class="grid">
+        <div class="wide"><span class="lab">Problem</span>${f.problem}</div>
+        <div class="wide"><span class="lab">Fix</span>${f.fix}</div>
+        <div><span class="lab">How to measure it</span>${f.metric}</div>
+        <div><span class="lab">Impact · Effort</span><span class="tag ${f.impact}">${f.impact}</span> · ${f.effort}</div>
+      </div>
+    </article>`).join("");
+
+/* stands / lacking / direction */
+const L=(to,txt)=>`<a class="il" href="#${to}">${txt} →</a>`;
+$("gapCards").innerHTML=GAPS.map(g=>`<article class="gapc" id="${g.id}"><h4>${g.t}</h4><div class="two"><div class="us"><span class="lab">BotPool today</span>${g.us}</div><div class="them"><span class="lab">Lovable and Base44</span>${g.them}</div></div><div class="links">${g.links.map(x=>L(x[0],x[1])).join("")}</div></article>`).join("");
+$("optCards").innerHTML=OPTIONS.map(o=>`<div class="opt ${o.v==="yes"?"rec":""}"><span class="verd v-${o.v}">${o.vl}</span><h4>${o.t}</h4><p>${o.d}</p></div>`).join("");
+if($("pillars"))$("pillars").innerHTML=PILLARS.map(p=>`<div class="pillar"><h4>${p.t}</h4><ul>${p.i.map(x=>`<li><a href="#${x[1]}">${x[0]}</a></li>`).join("")}</ul></div>`).join("");
+$("roadmap").innerHTML=ROADMAP.map(r=>`<div><h4>${r.t} <span style="color:var(--muted);font-weight:500">· ${r.i.length}</span></h4><small>${r.s}</small><ul>${r.i.slice(0,3).map(x=>`<li><a href="#${x[1]}">${x[0]}</a></li>`).join("")}</ul>${r.i.length>3?`<a class="jump" href="#ship" style="display:inline-block;margin-top:8px">+${r.i.length-3} more in the priority list →</a>`:""}</div>`).join("");
+$("weakTable").innerHTML=`<thead><tr><th>Their weakness</th><th>How BotPool can win</th></tr></thead><tbody>`+WEAK.map(x=>`<tr><td>${x.w}</td><td class="win">${x.b}</td></tr>`).join("")+`</tbody>`;
+/* ship first */
+const rank={P1:1,P2:2,P3:3,P4:4},imp={High:1,Med:2,Medium:2,Low:3};
+const plan=ALL_FIXES.filter(f=>!f.blank).sort((a,b)=>(rank[a.priority]||9)-(rank[b.priority]||9)||(imp[a.impact]||9)-(imp[b.impact]||9));
+$("planTable").innerHTML=`<thead><tr><th>When</th><th>Fix</th><th>How to measure it</th><th>Impact</th><th>Effort</th><th></th></tr></thead><tbody>`+
+  (plan.length?plan:[{},{},{}]).map(x=>`<tr><td>${x.priority?`<span class="tag ${x.priority}">${PRI[x.priority]}</span>`:ph("–")}</td>
+  <td><b>${x.title||ph("[Fix]")}</b></td><td>${x.metric||ph("[Metric]")}</td>
+  <td>${x.impact?`<span class="tag ${x.impact}">${x.impact}</span>`:ph("H/M/L")}</td><td>${x.effort||ph("H/M/L")}</td>
+  <td>${x.id?`<a class="jump" href="#${x.id}">${x.step==="market"?"See the market fix":x.step==="polish"?"See the UI fix":"See stage "+x.step+" fix"} →</a>`:""}</td></tr>`).join("")+`</tbody>`;
+
+$("mobTable").innerHTML=`<thead><tr><th>Checked</th>${head(PRODUCTS)}</tr></thead><tbody>`+MOBILE_ROWS.map(r=>{const c=MOBILE[r]||{};return `<tr><td>${r}</td>${PRODUCTS.map(p=>cellHTML(c[p.key],p.key,{})).join("")}</tr>`}).join("")+`</tbody>`;
+if($("criteria"))$("criteria").innerHTML=CRITERIA.map(c=>`<div><b>${c[0]}</b><span>${c[1]}</span></div>`).join("");
+
+/* back to where you were after following an in-page link */
+/* evidence sections open and close */
+if(document.querySelectorAll)[["tactics","Show the tactics table","15 tactics, side by side"],["features","Show the feature table","21 features, grouped"],["mobile","Show the phone and speed table","9 checks"],["polish","Show the checklist and screenshots","11 checks and 9 screenshots"]].forEach(([id,lab,sub])=>{const s=document.getElementById(id);if(!s)return;const lede=s.querySelector(".lede");const d=document.createElement("details");d.className="evtoggle";d.innerHTML=`<summary><span class="evl"><b class="show">${lab}</b><b class="hide">Hide</b><small>${sub}</small></span><i class="chev" aria-hidden="true"></i></summary>`;let n=lede.nextElementSibling;while(n&&n.id!=="polishFixesHead"){const nx=n.nextElementSibling;d.appendChild(n);n=nx;}lede.after(d);});
+
+/* phone layout: label each cell with its column heading */
+if(document.querySelectorAll)document.querySelectorAll("table").forEach(tb=>{const hs=[...tb.querySelectorAll("thead th")].map(th=>th.textContent.trim());tb.classList.add("stack");tb.querySelectorAll("tbody tr").forEach(tr=>[...tr.children].forEach((td,i)=>{if(i>0&&td.colSpan===1&&hs[i])td.setAttribute("data-label",hs[i]);}));});
+
+(function(){let saved=null;const b=document.getElementById("backBtn");
+document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#"]');if(!a||a.id==="backBtn")return;saved=window.scrollY;b.hidden=false;const el=document.getElementById(a.getAttribute("href").slice(1));const d=el&&el.closest("details");if(d&&!d.open){d.open=true;}});
+b.addEventListener("click",()=>{if(saved!==null)window.scrollTo({top:saved,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});saved=null;b.hidden=true;});})();
+</script>
+</body>
+</html>
