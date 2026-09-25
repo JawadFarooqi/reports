@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>BotPool Competitor Flows</title>
+<title>BotPool Create vs Lovable and Base44</title>
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
 <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -282,7 +282,7 @@ td.na{color:var(--muted);font-style:italic}
 .mstat small{display:block;margin-top:8px;font-size:12px;color:var(--muted)}
 .mstat small a{color:inherit}
 #rivalTable td,#fitTable td,#painTable td{background:var(--surface)}
-#rivalTable tr.us td{background:var(--bp-soft)}
+#rivalTable tr.us td,#planCmpTable tr.us td{background:var(--bp-soft)}
 .fitv{display:inline-block;font-size:12px;font-weight:700;padding:3px 8px;border-radius:5px;white-space:nowrap}
 .fitv.Strong{background:color-mix(in srgb,var(--low) 14%,transparent);color:var(--low)}
 .fitv.Weak{background:color-mix(in srgb,var(--high) 14%,transparent);color:var(--high)}
@@ -363,6 +363,41 @@ tr,.fix,.gapc{scroll-margin-top:80px}
 .shots a:focus-visible{outline:3px solid var(--bp);outline-offset:-3px}
 .shotrow{margin-top:26px}
 .shotrow h3{margin-top:0}
+.concl{max-width:75ch;margin-top:14px;display:grid;gap:12px}
+.concl ol{margin:0;padding-left:22px;display:grid;gap:6px}
+.concl a{color:var(--bp);font-weight:600;text-decoration:none}
+.concl a:hover{text-decoration:underline}
+.flows{display:grid;gap:0;margin-top:12px}
+.flow-row{display:grid;grid-template-columns:170px 1fr 190px;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.flow-row.own{background:var(--bp-soft);border-radius:12px;padding-inline:12px;margin-inline:-12px;border-bottom:0}
+.fr-name{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px}
+.fr-steps{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.fr-step{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:4px 10px;font-size:12px;font-weight:600}
+.flow-row.own .fr-step{border-color:var(--bp)}
+.fr-arr{color:var(--muted);font-size:12px}
+.fr-sum{font-size:12px;font-weight:700;color:var(--muted);text-align:right}
+.flow-row.own .fr-sum{color:var(--bp)}
+@media (max-width:760px){.flow-row{grid-template-columns:1fr}.fr-sum{text-align:left}}
+.ladder{display:grid;gap:8px}
+.ladder>.lab{margin-bottom:2px}
+.rung{display:grid;grid-template-columns:110px minmax(0,1fr) max-content;gap:14px;align-items:center;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.rung.own{border-color:var(--bp);background:var(--bp-soft)}
+.lvl{font-size:12px;font-weight:700;color:var(--muted);display:grid;gap:6px}
+.rung.own .lvl{color:var(--bp)}
+.meter{display:flex;gap:3px}
+.meter i{width:16px;height:6px;border-radius:3px;background:var(--line)}
+.meter i.on{background:var(--muted)}
+.rung.own .meter i.on{background:var(--bp)}
+.rt b{display:block;font-size:16px}
+.rung.own .rt b{color:var(--bp)}
+.rt span{display:block;font-size:14px;color:var(--muted)}
+.rt em{display:inline-block;margin-top:6px;font-style:normal;font-size:12px;font-weight:700;color:var(--bp);letter-spacing:.04em;text-transform:uppercase}
+.chips2{display:flex;flex-wrap:nowrap;gap:6px;justify-content:flex-end}
+.pchip{white-space:nowrap;display:inline-flex;align-items:center;gap:6px;border:1px solid var(--c);border-radius:999px;padding:4px 12px;font-size:14px;font-weight:600;background:var(--bg)}
+.pchip i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--c)}
+.canvas{background:var(--surface);border-radius:20px;padding:16px;margin-top:12px;overflow-x:auto}
+.canvas svg{width:100%;height:auto;display:block;min-width:620px}
+@media (max-width:760px){.rung{grid-template-columns:1fr}.chips2{justify-content:flex-start;flex-wrap:wrap}}
 .scope{display:grid;grid-template-columns:1fr 1fr;gap:18px 40px;margin-top:18px;align-items:start}
 ul.limits{margin:0;padding-left:20px;display:grid;gap:6px}
 .crit{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:10px}
@@ -390,7 +425,8 @@ ul.limits{margin:0;padding-left:20px;display:grid;gap:6px}
   td{background:transparent!important;border-bottom:1px solid var(--line);border-radius:0!important}
   td.gap{background:var(--gap-bg)!important}
   td.win{background:var(--win-bg)!important}
-  #rivalTable tr.us td{background:var(--bp-soft)!important}
+  #rivalTable tr.us td,#planCmpTable tr.us td{background:var(--bp-soft)!important}
+  #planCmpTable td.win{background:var(--win-bg)!important}
   #featTable tr.grp td{border-bottom:0}
 }
 @media (max-width:760px){
@@ -431,8 +467,8 @@ ul.limits{margin:0;padding-left:20px;display:grid;gap:6px}
 <header class="hero">
   <div>
     <div class="eyebrow">BotPool Create vs Lovable, Base44 and small-business builders</div>
-    <h1>Small businesses still need websites. BotPool Create has an edge no rival has, but it isn't reaching small businesses yet.</h1>
-    <p class="verdict">BotPool is the only AI builder where a real expert can take over your site. Today botpool.ai's first screen is about hiring freelancers, the builder is a menu link, it doesn't show up for small-business searches, and some of its claims can't be backed up.</p>
+    <h1>Small businesses still need websites. BotPool Create is the only builder with an integrated expert handover, but it isn't reaching small businesses yet.</h1>
+    <p class="verdict">BotPool Create is the only builder reviewed in which an expert is engaged and works on the site from within the builder; Wix and Squarespace offer expert matching outside the editor. Today botpool.ai's first screen is about hiring freelancers, the builder is a menu link, it doesn't show up for small-business searches, and some of its claims can't be backed up.</p>
   </div>
   <div>
     <div class="hnum">
@@ -442,14 +478,14 @@ ul.limits{margin:0;padding-left:20px;display:grid;gap:6px}
     </div>
     <div class="hstats">
       <div><b>58%</b>of US small businesses already use AI, up from 40% a year earlier (US Chamber of Commerce)</div>
-      <div><b>1 of 3</b>the only builder here where a real expert can take over your site</div>
+      <div><b>1 of 6</b>builders reviewed with an integrated expert handover</div>
       <div><b>18 vs ~5</b>actions (clicks and form fields) from homepage to a first website (BotPool vs Lovable)</div>
     </div>
   </div>
 </header>
 
 <nav class="nav" aria-label="Sections">
-  <a href="#short">Summary</a><a href="#market">Market &amp; position</a><a href="#direction">Direction</a><a href="#funnel">Evidence</a><a href="#polish">UI polish</a><a href="#ship">Fixes</a>
+  <a href="#short">Summary</a><a href="#market">Market &amp; position</a><a href="#direction">Direction</a><a href="#funnel">Evidence</a><a href="#polish">UI polish</a><a href="#ship">Fixes</a><a href="#conclusion">Conclusion</a>
 </nav>
 
 <section id="short">
@@ -473,6 +509,11 @@ ul.limits{margin:0;padding-left:20px;display:grid;gap:6px}
   <div class="tbl"><table id="rivalTable"></table></div>
   <p class="lede" style="font-size:14px">First-year cost = cheapest yearly plan that allows your own domain, plus the domain (about $12–20 when not included). Review scores from Trustpilot.</p>
 
+  <h3 id="plans" style="scroll-margin-top:80px">Free plans and pricing, all six builders</h3>
+  <p class="lede" style="margin-top:0">BotPool's free plan is on a par with Wix's: both publish a real site on a branded subdomain at no cost. Squarespace has no free plan, Durable's free tier is a preview only, and Lovable and Base44 cap free AI use at 5 a day. On paid plans, BotPool has the lowest entry price and first-year cost of the six.</p>
+  <div class="tbl"><table id="planCmpTable"></table></div>
+  <p class="lede" style="font-size:12px;margin-top:6px">Yearly billing; USD list prices from each product's pricing page. Durable's cheapest plan with a custom domain is Launch. Expert help is quoted separately wherever it is offered.</p>
+
   <h3>What small-business owners complain about</h3>
   <div class="tbl"><table id="painTable"></table></div>
 
@@ -490,50 +531,30 @@ ul.limits{margin:0;padding-left:20px;display:grid;gap:6px}
 
 <section id="stands">
   <h2>Where BotPool Create stands</h2>
-  <p class="lede">Two questions separate the three products: what you end up with, and who finishes it. BotPool Create is the only one that pairs a business website with a real person who can take it over.</p>
+  <p class="lede">Two dimensions separate the builders: product scope, and the expert support model. BotPool Create is the only builder reviewed with an integrated expert handover: the expert is engaged and works on the existing site from within the builder.</p>
   <div class="mapwrap">
-    <div class="map"><svg viewBox="0 0 640 440" role="img" aria-label="Map: what you end up with (business website to any app) against who finishes it (AI only to AI plus a real person)">
-  <rect x="110" y="40" width="510" height="340" rx="14" style="fill:var(--card);stroke:var(--line)"/>
-  <rect x="110.5" y="40.5" width="254" height="169" rx="14" style="fill:var(--bp-soft);fill-opacity:.55;stroke:var(--bp);stroke-opacity:.6"/>
-  <line x1="365" y1="40" x2="365" y2="380" style="stroke:var(--line);stroke-dasharray:4 5"/>
-  <line x1="110" y1="210" x2="620" y2="210" style="stroke:var(--line);stroke-dasharray:4 5"/>
-  <text x="12" y="56" style="fill:var(--muted);font:600 12px var(--body)">AI +</text>
-  <text x="12" y="72" style="fill:var(--muted);font:600 12px var(--body)">a person</text>
-  <text x="12" y="366" style="fill:var(--muted);font:600 12px var(--body)">AI only</text>
-  <text x="110" y="402" style="fill:var(--muted);font:12px var(--body)">A business website</text>
-  <text x="620" y="402" text-anchor="end" style="fill:var(--muted);font:12px var(--body)">Any app or software</text>
-  <text x="365" y="428" text-anchor="middle" style="fill:var(--muted);font:600 14px var(--body)">What you end up with</text>
-  <text x="124" y="62" style="fill:var(--bp);font:700 12px var(--body)">WEBSITE + A PERSON</text>
-  <text x="124" y="78" style="fill:var(--bp);font:12px var(--body)">Only BotPool: an expert takes</text>
-  <text x="124" y="92" style="fill:var(--bp);font:12px var(--body)">over inside the builder</text>
-  <text x="379" y="62" style="fill:var(--muted);font:700 12px var(--body)">APP + A PERSON</text>
-  <text x="124" y="228" style="fill:var(--muted);font:700 12px var(--body)">WEBSITE, AI ONLY</text>
-  <text x="606" y="372" text-anchor="end" style="fill:var(--muted);font:700 12px var(--body)">APP, AI ONLY</text>
-  <circle cx="200" cy="132" r="15" style="fill:var(--bp)"/>
-  <text x="222" y="130" style="fill:var(--ink);font:700 14px var(--display)">BotPool Create</text>
-  <text x="222" y="147" style="fill:var(--muted);font:12px var(--body)">expert after the first site</text>
-  <line x1="503" y1="262" x2="392" y2="214" style="stroke:var(--lov);stroke-width:2;stroke-dasharray:6 5"/>
-  <path d="M388 212 l12 -1 l-6 10 z" style="fill:var(--lov)"/>
-  <text x="500" y="186" text-anchor="middle" style="fill:var(--lov);font:600 12px var(--body)">moving towards</text>
-  <text x="500" y="200" text-anchor="middle" style="fill:var(--lov);font:600 12px var(--body)">small businesses</text>
-  <circle cx="520" cy="272" r="14" style="fill:var(--lov)"/>
-  <text x="520" y="302" text-anchor="middle" style="fill:var(--ink);font:700 14px var(--display)">Lovable</text>
-  <text x="520" y="317" text-anchor="middle" style="fill:var(--muted);font:12px var(--body)">partner list</text>
-  <circle cx="440" cy="322" r="14" style="fill:var(--b44)"/>
-  <text x="440" y="352" text-anchor="middle" style="fill:var(--ink);font:700 14px var(--display)">Base44</text>
-  <text x="440" y="367" text-anchor="middle" style="fill:var(--muted);font:12px var(--body)">owned by Wix · partner list</text>
-  <circle cx="220" cy="292" r="12" style="fill:var(--muted)"/>
-  <text x="220" y="320" text-anchor="middle" style="fill:var(--ink);font:700 14px var(--display)">Wix</text>
-  <text x="220" y="335" text-anchor="middle" style="fill:var(--muted);font:12px var(--body)">partner directory</text>
-</svg>
-<p style="margin:8px 4px 0;font-size:14px;color:var(--muted)">Positions reflect what each product offers today. Wix, Lovable and Base44 link to partner lists outside the builder. BotPool's expert option appears inside the builder once a site is built.</p></div>
+    <div class="map"><div class="ladder" role="list" aria-label="Expert support ladder">
+      <span class="lab">Expert support ladder</span>
+      <div class="rung own" role="listitem"><div class="lvl"><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>Level 4</div><div class="rt"><b>Integrated expert handover</b><span>Expert engaged and working within the builder</span><em>Unique to BotPool</em></div><div class="chips2"><span class="pchip" style="--c:var(--bp)"><i></i>BotPool Create</span></div></div>
+      <div class="rung" role="listitem"><div class="lvl"><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span>Level 3</div><div class="rt"><b>Managed matching service</b><span>Expert matched; site access granted separately</span></div><div class="chips2"><span class="pchip" style="--c:var(--muted)"><i></i>Wix</span><span class="pchip" style="--c:var(--muted)"><i></i>Squarespace</span></div></div>
+      <div class="rung" role="listitem"><div class="lvl"><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span>Level 2</div><div class="rt"><b>Partner directory</b><span>Client sources and engages a partner independently</span></div><div class="chips2"><span class="pchip" style="--c:var(--lov)"><i></i>Lovable</span><span class="pchip" style="--c:var(--b44)"><i></i>Base44</span></div></div>
+      <div class="rung" role="listitem"><div class="lvl"><span class="meter" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>Level 1</div><div class="rt"><b>Onboarding support only</b><span>No expert engagement</span></div><div class="chips2"><span class="pchip" style="--c:var(--muted)"><i></i>Durable</span></div></div>
+    </div>
+<p style="margin:8px 4px 0;font-size:14px;color:var(--muted)">Levels reflect each product's current offer. Wix (“Hire a Professional”, then collaborator access) and Squarespace (brief via 99designs, then contributor access) provide expert matching, but the client grants site access separately and the work is arranged outside the editor. Lovable and Base44 refer clients to partner directories. BotPool Create is the only builder reviewed in which an expert is engaged and works on the existing site from within the builder.</p></div>
     <div class="who3">
-      <div><b><i class="dot" style="background:var(--bp)"></i>BotPool Create</b>A finished business website, with a marketplace of real people behind it.<span class="tk">Takeaway: the one corner nobody else holds. Show the expert option earlier to make it count.</span></div>
+      <div><b><i class="dot" style="background:var(--bp)"></i>BotPool Create</b>A finished business website, with a marketplace of real people behind it.<span class="tk">Takeaway: the only integrated expert handover. Surface it earlier to make it count.</span></div>
       <div><b><i class="dot" style="background:var(--lov)"></i>Lovable</b>Builds any software, for teams and large companies. Now adding payments, search visibility and business tools, so it's moving towards small businesses.<span class="tk">Takeaway: the biggest threat to its corner.</span></div>
       <div><b><i class="dot" style="background:var(--b44)"></i>Base44</b>Apps and business tools, owned by Wix, with Wix's money and reach behind it. Websites are one option among four.<span class="tk">Takeaway: big reach, but app-first and weak on trust (2.8 on Trustpilot).</span></div>
-      <div><b><i class="dot" style="background:var(--muted)"></i>Wix</b>A website builder for everyone, with experts in a separate partner directory.<span class="tk">Takeaway: the website brand most owners already know.</span></div>
+      <div><b><i class="dot" style="background:var(--muted)"></i>Wix</b>A drag-and-drop website builder with AI, with Wix Partner matching from the dashboard; partners are then added as collaborators.<span class="tk">Takeaway: the website brand most owners already know.</span></div>
+      <div><b><i class="dot" style="background:var(--muted)"></i>Squarespace</b>A design-led drag-and-drop builder with AI, with expert matching through 99designs outside the editor.<span class="tk">Takeaway: the closest alternative to BotPool's expert model, but off-platform and brief-based.</span></div>
+      <div><b><i class="dot" style="background:var(--muted)"></i>Durable</b>An AI builder for sole traders, with bookings, reviews and invoices, and an onboarding call.<span class="tk">Takeaway: the closest match on audience, with no expert to take over.</span></div>
     </div>
   </div>
+
+  <h3 id="engagement" style="scroll-margin-top:80px">Expert engagement workflow</h3>
+  <p class="lede" style="margin-top:0">Steps from an expert request to active work on the site. BotPool's advantage is not that experts exist, but that the engagement is integrated into the product.</p>
+  <div class="flows" id="flowRows"></div>
+  <p class="lede" style="font-size:12px;margin-top:8px">Lovable and Base44 steps reflect the typical process for engaging a directory partner. Sources: Squarespace Help Center (Hiring a Squarespace Expert), Wix Help Center (Roles &amp; Permissions), BotPool builder.</p>
   <h3 id="audience" style="scroll-margin-top:80px">Who each one is built for</h3>
   <p class="lede" style="margin-top:0">Who each product speaks to, the job it promises to do, and how it says it.</p>
   <div class="aud">
@@ -555,6 +576,12 @@ ul.limits{margin:0;padding-left:20px;display:grid;gap:6px}
 <section id="direction">
   <h2>Direction</h2>
   <p class="lede">Three possible directions. Recommended: the second, with the third alongside it.</p>
+  <h3 id="canvas" style="scroll-margin-top:80px">Strategy canvas</h3>
+  <p class="lede" style="margin-top:0">Where each group invests, across the factors small-business owners weigh. BotPool leads on local focus, expert support and price transparency, and trails on local-business features, templates and brand reach: the recommended direction builds on the first three and closes the second.</p>
+  <div class="canvas"><svg viewBox="0 0 900 360" role="img" aria-label="Strategy canvas comparing BotPool Create, AI app builders and website builders across seven factors"><line x1="80.0" y1="270.0" x2="830.0" y2="270.0" style="stroke:var(--line);stroke-dasharray:3 5"/><line x1="80.0" y1="208.5" x2="830.0" y2="208.5" style="stroke:var(--line);stroke-dasharray:3 5"/><line x1="80.0" y1="147.0" x2="830.0" y2="147.0" style="stroke:var(--line);stroke-dasharray:3 5"/><line x1="80.0" y1="85.5" x2="830.0" y2="85.5" style="stroke:var(--line);stroke-dasharray:3 5"/><line x1="80.0" y1="24.0" x2="830.0" y2="24.0" style="stroke:var(--line);stroke-dasharray:3 5"/><text x="70.6" y="28" text-anchor="end" style="fill:var(--muted);font:600 12px var(--body)">High</text><text x="70.6" y="274" text-anchor="end" style="fill:var(--muted);font:600 12px var(--body)">Low</text><text x="80.0" y="298" text-anchor="middle" style="fill:var(--muted);font:600 12px var(--body)">Speed to</text><text x="80.0" y="314" text-anchor="middle" style="fill:var(--muted);font:600 12px var(--body)">first draft</text><text x="205.0" y="298" text-anchor="middle" style="fill:var(--muted);font:600 12px var(--body)">Built for</text><text x="205.0" y="314" text-anchor="middle" style="fill:var(--muted);font:600 12px var(--body)">local businesses</text><text x="330.0" y="298" text-anchor="middle" style="fill:var(--muted);font:600 12px var(--body)">Expert</text><text x="330.0" y="314" text-anchor="middle" style="fill:var(--muted);font:600 12px var(--body)">support</text><text x="455.0" y="298" text-anchor="middle" style="fill:var(--muted);font:600 12px var(--body)">Price</text><text x="455.0" y="314" text-anchor="middle" style="fill:var(--muted);font:600 12px var(--body)">transparency</text><text x="580.0" y="298" text-anchor="middle" style="fill:var(--muted);font:600 12px var(--body)">Local-business</text><text x="580.0" y="314" text-anchor="middle" style="fill:var(--muted);font:600 12px var(--body)">features</text><text x="705.0" y="298" text-anchor="middle" style="fill:var(--muted);font:600 12px var(--body)">Visual</text><text x="705.0" y="314" text-anchor="middle" style="fill:var(--muted);font:600 12px var(--body)">templates</text><text x="830.0" y="298" text-anchor="middle" style="fill:var(--muted);font:600 12px var(--body)">Brand reach</text><text x="830.0" y="314" text-anchor="middle" style="fill:var(--muted);font:600 12px var(--body)">and trust</text><polyline points="80.0,103.9 205.0,67.1 330.0,165.4 455.0,128.6 580.0,42.4 705.0,67.1 830.0,67.1" style="fill:none;stroke:var(--muted);stroke-width:2;stroke-dasharray:6 4"/><circle cx="80.0" cy="103.9" r="3" style="fill:var(--muted)"/><circle cx="205.0" cy="67.1" r="3" style="fill:var(--muted)"/><circle cx="330.0" cy="165.4" r="3" style="fill:var(--muted)"/><circle cx="455.0" cy="128.6" r="3" style="fill:var(--muted)"/><circle cx="580.0" cy="42.4" r="3" style="fill:var(--muted)"/><circle cx="705.0" cy="67.1" r="3" style="fill:var(--muted)"/><circle cx="830.0" cy="67.1" r="3" style="fill:var(--muted)"/><polyline points="80.0,24.0 205.0,208.5 330.0,208.5 455.0,177.8 580.0,85.5 705.0,54.8 830.0,85.5" style="fill:none;stroke:var(--lov);stroke-width:2;"/><circle cx="80.0" cy="24.0" r="3" style="fill:var(--lov)"/><circle cx="205.0" cy="208.5" r="3" style="fill:var(--lov)"/><circle cx="330.0" cy="208.5" r="3" style="fill:var(--lov)"/><circle cx="455.0" cy="177.8" r="3" style="fill:var(--lov)"/><circle cx="580.0" cy="85.5" r="3" style="fill:var(--lov)"/><circle cx="705.0" cy="54.8" r="3" style="fill:var(--lov)"/><circle cx="830.0" cy="85.5" r="3" style="fill:var(--lov)"/><polyline points="80.0,147.0 205.0,24.0 330.0,24.0 455.0,24.0 580.0,208.5 705.0,208.5 830.0,270.0" style="fill:none;stroke:var(--bp);stroke-width:3.2;"/><circle cx="80.0" cy="147.0" r="4" style="fill:var(--bp)"/><circle cx="205.0" cy="24.0" r="4" style="fill:var(--bp)"/><circle cx="330.0" cy="24.0" r="4" style="fill:var(--bp)"/><circle cx="455.0" cy="24.0" r="4" style="fill:var(--bp)"/><circle cx="580.0" cy="208.5" r="4" style="fill:var(--bp)"/><circle cx="705.0" cy="208.5" r="4" style="fill:var(--bp)"/><circle cx="830.0" cy="270.0" r="4" style="fill:var(--bp)"/></svg></div>
+  <div class="legend" style="margin-top:8px"><span><i style="display:inline-block;width:22px;height:0;border-top:3px solid var(--bp);vertical-align:middle"></i>BotPool Create</span><span><i style="display:inline-block;width:22px;height:0;border-top:3px solid var(--lov);vertical-align:middle"></i>AI app builders (Lovable, Base44)</span><span><i style="display:inline-block;width:22px;height:0;border-top:3px dashed var(--muted);vertical-align:middle"></i>Website builders (Wix, Squarespace, Durable)</span></div>
+  <p class="lede" style="font-size:12px;margin-top:6px">Scores 1–5 are the reviewer's assessment from this review; the website-builder line is the average of Wix, Squarespace and Durable.</p>
+  <h3>Options</h3>
   <div class="opts" id="optCards"></div>
 
   <h3>The plan</h3>
@@ -567,7 +594,7 @@ ul.limits{margin:0;padding-left:20px;display:grid;gap:6px}
 
 <section id="funnel">
   <h2>Actions from first visit to being asked to pay</h2>
-  <p class="lede">Actions (clicks and form fields) needed to finish each stage, with a score out of 5 beside it. Shorter bars mean less effort. BotPool's numbers were counted on a real sign-up on staging. “~” marks an estimate for Lovable and Base44 (real sign-up test: TBD): their sign-up assumes Google sign-up, and their first build assumes your idea carries through sign-up, as their pages say. The striped bar is the extra stage inside BotPool. Click a stage to see the details. Speed and ease scores come from the counted actions; clarity, next step and pricing are the reviewer's judgement. Every product in a stage is scored on the same questions. Speed and ease scale: 0–1 actions = 5, 2 = 4, 3–4 = 3, 5–8 = 2, 9 or more = 1, minus 1 for each dead end.</p>
+  <p class="lede">Actions (clicks and form fields) needed to finish each stage, with a score out of 5 beside it. Shorter bars mean less effort. BotPool's numbers were counted on a real test sign-up. “~” marks an estimate for Lovable and Base44: their sign-up assumes Google sign-up, and their first build assumes your idea carries through sign-up, as their pages say. The striped bar is the extra stage inside BotPool. Click a stage to see the details. Speed and ease scores come from the counted actions; clarity, next step and pricing are the reviewer's judgement. Every product in a stage is scored on the same questions. Speed and ease scale: 0–1 actions = 5, 2 = 4, 3–4 = 3, 5–8 = 2, 9 or more = 1, minus 1 for each dead end.</p>
   <div class="panel">
     <div class="legend" id="funnelLegend" style="margin-bottom:14px"></div>
     <div class="fgrid fhead"><span>Stage</span><span>Actions (clicks + fields)<span class="scale" id="funnelScale"></span></span><span>Score out of 5</span></div>
@@ -592,15 +619,15 @@ ul.limits{margin:0;padding-left:20px;display:grid;gap:6px}
 
 <section id="mobile">
   <h2>On a phone, and how fast it loads</h2>
-  <p class="lede">Each product's website-builder page on a phone-sized screen, plus two loading tests per page on a computer. All three show the typing box straight away on a phone. BotPool hides its menu and Log in, and is the slowest to respond.</p>
+  <p class="lede">Each product's website-builder page on a phone-sized screen, plus two loading tests per page on a computer. All three show the typing box straight away on a phone. BotPool hides its menu and Log in and its server is the slowest to respond, but it scores best on Google's phone speed test (81, against 63 for Base44 and 30 for Lovable).</p>
   <div class="tbl"><table class="cmp" id="mobTable"></table></div>
-  <p class="lede" style="font-size:14px">Pages: botpool.ai/create, lovable.dev/build/website-builder, base44.com/ai-website-builder. Speed comes from two tests on a computer; the second may have been faster because the page was already stored. Speed was measured on a computer only. Phone speed test: TBD (Google's phone speed-test service had reached its daily limit).</p>
+  <p class="lede" style="font-size:14px">Pages: botpool.ai/create, lovable.dev/build/website-builder, base44.com/ai-website-builder. Speed comes from two tests on a computer; the second may have been faster because the page was already stored. Phone results come from Google PageSpeed Insights (mobile): a lab test on a slow phone, plus real-user data from the last 28 days.</p>
   <p><a class="jump" href="#fix-2-3">See the fix for phones →</a> &nbsp; <a class="jump" href="#fix-2-4">See the fix for speed →</a></p>
 </section>
 
 <section id="polish">
   <h2>How polished each one looks</h2>
-  <p class="lede">Side by side on the three screens a new user meets: the builder's first screen, the templates, and the plans. Click a screenshot to see it full size. BotPool screens are from staging; Lovable and Base44 from their live apps.</p>
+  <p class="lede">Side by side on the three screens a new user meets: the builder's first screen, the templates, and the plans. Click a screenshot to see it full size. BotPool screens are from the test environment; Lovable and Base44 from their live apps.</p>
   <div class="tbl"><table id="polishTable"></table></div>
   <div class="legend" style="margin-top:10px"><span><i class="yes">✓</i>yes</span><span><i class="part">–</i>partly</span><span><i class="no">✕</i>no</span></div>
   <div class="shotrow"><h3 id="shots-templates" style="scroll-margin-top:80px">Templates and starting points</h3><div class="shots" id="shotsTemplates"></div></div>
@@ -639,6 +666,21 @@ ul.limits{margin:0;padding-left:20px;display:grid;gap:6px}
   <div class="fixes" id="marketFixes"></div>
 </section>
 
+<section id="conclusion">
+  <h2>Conclusion</h2>
+  <div class="concl">
+    <p>There is a real market for BotPool Create. One in five small businesses still has no website, most already use AI, and the owners who need a site care more about a finished result than about building apps. BotPool Create is the only builder reviewed with an integrated expert handover, and it already leads on clear pricing, credit costs shown up front, and the best score of the three on Google's phone speed test.</p>
+    <p>What holds it back is the route in. A visitor who wants a website starts on a freelancer homepage, fills in a long sign-up form, confirms their email, logs in again, lands in the marketplace and has to type their idea a second time: 18 actions, against about 5 on Lovable and Base44. The integrated expert handover, its main differentiator, only appears after a site is built, while Wix and Squarespace already promote expert help openly, and the Create page doesn't show up in small-business searches.</p>
+    <p>Fix the route first, then make the expert visible and get found:</p>
+    <ol>
+      <li><a href="#fix-1-1">Give website visitors a way in from botpool.ai's first screen</a></li>
+      <li><a href="#fix-3-1">Keep what visitors type through sign-up</a>, <a href="#fix-4-1">make sign-up one click</a>, and <a href="#fix-5-1">land new sign-ups in the builder</a></li>
+      <li><a href="#fix-market-4">Show the expert option before the first site</a> and <a href="#fix-market-1">rank for small-business searches</a></li>
+    </ol>
+    <p>Everything else in the <a href="#ship">priority list</a> refines a route that already works.</p>
+  </div>
+</section>
+
 <footer class="foot-bar"><span>BotPool · Competitor flow review</span></footer>
 </div>
 
@@ -670,13 +712,13 @@ const PATHS={
   b44:[["base44.com (prompt box)",""],["Start building",""],["Sign up",""],["Website builder","goal"]]
 };
 const HELPS=[
-  "A human expert can take over the site from inside the builder. Neither competitor offers this; they only link to lists of partners.",
+  "A human expert can take over the site from within the builder. Lovable and Base44 refer clients to partner directories; Wix and Squarespace match experts outside the editor.",
   "One account covers both: someone who builds a site is one click away from hiring help with SEO, copy or design.",
   "A large marketplace is a strong trust signal, once the numbers are checked."
 ];
 const COSTS=[
   "botpool.ai opens on “Hire Top AI Freelancers”. The builder is a “Create NEW” link in the menu.",
-  "New users land in the freelancer marketplace, not the builder (seen in the first review and again on a real sign-up on staging).",
+  "New users land in the freelancer marketplace, not the builder (seen in the first review and again in a test sign-up).",
   "Freelancer accounts can't use the builder at all: “available to client accounts only”.",
   "The Create page doesn't notice signed-in freelancers: it still shows Log in and Start free (signed-in clients are recognised)."
 ];
@@ -707,9 +749,9 @@ const STEPS=[
    cells:{
     "Headline":{bp:"Hire Top AI Freelancers",bpc:"Create a Website in Minutes",lov:"Build something Lovable",b44:"Every builder needs a base"},
     "Main button":{bp:"Search / Post a Job",bpc:"Build · Start free · Build my website for free",lov:"Get started · Get started for free",b44:"Start building"},
-    "Can you start before making an account?":{bp:"Not applicable",bpc:"You can type; Build then asks you to sign up, and at the time of the review your text was lost",lov:"Yes: type on the main page, sign up when you send it, and your text is kept (Lovable help pages)",b44:"Yes: what you type is passed to sign-up, and the app starts building once you're in (seen in page code)"},
-    "Proof shown":{bp:"Freelancer cards with ratings",bpc:["“Backed by 26,000+ BotPool experts” (BotPool's press release counts 26,000 registered members); the page calls them “vetted”, which the owner says isn't true","gap"],lov:"Adidas, Nvidia and Zendesk logos; a customer saving $2M+; 60 million projects",b44:"A founder story ($1M a year in revenue within 3 months); 10M+ users; owned by Wix"},
-    "Examples":{bp:"None",bpc:["6 real sites made with it, and one site shown in 3 styles","win"],lov:"Website templates on the builder page",b44:"6 templates you can copy or preview"},
+    "Can you start before making an account?":{bp:"Not applicable",bpc:"You can type; Build then asks you to sign up, and your text is lost after sign-up (seen in a test sign-up)",lov:"Yes: type on the main page, sign up when you send it, and your text is kept (Lovable help pages)",b44:"Yes: what you type is passed to sign-up, and the app starts building once you're in (seen in page code)"},
+    "Proof shown":{bp:"Freelancer cards with ratings",bpc:["“Backed by 26,000+ BotPool experts” (BotPool's press release counts 26,000 registered members); the page calls them “vetted”, which can't be backed up","gap"],lov:"Adidas, Nvidia and Zendesk logos; a customer saving $2M+; 60 million projects",b44:"A founder story ($1M a year in revenue within 3 months); 10M+ users; owned by Wix"},
+    "Examples":{bp:"None",bpc:"6 example sites it generated (screenshots; none are live), and one site shown in 3 styles",lov:"Website templates on the builder page",b44:"6 templates you can copy or preview"},
     "Prices shown":{bp:"None",bpc:["All plans, credit costs and questions on the page","win"],lov:"Link to a separate page",b44:"Free vs “from $16 a month”"},
     "What you see without scrolling":{bp:"Search box and categories",bpc:"Headline, the typing box, a trust line and a live example",lov:"Headline and the typing box",b44:"Headline, the typing box and the four options"}
    },
@@ -719,12 +761,12 @@ const STEPS=[
     lov:{clicks:0,scores:[4,null,null,5,null],friction:"Prices are on a separate page; the page is long and focused on apps."},
     b44:{clicks:0,scores:[4,null,null,4,null],friction:"Many products on one page (apps, websites, assistants)."}
    },
-   why:"Competitors put strong proof right next to the main button: famous logos and hard numbers. The Create page has better product proof (real sites it made) but weak proof from customers, and the one number it uses counts registered members, not proven experts.",
+   why:"Competitors put strong proof right next to the main button: famous logos and hard numbers. The Create page shows product proof (screenshots of sites it generated, though none are live) but weak proof from customers, and the one number it uses counts registered members, not proven experts.",
    fixes:[
-    {title:"Remove the “vetted” claims from the Create page",problem:"The Create page promises a “vetted expert” and “26,000+ vetted members”. The owner confirms there is no vetting, so this is a trust and legal risk on the page that sells the product.",fix:"Use wording that's true, e.g. “Hand your site to a BotPool expert”, with a checked member count. The client home lists about 2,178 developers, so check where 26,000 comes from. The “Hire an Expert” window inside the builder also offers “a vetted team”.",metric:"Wording changed on the live page",impact:"Low",effort:"Low",priority:"P4"},
+    {title:"Remove the “vetted” claims from the Create page",problem:"The Create page promises a “vetted expert” and “26,000+ vetted members”. No vetting process could be found behind it, so this is a trust and legal risk on the page that sells the product.",fix:"Use wording that's true, e.g. “Hand your site to a BotPool expert”, with a checked member count. The client home lists about 2,178 developers, so check where 26,000 comes from. The “Hire an Expert” window inside the builder also offers “a vetted team”.",metric:"Wording changed on the live page",impact:"Low",effort:"Low",priority:"P4"},
     {title:"Put real customer proof next to the Build button",problem:"The only proof under the typing box is “Backed by 26,000+ BotPool experts”. Lovable shows famous logos and revenue stories; Base44 a founder story and “10M+ builders”.",fix:"Add 2 or 3 real customers (their site and a one-line quote), or a live count of sites published, right under the typing box.",metric:"How many visitors press Build",impact:"Medium",effort:"Low",priority:"P2"},
     {title:"Add a menu with Log in to the Create page on phones",problem:"On a phone, the Create page hides How it works, Showcase, Pricing and Log in, and shows no menu button. Returning users can't log in from the page, and the chat bubble covers the example site. Signed in, the menu is wider than the screen and “Start free” is cut off.",fix:"Add a menu button with Log in, Pricing and Showcase. Move the chat bubble lower, or hide it until the visitor scrolls.",metric:"Log-ins and sign-ups from phones on the Create page",impact:"Medium",effort:"Low",priority:"P2"},
-    {title:"Make the Create page respond faster",problem:"The Create page took the longest to start loading in both tests (1.2 s and 0.6 s, against Base44's 0.2 s and 0.04 s).",fix:"Serve the page from a cache close to visitors (it rarely changes), then run a proper mobile speed test to confirm.",metric:"Main content visible within 2.5 s on a phone",impact:"Low",effort:"Medium",priority:"P4"}
+    {title:"Make the Create page respond faster",problem:"The Create page's server is the slowest of the three to respond (1.2 s for real phone users). Real phone users wait 3.6 s for the main content, which fails Google's 2.5 s target, even though it scores best of the three in Google's lab test (81).",fix:"Serve the page from a cache close to visitors (it rarely changes), then re-check the real-user results in PageSpeed Insights.",metric:"Main content visible within 2.5 s on a phone",impact:"Low",effort:"Medium",priority:"P4"}
    ]
   },
   {label:"3",title:"Getting to sign-up",desc:"From the main page to the sign-up form",
@@ -743,7 +785,7 @@ const STEPS=[
    },
    why:"Remembering where you came from and what you typed makes sign-up feel like part of building, not a detour. Lovable and Base44 do this on every link.",
    fixes:[
-    {title:"Keep what the visitor typed through sign-up",problem:"On a real sign-up on staging, the sign-up page said “Your brief is saved”, but after confirming the email and logging in again the builder's box was empty, so the idea had to be typed again. Start free also leads to a general sign-up with no way back to the builder (Log in has one).",fix:"After sign-up and email confirmation, open the builder with the visitor's text already filled in.",metric:"How many new sign-ups build a site",impact:"High",effort:"Low",priority:"P1"},
+    {title:"Keep what the visitor typed through sign-up",problem:"On a real test sign-up, the sign-up page said “Your brief is saved”, but after confirming the email and logging in again the builder's box was empty, so the idea had to be typed again. Start free also leads to a general sign-up with no way back to the builder (Log in has one).",fix:"After sign-up and email confirmation, open the builder with the visitor's text already filled in.",metric:"How many new sign-ups build a site",impact:"High",effort:"Low",priority:"P1"},
     {title:"Notice signed-in freelancers on the Create page",problem:"Signed-in clients are recognised (“My websites”, and Start free opens the builder). Signed-in freelancers still see Log in and Start free, and pressing Start free lands them on their dashboard with no explanation.",fix:"For freelancer accounts, explain that the builder needs a client account and offer to add one in a click, or let freelancers use it too.",metric:"Signed-in visitors who leave the Create page",impact:"Low",effort:"Low",priority:"P4"}
    ]
   },
@@ -751,18 +793,18 @@ const STEPS=[
    compare:["Ways to sign up","What you have to fill in","Email confirmation","Extra questions before you start"],
    diff:"Lovable and Base44 both let you sign up in one click with Google (Lovable also offers GitHub and Apple). BotPool's builder sign-up takes 12 actions: a five-field form with a terms box, an email confirmation, and then logging in again.",
    cells:{
-    "Ways to sign up":{bp:["Email and password form; no Google option on the form (checked in the page code). Google appears on the log-in page. Staging (the next release) now shows “Sign in with Google” on the Create sign-up page","gap"],lov:"Google, GitHub, Apple, email or company sign-in (help pages and page code)",b44:"Google, GitHub, Apple or email (page code)"},
+    "Ways to sign up":{bp:["Email and password form; no Google option on the form (checked in the page code). Google appears on the log-in page. The next release (seen in testing) shows “Sign in with Google” on the Create sign-up page","gap"],lov:"Google, GitHub, Apple, email or company sign-in (help pages and page code)",b44:"Google, GitHub, Apple or email (page code)"},
     "What you have to fill in":{bp:["First name, last name, email, password, country, and a terms box","gap"],lov:"Nothing with Google, GitHub or Apple; email and password otherwise",b44:"Nothing with Google or GitHub; email and password otherwise"},
-    "Email confirmation":{bp:"Yes, before you can start, and then you have to log in again (counted on a real sign-up on staging)",lov:"None needed with Google, GitHub or Apple",b44:"None with Google, GitHub or Apple; a verification code for email sign-up (page code)"},
+    "Email confirmation":{bp:"Yes, before you can start, and then you have to log in again (counted on a real test sign-up)",lov:"None needed with Google, GitHub or Apple",b44:"None with Google, GitHub or Apple; a verification code for email sign-up (page code)"},
     "Extra questions before you start":{bp:"None",lov:"None: you go straight to the dashboard (help pages)",b44:"None: you land on the dashboard with three ways to start"}
    },
    data:{
-    bp:{clicks:12,dead:1,deadWhy:"you have to log in again after confirming your email",scores:[null,null,null,null,null],friction:"Counted on a real sign-up on staging: 12 actions. First name, last name, email, password (4), country typed then picked from a list (2), the terms box (1), Sign Up (1), the email link (1), then logging in again: email, password, Log in (3)."},
+    bp:{clicks:12,dead:1,deadWhy:"you have to log in again after confirming your email",scores:[null,null,null,null,null],friction:"Counted on a real test sign-up: 12 actions. First name, last name, email, password (4), country typed then picked from a list (2), the terms box (1), Sign Up (1), the email link (1), then logging in again: email, password, Log in (3)."},
     lov:{clicks:2,est:true,scores:[null,null,null,null,null],friction:"From Lovable's help pages and page code. 2 clicks with Google sign-up."},
     b44:{clicks:2,est:true,scores:[null,null,null,null,null],friction:"From Base44's page code: “Sign up to watch it come to life”. 2 clicks with Google sign-up; email sign-up needs a verification code."}
    },
    why:"Every field, and every trip to the inbox, before the first result loses people. One-click sign-up with Google turns making an account into one click.",
-   fixes:[{title:"Make builder sign-up one click",problem:"Builder sign-up asks for first name, last name, email, password and country, a terms box, then an email confirmation and a second log-in: 12 actions, counted on staging, before building.",fix:"Put “Continue with Google” at the top (BotPool already supports Google sign-in), drop the country field (ask when they pay), sign people in automatically when they click the email link (saves 3 actions), and let people build before they confirm their email.",metric:"How many people who start sign-up finish it",impact:"High",effort:"Medium",priority:"P1"}]
+   fixes:[{title:"Make builder sign-up one click",problem:"Builder sign-up asks for first name, last name, email, password and country, a terms box, then an email confirmation and a second log-in: 12 actions, counted in a test sign-up, before building.",fix:"Put “Continue with Google” at the top (BotPool already supports Google sign-in), drop the country field (ask when they pay), sign people in automatically when they click the email link (saves 3 actions), and let people build before they confirm their email.",metric:"How many people who start sign-up finish it",impact:"High",effort:"Medium",priority:"P1"}]
   },
   {label:"5",title:"After sign-up",desc:"The first screen once you're in",
    compare:["First screen","Help getting started","Free credits shown","Obvious next step"],
@@ -801,11 +843,11 @@ const STEPS=[
     "How you start":{bp:"Type, answer a few quick questions, or start blank",lov:"Type or pick a template",b44:"Type (and pick an AI model) or pick a template"},
     "Help with what to type":{bp:"Suggestions (Bakery, Law firm, Fitness studio), and 9 industry templates in the “New Website” window, as text cards without previews",lov:"An example in the box; templates",b44:"Templates; the four options on the main page"},
     "Cost shown before building":{bp:["Yes: full site 75, change 15, question 5","win"],lov:"Only after you send it",b44:"Not shown"},
-    "Free allowance":{bp:["150 credits a month, enough for 2 full sites","win"],lov:"5 credits a day, up to 30 a month",b44:"5 messages a day, up to 25 a month"}
+    "Free allowance":{bp:["1 website and 150 credits a month, enough for 2 full builds","win"],lov:"5 credits a day, up to 30 a month",b44:"5 messages a day, up to 25 a month"}
    },
-   data:{bp:{clicks:2,dead:1,deadWhy:"the idea typed before sign-up is lost",scores:[null,null,null,null,5],friction:"Counted on staging: the idea typed before sign-up was gone (despite “Your brief is saved”), so it had to be typed again before pressing Build (2). Only 3 suggestions to start from, and the free allowance is shown as “150 credits” rather than “2 sites”."},lov:{clicks:1,est:true,scores:[null,null,null,null,3],friction:"The cost of a message is only shown after it's sent; free use stops at 30 credits a month."},b44:{clicks:1,est:true,scores:[null,null,null,null,2],friction:"No cost shown before building; free use stops at 25 messages a month."}},
-   why:"Knowing the price before you press Build takes away the fear of wasting credits, which is the top complaint about both Lovable and Base44. BotPool is the only one that shows it, and its free plan covers two full sites, while the competitors limit free use to 5 a day.",
-   fixes:[{title:"Say “2 free sites” next to the Build button",problem:"BotPool's free plan is the clearest (a known cost per site), but it's shown as “150 credits”, which means nothing to a newcomer.",fix:"Next to Build, say “Free: build 2 full sites this month”. Keep the cost of each action visible.",metric:"How many free users build their first site",impact:"Low",effort:"Low",priority:"P4"}]
+   data:{bp:{clicks:2,dead:1,deadWhy:"the idea typed before sign-up is lost",scores:[null,null,null,null,5],friction:"Counted in a test sign-up: the idea typed before sign-up was gone (despite “Your brief is saved”), so it had to be typed again before pressing Build (2). Only 3 suggestions to start from, and the free allowance is shown as “150 credits” rather than in builds."},lov:{clicks:1,est:true,scores:[null,null,null,null,3],friction:"The cost of a message is only shown after it's sent; free use stops at 30 credits a month."},b44:{clicks:1,est:true,scores:[null,null,null,null,2],friction:"No cost shown before building; free use stops at 25 messages a month."}},
+   why:"Knowing the price before you press Build takes away the fear of wasting credits, which is the top complaint about both Lovable and Base44. BotPool is the only one that shows it, and its free credits cover two full builds a month, while the competitors limit free use to 5 a day.",
+   fixes:[{title:"Explain the free allowance next to the Build button",problem:"BotPool's free plan is the clearest (a known cost per build), but it's shown as “150 credits”, which means nothing to a newcomer.",fix:"Next to Build, say “Free: 1 website, enough credits for 2 full builds a month”. Keep the cost of each action visible.",metric:"How many free users build their first site",impact:"Low",effort:"Low",priority:"P4"}]
   },
   {label:"8",title:"Asking for payment",desc:"Where and how each one asks for money",
    compare:["What prompts it","Plans offered","Cheapest paid plan","What stays free","Deadline or discount"],
@@ -822,15 +864,15 @@ const STEPS=[
     lov:{clicks:1,scores:[4,null,null,4,3],friction:"Credit sizes make prices hard to compare."},
     b44:{clicks:1,scores:[3,null,null,4,3],friction:"Pressure from a countdown before anything is built."}
    },
-   why:"Competitors give you a reason to pay now: a deadline, or a daily limit you keep hitting. BotPool has a better reason that nobody else has: a real person who can finish the job.",
-   fixes:[{title:"Offer an expert, not only an upgrade, when credits run out",problem:"BotPool's unique option (hand the site to an expert) isn't offered when a free user hits a limit.",fix:"When credits run out or someone asks for their own domain, offer two choices: upgrade to Pro, or “Have an expert finish it”. Try a first-week discount on yearly plans.",metric:"Free users who pay, and expert jobs started from the builder",impact:"High",effort:"Medium",priority:"P2"}]
+   why:"Competitors give you a reason to pay now: a deadline, or a daily limit you keep hitting. BotPool has a stronger reason: an integrated expert who can finish the job on the same site.",
+   fixes:[{title:"Offer an expert, not only an upgrade, when credits run out",problem:"BotPool's integrated expert handover isn't offered when a free user hits a limit.",fix:"When credits run out or someone asks for their own domain, offer two choices: upgrade to Pro, or “Have an expert finish it”. Try a first-week discount on yearly plans.",metric:"Free users who pay, and expert jobs started from the builder",impact:"High",effort:"Medium",priority:"P2"}]
   }
 ].map(s=>({diff:"",cells:{},why:"",fixes:[],...s,data:{bp:{},bpc:{},lov:{},b44:{},...(s.data||{})}}));
 
 const TACTICS=[
   {tactic:"A box to type your idea on the main page",to:"fix-1-1",lab:"See the fix",bp:"part",lov:"yes",b44:"yes",gap:"On the Create page, but not on botpool.ai",step:"1"},
   {tactic:"Sign-up brings you back to what you were doing",to:"fix-3-1",lab:"See the fix",bp:"no",lov:"yes",b44:"yes",gap:"Start free forgets where you came from",step:"3"},
-  {tactic:"One-click sign-up with Google, GitHub or Apple",to:"fix-4-1",lab:"See the fix",bp:"part",lov:"yes",b44:"yes",gap:"No Google option on the sign-up form (staging now has one)",step:"4"},
+  {tactic:"One-click sign-up with Google, GitHub or Apple",to:"fix-4-1",lab:"See the fix",bp:"part",lov:"yes",b44:"yes",gap:"No Google option on the sign-up form (the next release has one)",step:"4"},
   {tactic:"Free plan without a card",to:"row-8-what-stays-free",lab:"See the comparison",bp:"yes",lov:"yes",b44:"yes",gap:"Nothing: all three offer it",step:"4"},
   {tactic:"Straight into the builder after sign-up",to:"fix-5-1",lab:"See the fix",bp:"no",lov:"yes",b44:"yes",gap:"New clients land in the freelancer marketplace",step:"6"},
   {tactic:"Templates or examples to start from",to:"row-7-help-with-what-to-type",lab:"See the comparison",bp:"part",lov:"yes",b44:"yes",gap:"9 industry templates, but as text cards with no previews",step:"7"},
@@ -845,7 +887,7 @@ const TACTICS=[
   {tactic:"Main page notices you're already signed in",to:"fix-3-2",lab:"See the fix",bp:"part",lov:"yes",b44:"part",gap:"Clients yes (“My websites”); freelancers still see “Start free”",step:"3"}
 ];
 
-const MOBILE_ROWS=["Typing box and Build button visible without scrolling","Menu on phones","Log in easy to find","Notices you're signed in","Speak instead of type","Chat bubble covering the page","Time for the server to respond (2 tests)","Time to fully load (2 tests)","Page size"];
+const MOBILE_ROWS=["Typing box and Build button visible without scrolling","Menu on phones","Log in easy to find","Notices you're signed in","Speak instead of type","Chat bubble covering the page","Time for the server to respond (2 tests)","Time to fully load (2 tests)","Page size","Google phone speed score (out of 100)","Main content shown on a slow phone (lab test)","Real phone users, last 28 days"];
 const MOBILE={
   "Typing box and Build button visible without scrolling":{bp:["Yes","win"],lov:"Yes",b44:"Yes"},
   "Menu on phones":{bp:["None: How it works, Showcase and Pricing are hidden, with no menu button","gap"],lov:"Menu button",b44:"Menu button"},
@@ -855,14 +897,17 @@ const MOBILE={
   "Chat bubble covering the page":{bp:"Covers the example site",lov:"No",b44:"No"},
   "Time for the server to respond (2 tests)":{bp:["1.2 s and 0.6 s: slowest","gap"],lov:"0.4 s and 0.5 s",b44:"0.2 s and 0.04 s"},
   "Time to fully load (2 tests)":{bp:"4.2 s and 1.9 s",lov:"7.3 s and 0.6 s",b44:"0.7 s and 0.2 s"},
-  "Page size":{bp:"0.7 MB",lov:"1.6 MB",b44:"0.9 MB"}
+  "Page size":{bp:"0.7 MB",lov:"1.6 MB",b44:"0.9 MB"},
+  "Google phone speed score (out of 100)":{bp:["81: best of the three","win"],lov:"30",b44:"63"},
+  "Main content shown on a slow phone (lab test)":{bp:["2.8 s","win"],lov:"19.5 s",b44:"9.2 s"},
+  "Real phone users, last 28 days":{bp:["Fails Google's check: main content in 3.6 s (target 2.5 s), server responds in 1.2 s","gap"],lov:"Fails: main content in 6 s, taps take 1.1 s to respond",b44:"Fails on tap response (0.3 s); main content in 1.9 s"}
 };
 
 const EVIDENCE={
   "1":{bp:["https://www.botpool.ai/","Headline “Hire Top AI Freelancers”, freelancer search, categories"],bpc:["https://www.botpool.ai/create","Headline “Create a Website in Minutes”, typing box and Build, live example"],lov:["https://lovable.dev/","Headline “Build something Lovable”, typing box, “Get started for free”"],b44:["https://base44.com/","Headline “Every builder needs a base”, typing box, four options"]},
-  "2":{bp:["https://www.botpool.ai/","The builder is reached through the “Create NEW” link in the menu"],bpc:["https://www.botpool.ai/create","Trust line, 6 real sites, 3 styles, all prices, questions"],lov:["https://lovable.dev/","Famous logos, customer stories, 60 million projects; prices on another page"],b44:["https://base44.com/","Founder story, Free vs “from $16 a month”, questions"]},
+  "2":{bp:["https://www.botpool.ai/","The builder is reached through the “Create NEW” link in the menu"],bpc:["https://www.botpool.ai/create","Trust line, 6 example sites, 3 styles, all prices, questions"],lov:["https://lovable.dev/","Famous logos, customer stories, 60 million projects; prices on another page"],b44:["https://base44.com/","Founder story, Free vs “from $16 a month”, questions"]},
   "3":{bp:["https://www.botpool.ai/create","Signed in: still “Log in” and “Start free”; Start free opens a freelancer's dashboard"],lov:["https://lovable.dev/pricing","Every Get started link brings you back to the page you were on"],b44:["https://base44.com/","Start building opens sign-up and remembers where you came from"]},
-  "4":{bp:["BotPool staging, Create sign-up page","Staging, real sign-up: 5 fields and a terms box, Sign Up, email link, then log in again (12 actions)"],lov:["https://docs.lovable.dev/introduction/create-an-account","Email, Google, GitHub, Apple, company sign-in"],b44:["https://app.base44.com/register","Sign up with Google, GitHub or Apple, or email with a verification code; “Sign up to watch it come to life”"]},
+  "4":{bp:["BotPool test environment, Create sign-up page","Test sign-up: 5 fields and a terms box, Sign Up, email link, then log in again (12 actions)"],lov:["https://docs.lovable.dev/introduction/create-an-account","Email, Google, GitHub, Apple, company sign-in"],b44:["https://app.base44.com/register","Sign up with Google, GitHub or Apple, or email with a verification code; “Sign up to watch it come to life”"]},
   "5":{bp:["From the site map","Client home: “Your freelance dream team, powered by AI”"],lov:["https://lovable.dev/dashboard","“What should we build, [name]?”, Upgrade to Pro, credits for inviting friends"],b44:["https://app.base44.com/","“Hi [name]. What will you build next?”, 30%-off countdown, templates"]},
   "6":{bp:["https://www.botpool.ai/portal/client/create","Freelancer account: sent to the dashboard with “available to client accounts only”"]},
   "7":{bp:["From the site map","Builder: suggestions, 150 credits, full site 75, change 15"],lov:["https://lovable.dev/pricing","A landing page costs about 1.7 credits; cost shown after sending"],b44:["https://app.base44.com/","Typing box with AI model choice, and templates"]},
@@ -881,7 +926,7 @@ const SEARCHES=[
 ];
 const SHORT=[
   {t:"Get BotPool Create found by small businesses",d:"Google shows it for its own name, but it didn't show up in any of the 6 small-business searches checked.",href:"#fix-market-1",ev:[["searches","See the 6 searches"],["fix-market-1","See the fix"]]},
-  {t:"Show the expert option before sign-up",d:"BotPool's one unique advantage, a real expert who can take over your site, only appears after a site is built. Put it on the Create page and in the empty builder.",href:"#fix-market-4",ev:[["fix-market-4","See what the expert window offers"],["lacking","See the gaps"]]},
+  {t:"Show the expert option before sign-up",d:"BotPool's main differentiator, an expert handover integrated into the builder, only appears after a site is built, while Wix and Squarespace already promote expert help. Put it on the Create page and in the empty builder.",href:"#fix-market-4",ev:[["fix-market-4","See what the expert window offers"],["lacking","See the gaps"]]},
   {t:"Let website builders start building straight away",d:"A way in from botpool.ai, one-click sign-up, and new users landing in the builder, not the marketplace.",href:"#fix-1-1",ev:[["funnel","See the actions: 18 vs ~5"],["step1","See the homepage"],["step4","See the sign-up form"]]}
 ];
 const MSTATS=[
@@ -889,30 +934,38 @@ const MSTATS=[
   {n:"4–5×",t:"more searches for “AI website builder” than two years ago, though interest has cooled since its peak.",s:"Google Trends, worldwide",u:"https://trends.google.com/trends/explore?date=2024-01-01%202026-09-20&q=AI%20website%20builder,vibe%20coding,AI%20app%20builder,website%20for%20small%20business"},
   {n:"$200–600",t:"a year is what small businesses typically pay for a do-it-yourself builder; an agency or freelancer site usually costs $1,000–10,000.",s:"Squarespace and Wix pricing · Clutch pricing guide",u:"https://clutch.co/web-designers/pricing"}
 ];
+const PLANCMP=[
+  {n:"BotPool Create",us:true,free:["1 website on a BotPool subdomain, 150 credits a month (2 full builds)","win"],paid:["Pro: $15/mo ($19 monthly)","win"],dom:"Connect your own; buy one in the builder on Pro",first:["About $195","win"],ai:"750 credits a month on Pro (a full build uses 75)",exp:"Integrated handover; priced per job"},
+  {n:"Wix",free:"Yes: Wix branding, wixsite.com address",paid:"Light: $17/mo",dom:"Free for the first year",first:"About $205",ai:"AI site builder included",exp:"“Hire a Professional” matching; quoted per project"},
+  {n:"Squarespace",free:["None: 14-day trial only","gap0"],paid:"Basic: $19/mo ($25 monthly)",dom:"Free for the first year",first:"About $230",ai:"AI site builder included",exp:"99designs matching; quoted per project"},
+  {n:"Durable",free:"Build and share a preview; publishing needs Launch",paid:"Launch: $22/mo ($25 monthly)",dom:"Included (up to $20)",first:"About $265",ai:"1,000 AI chat messages a month on Launch",exp:"Onboarding call on Grow ($41/mo)"},
+  {n:"Lovable",free:"Yes: 5 credits a day, up to 30 a month",paid:"Pro: $21/mo ($25 monthly)",dom:"Not included",first:"About $265",ai:"100 credits a month on Pro",exp:"Partner directory"},
+  {n:"Base44",free:"Yes: 5 messages a day, up to 25 a month",paid:"Starter: $16/mo",dom:"Connect your own on Starter",first:"About $210",ai:"100 message credits a month on Starter",exp:"Partner directory"}
+];
 const RIVALS=[
-  {name:"BotPool Create",us:true,aud:"Local small businesses",cost:"About $195",local:"Contact forms with inbox, search settings, visitor stats. No bookings, Google listing, reviews or maps",expert:"Yes: an expert takes over the same site (not yet visible on the marketplace)",rev:"No reviews yet"},
+  {name:"BotPool Create",us:true,aud:"Local small businesses",cost:"About $195",local:"Contact forms with inbox, search settings, visitor stats. No bookings, Google listing, reviews or maps",expert:"Integrated: an expert is engaged and works on the same site from within the builder (shown only after a site exists)",rev:"No reviews yet"},
   {name:"Lovable",aud:"App builders, teams, large companies",cost:"About $265",local:"Anything, if you ask the AI to build it",expert:"List of partners",rev:"4.2 (1,723)"},
   {name:"Base44",aud:"App builders (owned by Wix)",cost:"About $210",local:"App-style features",expert:"List of partners",rev:"2.8 (891)"},
-  {name:"Wix (owns Base44)",aud:"Everyone",cost:"About $205 (about $350 with bookings)",local:"Bookings, customer list, email marketing, search tools",expert:"Separate directory of Wix partners",rev:"3.5 (29,049)"},
+  {name:"Wix (owns Base44)",aud:"Everyone",cost:"About $205 (about $350 with bookings)",local:"Bookings, customer list, email marketing, search tools",expert:"“Hire a Professional” matching; partner then added as a collaborator",rev:"3.5 (29,049)"},
   {name:"Durable",aud:"Sole traders and local businesses",cost:"About $265",local:"Bookings, Google Business Profile, review requests, customer list, invoices",expert:"Onboarding call only",rev:"4.7 (322)"},
-  {name:"Squarespace",aud:"Design-led small businesses",cost:"About $230",local:"Invoices, forms, newsletter; bookings cost extra",expert:"“Hire an expert” matching",rev:"3.6 (5,388)"}
+  {name:"Squarespace",aud:"Design-led small businesses",cost:"About $230",local:"Invoices, forms, newsletter; bookings cost extra",expert:"Expert matching via 99designs: brief, proposals, then contributor access",rev:"3.6 (5,388)"}
 ];
 const PAINS=[
-  {p:"Credits run out fast and the cost is hard to predict",w:"Lovable, Base44, Wix AI",b:["BotPool shows the cost before each build (75 credits a site). Say “2 free sites a month” in plain words.","win"]},
-  {p:"Paying for the AI's mistakes, with no refunds",w:"Lovable, Base44",b:["Offer a human expert when the AI can't get it right. No rival does this.","win"]},
-  {p:"Sites that Google can't read properly",w:"Older Lovable sites; Base44 on free addresses",b:["Test on a live BotPool Create site: TBD (none could be found, and the examples on the Create page aren't live).","gap"]},
+  {p:"Credits run out fast and the cost is hard to predict",w:"Lovable, Base44, Wix AI",b:["BotPool shows the cost before each build (75 credits a site). Say “1 free website, 2 full builds a month” in plain words.","win"]},
+  {p:"Paying for the AI's mistakes, with no refunds",w:"Lovable, Base44",b:["Offer an integrated expert handover when the AI can't get it right. Lovable and Base44 offer only partner directories; Wix and Squarespace match experts outside the editor.","win"]},
+  {p:"Sites that Google can't read properly",w:"Older Lovable sites; Base44 on free addresses",b:["The example sites on the Create page aren't live, so visitors can't see a published BotPool site.","gap"]},
   {p:"Can't take the site or domain elsewhere",w:"Durable, Wix, Base44",b:["BotPool offers HTML export on Pro, but doesn't say what happens if you stop paying.","gap"]},
-  {p:"Hard to reach a real person",w:"Wix, Lovable (free plan), Base44",b:["BotPool's builder has a “Hire an Expert” window once a site exists. It isn't shown before that.","win"]},
+  {p:"Hard to reach a real person",w:"Wix, Lovable (free plan), Base44",b:["BotPool's builder has an integrated “Hire an Expert” window once a site exists, simpler than matching services, but it isn't shown before that.","win"]},
   {p:"Surprise charges and hard-to-cancel plans",w:"Base44, Wix",b:["BotPool's prices are simple. Keep cancelling just as simple.","win"]}
 ];
 const FIT=[
   {a:"Is there demand?",to:"mStats",v:"Strong",d:"Many small businesses still have no website, and most already use AI."},
-  {a:"Is it for a clear audience?",to:"audience",v:"Strong",d:"The only builder in this review speaking plainly to local businesses, with 8 industry pages (from salons to trades)."},
+  {a:"Is it for a clear audience?",to:"audience",v:"Strong",d:"Speaks plainly to local businesses, as Durable does, with 8 industry pages (from salons to trades)."},
   {a:"Is the price right?",to:"row-8-cheapest-paid-plan",v:"Strong",d:"The cheapest first year of the builders compared (about $195 with your own domain), and the only one that shows the cost of each build up front."},
   {a:"Does it do what local businesses need?",to:"fix-market-5",v:"Weak",d:"No bookings, Google listing, reviews or maps. Wix and Durable include them, and Lovable and Base44 can build them on request."},
-  {a:"Is there a unique advantage?",to:"fix-market-4",v:"Strong",d:"A human expert can take over the same site. No rival offers this inside the builder. Confirmed: a “Hire an Expert from BotPool” window inside the builder."},
+  {a:"Is there a unique advantage?",to:"fix-market-4",v:"Strong",d:"A human expert can take over the same site from within the builder; Wix and Squarespace offer matching outside the editor. Confirmed: a “Hire an Expert from BotPool” window inside the builder."},
   {a:"Can people find it?",to:"searches",v:"Mixed",d:"Google shows the Create page first for “BotPool Create”. But it didn't appear on Google's first page for any of the 6 small-business searches checked, and botpool.ai's first screen is about hiring, with Create as a menu link."},
-  {a:"Can people trust it?",to:"fix-market-3",v:"Mixed",d:"Early days: Create has only just launched, so no reviews yet is expected. Housekeeping to do: “Vetted” claims the owner says are false. Member counts that don't match (26,000+ on Create, 20,000+ on One, about 2,178 listed). The terms mention Create only in their page description."},
+  {a:"Can people trust it?",to:"fix-market-3",v:"Mixed",d:"Early days: Create has only just launched, so no reviews yet is expected. Housekeeping to do: “Vetted” claims that can't be backed up. Member counts that don't match (26,000+ on Create, 20,000+ on One, about 2,178 listed). The terms mention Create only in their page description."},
   {a:"Do the published sites work?",to:"fix-market-2",v:"Mixed",d:"Yes: published sites live at name.botpool.ai. But the examples on the Create page show a botpool.site address that doesn't exist, and the example site isn't live."},
   {a:"Does the marketplace feed it (and the reverse)?",to:"fix-market-4",v:"Mixed",d:"The two link to each other: menu links both ways, and a “Hire an Expert” window inside the builder once a site exists. But there's no website category, and the SEO gigs have no reviews yet."}
 ];
@@ -950,34 +1003,41 @@ const POLISH=[
   {q:"Greets you by name",bp:"no",lov:"yes",b44:"yes",n:"Lovable and Base44 open with “What should we build, [name]?”; BotPool opens on “Create a Website in Minutes”",to:"shots-home"},
   {q:"Wording matches across screens",bp:"no",lov:"yes",b44:"yes",n:"BotPool's page says “No code, no templates” above a template picker",to:"shots-home"},
   {q:"Credit costs shown on the home screen",bp:"yes",lov:"no",b44:"no",n:"BotPool is ahead: keep it",to:"shots-home"},
-  {q:"Plans screen points to a recommended plan",bp:"no",lov:"part",b44:"yes",n:"Base44 marks “Most popular”; Lovable colours the Pro button",to:"shots-plans"},
+  {q:"Plans screen points to a recommended plan",bp:"part",lov:"part",b44:"yes",n:"BotPool's Create page marks Pro “Most popular”, but the upgrade window inside the builder doesn't; Base44 marks “Most popular”; Lovable colours the Pro button",to:"shots-plans"},
   {q:"Yearly saving shown on the switch",bp:"no",lov:"yes",b44:"yes",n:"BotPool's switch only says “Annual” (it saves about 20%)",to:"shots-plans"}
 ];
 const POLISH_FIXES=[
-  {title:"Show a preview picture for each template",problem:"The “New Website” window lists 9 industry templates as text cards. Visitors can't see what they'll get, 5 of the 9 names are cut off, and the titles don't line up. Lovable and Base44 show a picture of every template.",fix:"Add a thumbnail to each card (the 6 real sites on the Create page are a start), let names wrap to two lines, and line up titles at the top.",metric:"Share of new sites started from a template",impact:"Medium",effort:"Medium",priority:"P2"},
+  {title:"Show a preview picture for each template",problem:"The “New Website” window lists 9 industry templates as text cards. Visitors can't see what they'll get, 5 of the 9 names are cut off, and the titles don't line up. Lovable and Base44 show a picture of every template.",fix:"Add a thumbnail to each card (the 6 example sites on the Create page are a start), let names wrap to two lines, and line up titles at the top.",metric:"Share of new sites started from a template",impact:"Medium",effort:"Medium",priority:"P2"},
   {title:"Use one way to start a site",problem:"The builder home has a typing box and a separate “Build My First Site” button that opens a form asking for a business name and a site address before anything is built.",fix:"Make “Build My First Site” focus the typing box (with templates below it), and ask for the site address after the first draft, filled in from the business name.",metric:"Share of new users who start a first build",impact:"Medium",effort:"Low",priority:"P2"},
   {title:"Make the Create page wording match the builder",problem:"The Create page says “No code, no templates”, but the builder offers an “Industry template” picker.",fix:"Change the line to “No code. Start from your description or an industry template.”",metric:"Wording changed on the live page",impact:"Low",effort:"Low",priority:"P4"},
-  {title:"Point to a plan in the upgrade window",problem:"The “Upgrade your plan” window marks no plan as recommended, and the Annual switch doesn't say what it saves. Base44 highlights “Most popular” and shows the discount.",fix:"Mark Pro as “Most popular”, and label the switch “Annual: save 20%”.",metric:"Upgrades from the window",impact:"Low",effort:"Low",priority:"P3"}
+  {title:"Point to a plan in the upgrade window",problem:"The Create page's pricing marks Pro “Most popular”, but the “Upgrade your plan” window inside the builder marks no plan as recommended, and the Annual switch doesn't say what it saves. Base44 highlights “Most popular” and shows the discount.",fix:"Mark Pro as “Most popular”, and label the switch “Annual: save 20%”.",metric:"Upgrades from the window",impact:"Low",effort:"Low",priority:"P3"}
+];
+const FLOWS=[
+  {n:"BotPool Create",c:"var(--bp)",own:true,s:["Expert requested in the builder","Engagement type and budget selected","Expert works on the existing site"],sum:"3 steps, fully in-product"},
+  {n:"Wix",c:"var(--muted)",s:["“Hire a Professional” request","Partner matching","Scope and pricing agreed","Collaborator access granted","Partner works on the site"],sum:"5 steps, partly in-product"},
+  {n:"Squarespace",c:"var(--muted)",s:["Brief submitted via 99designs","Expert proposals (about 24 hours)","Scope agreed, payment up front","Contributor access granted","Expert works on the site"],sum:"5 steps, off-platform"},
+  {n:"Lovable, Base44",c:"var(--lov)",s:["Partner directory consulted","Agency contacted directly","Scope and pricing agreed","Project access shared","Agency works on the project"],sum:"5 steps, off-platform (typical)"},
+  {n:"Durable",c:"var(--muted)",s:["Onboarding call"],sum:"No expert engagement"}
 ];
 const MARKET_FIXES=[
   {title:"Rank for small-business searches",problem:"Google shows the Create page first for “BotPool Create”, but it didn't appear on Google's first page for any of the 6 small-business searches checked (restaurants, salons, dentists, small business, free AI builder, estate agents; see the table above). botpool.ai's first screen is about hiring; Create is only a menu link. The 8 industry pages are in the sitemap.",fix:"Confirm rankings in Google Search Console, add real, specific content to each industry page (examples, prices, questions), and give Create a place on the homepage itself, not only in the menu. Target searches like “website for my salon”.",metric:"Visits from search to the Create pages",impact:"High",effort:"Medium",priority:"P1"},
   {title:"Fix the example addresses on the Create page",problem:"Published sites live at name.botpool.ai, and that works. But the examples on the Create page show addresses on botpool.site, which doesn't exist, and the example site (ironbound-tattoo.botpool.ai) says “This site isn't available”.",fix:"Show the real address format (name.botpool.ai) and link each example to a live, published site.",metric:"Every example on the page opens a live site",impact:"Low",effort:"Low",priority:"P4"},
   {title:"Use one true number, and add Create to the terms",problem:"BotPool says 26,000+ experts on Create and 20,000+ on One, but lists about 2,178 developers (2,176 public profiles in its sitemap). The terms mention Create only in their page description: no word on credits, who owns the site, AI-written content, or what happens if you stop paying.",fix:"Pick one checked figure and word it honestly (“registered members”). Add a Create section to the terms, and a short FAQ entry: “Your site, your content, and what happens if you cancel.”",metric:"Claims checked and signed off",impact:"Low",effort:"Low",priority:"P4"},
-  {title:"Show the expert option before the first site, with example prices",problem:"The builder has a “Hire an Expert from BotPool” window (freelancer, agency or managed by BotPool, with a budget range and progress tracking), but it only appears once a site exists. Visitors can't see it before signing up, it has no fixed prices, and the marketplace has no website category or reviewed website gigs.",fix:"Show the expert option on the Create page and in the empty builder, with 2–3 fixed-price starting points (e.g. “Finish my Create site”), and add a “Website help” category with reviewed experts.",metric:"Expert jobs started from Create each month",impact:"High",effort:"Medium",priority:"P1"},
+  {title:"Show the expert option before the first site, with example prices",problem:"The builder has a “Hire an Expert from BotPool” window (freelancer, agency or managed by BotPool, with a budget range and progress tracking), but it only appears once a site exists. Visitors can't see it before signing up, it has no fixed prices, and the marketplace has no website category or reviewed website gigs. Wix (“Hire a Professional”) and Squarespace (expert matching) already promote expert help up front, so BotPool's simpler, integrated version needs to be visible to count.",fix:"Show the expert option on the Create page and in the empty builder, with 2–3 fixed-price starting points (e.g. “Finish my Create site”), and add a “Website help” category with reviewed experts.",metric:"Expert jobs started from Create each month",impact:"High",effort:"Medium",priority:"P1"},
   {title:"Add the local-business basics",problem:"Wix and Durable offer bookings, Google Business Profile help, review requests and maps, and Lovable and Base44 can build payments and bookings on request. BotPool Create offers none of these.",fix:"Start with the two most asked for: a booking or appointment form, and a map with opening hours. Then help people set up their Google Business Profile.",metric:"Share of sites using each feature",impact:"Medium",effort:"High",priority:"P2"},
   {title:"Start collecting reviews",problem:"BotPool Create has no reviews on Trustpilot, G2 or Capterra. Durable shows 4.7 from 322 reviews.",fix:"Ask for a review after someone publishes their first site, and show the best ones next to the Build button.",metric:"Number of public reviews",impact:"Medium",effort:"Low",priority:"P4"}
 ];
 
 const GAPS=[
-  {id:"gap-entry",t:"Getting in",us:"botpool.ai's first screen is about hiring; the builder is a “Create NEW” link in the menu. Sign-up takes 12 actions (five fields, a terms box, an email check and a second log-in), and new users land in the freelancer marketplace (seen again on staging).",them:"A box to type your idea on the first screen, one-click sign-up with Google, and straight back into the builder afterwards.",links:[["fix-1-1","A way in from botpool.ai"],["fix-4-1","One-click sign-up"],["fix-5-1","Land in the builder"]]},
+  {id:"gap-entry",t:"Getting in",us:"botpool.ai's first screen is about hiring; the builder is a “Create NEW” link in the menu. Sign-up takes 12 actions (five fields, a terms box, an email check and a second log-in), and new users land in the freelancer marketplace (seen again in a test sign-up).",them:"A box to type your idea on the first screen, one-click sign-up with Google, and straight back into the builder afterwards.",links:[["fix-1-1","A way in from botpool.ai"],["fix-4-1","One-click sign-up"],["fix-5-1","Land in the builder"]]},
   {id:"gap-product",t:"What the product can do",us:"Websites only: no payments, no bookings, no connecting other tools, and no templates to start from.",them:"Payments, logins, databases and many connected tools (Stripe, Google, email), plus template galleries.",links:[["features","Feature comparison"],["fix-market-5","Add the local-business basics"]]},
-  {id:"gap-trust",t:"Trust",us:"Early days: Create has only just launched, so there are no public reviews yet. Housekeeping: “vetted” claims the owner says are false, member numbers that don't match, and terms that don't mention Create. Worth tidying, but not why visitors don't convert.",them:"Lovable: 4.2 on Trustpilot from 1,723 reviews, plus famous customer logos. Base44: 2.8 from 891 reviews, but backed by Wix.",links:[["fix-2-1","Remove “vetted”"],["fix-market-3","One true number"],["fix-market-6","Collect reviews"]]},
+  {id:"gap-trust",t:"Trust",us:"Early days: Create has only just launched, so there are no public reviews yet. Housekeeping: “vetted” claims that can't be backed up, member numbers that don't match, and terms that don't mention Create. Worth tidying, but not why visitors don't convert.",them:"Lovable: 4.2 on Trustpilot from 1,723 reviews, plus famous customer logos. Base44: 2.8 from 891 reviews, but backed by Wix.",links:[["fix-2-1","Remove “vetted”"],["fix-market-3","One true number"],["fix-market-6","Collect reviews"]]},
   {id:"gap-growth",t:"Growth engine",us:"No visible invite rewards (referral links exist in the code, but no invite screen or reward was found), no student plans, no community sharing of sites, and no website category in the marketplace to send people on to experts.",them:"Lovable: 100 credits per paying friend, and over 1 million new projects a week. Base44: Wix's marketing and customer base.",links:[["tactics","What works"],["fix-market-4","Show the expert option earlier"]]},
   {id:"gap-search",t:"Being found",us:"Google shows the Create page first for its own name, but it didn't show up in the small-business searches checked, and the example site addresses don't exist.",them:"Base44 appears for “free AI website builder”. Lovable publishes guides and website templates aimed at website searches.",links:[["fix-market-1","Rank for small-business searches"],["fix-market-2","Fix the example addresses"]]}
 ];
 const OPTIONS=[
   {t:"Compete as another app builder",v:"no",vl:"Not recommended",d:"Lovable (about $500M a year, valued at $13.3B) and Base44 (about $200M a year, owned by Wix) are far ahead on features, money and reach. BotPool would start behind on everything."},
-  {t:"Own the finished small-business website, with a real person on call",v:"yes",vl:"Recommended",d:"It's the one corner of the map nobody else holds. It suits owners who care more about time and relevance than price (84% of businesses without a site give reasons other than cost). And it turns BotPool's marketplace into an advantage instead of a detour."},
+  {t:"Own the finished small-business website, with a human expert on call",v:"yes",vl:"Recommended",d:"It's the only integrated expert handover on the map. It suits owners who care more about time and relevance than price (84% of businesses without a site give reasons other than cost). And it turns BotPool's marketplace into an advantage instead of a detour."},
   {t:"Use Create as the way into the marketplace",v:"also",vl:"Do alongside",d:"Every site built is a chance to sell expert work (copy, design, search, bookings) and earn BotPool's 10% commission. Create can stay cheap because the marketplace earns the money."}
 ];
 const PILLARS=[
@@ -987,16 +1047,16 @@ const PILLARS=[
   {t:"Being found",i:[["Rank for small-business searches","fix-market-1"],["Example sites with real, live addresses","fix-market-2"],["A menu and Log in on phones","fix-2-3"]]}
 ];
 const ROADMAP=[
-  {t:"Now",s:"Next 30 days: remove what stops people starting",i:[["Link Create from botpool.ai","fix-1-1"],["Show the expert option before sign-up","fix-market-4"],["Rank for small-business searches","fix-market-1"],["Keep typed text through sign-up","fix-3-1"]]},
-  {t:"Next",s:"1–3 months: make the way in and the expert real",i:[["One-click sign-up","fix-4-1"],["Land new sign-ups in the builder","fix-5-1"],["Fixed prices for expert help","fix-market-4"],["Keep showing the cost before each build","fix-7-1"],["A menu and Log in on phones","fix-2-3"],["Template previews and one way to start","fix-polish-1"]]},
-  {t:"Later",s:"3–6 months: grow and prove fit",i:[["Bookings, maps and Google listing help","fix-market-5"],["Offer the expert when credits run out","fix-8-1"],["Decide whether freelancers get Create","fix-6-1"],["Measure fit with BotPool's own numbers","needList"]]},
-  {t:"Housekeeping",s:"Any time: worth fixing, not why visitors don't convert",i:[["Remove “vetted” and use one true number","fix-2-1"],["Add Create to the terms","fix-market-3"],["Fix the example addresses","fix-market-2"],["Start collecting reviews","fix-market-6"],["Speed up the Create page","fix-2-4"],["Recognise signed-in freelancers","fix-3-2"],["Rename Create in the portal","fix-6-1"],["Say “2 free sites” next to Build","fix-7-1"],["Match the Create page wording","fix-polish-3"]]}
+  {t:"Now",s:"Remove what stops people starting",i:[["Link Create from botpool.ai","fix-1-1"],["Show the expert option before sign-up","fix-market-4"],["Rank for small-business searches","fix-market-1"],["Keep typed text through sign-up","fix-3-1"]]},
+  {t:"Next",s:"Make the way in and the expert real",i:[["One-click sign-up","fix-4-1"],["Land new sign-ups in the builder","fix-5-1"],["Fixed prices for expert help","fix-market-4"],["Keep showing the cost before each build","fix-7-1"],["A menu and Log in on phones","fix-2-3"],["Template previews and one way to start","fix-polish-1"]]},
+  {t:"Later",s:"Grow and prove fit",i:[["Bookings, maps and Google listing help","fix-market-5"],["Offer the expert when credits run out","fix-8-1"],["Decide whether freelancers get Create","fix-6-1"],["Measure fit with BotPool's own numbers","needList"]]},
+  {t:"Housekeeping",s:"Worth fixing, not why visitors don't convert",i:[["Remove “vetted” and use one true number","fix-2-1"],["Add Create to the terms","fix-market-3"],["Fix the example addresses","fix-market-2"],["Start collecting reviews","fix-market-6"],["Speed up the Create page","fix-2-4"],["Recognise signed-in freelancers","fix-3-2"],["Rename Create in the portal","fix-6-1"],["Explain the free allowance next to Build","fix-7-1"],["Match the Create page wording","fix-polish-3"]]}
 ];
 const WEAK=[
   {w:"Base44 has a 2.8 Trustpilot score. More than half its reviews are 1-star, many about surprise charges and hard cancelling.",b:"Keep prices simple and cancelling easy, and say so on the pricing page."},
-  {w:"Lovable and Base44 users spend credits on the AI's mistakes, with no refunds.",b:"When the AI can't get it right, a person can. Make that the promise."},
+  {w:"Lovable and Base44 users spend credits on the AI's mistakes, with no refunds.",b:"When the AI can't get it right, a human expert can. Make that the promise."},
   {w:"No human help on Lovable's free plan; Base44 users report support replies taking days.",b:"BotPool already has this: a “Hire an Expert” window inside the builder. Show it before the first site too."},
-  {w:"Older Lovable sites, and Base44 sites on free addresses, are hard for Google to read.",b:"Make every BotPool site readable by Google from day one. Test on a live site: TBD (the example sites aren't live)."},
+  {w:"Older Lovable sites, and Base44 sites on free addresses, are hard for Google to read.",b:"Make every BotPool site readable by Google from day one, and link live example sites from the Create page."},
   {w:"Both speak to app builders, with jargon like “vibe coding”.",b:"Keep talking plainly to local business owners, as the Create page already does."}
 ];
 const VERDICT="Lovable and Base44 put a box to type your idea in front of every visitor, and bring new sign-ups straight back to it. BotPool's Create page is strong, but people who want a website are routed through a freelancer homepage, a long sign-up form and the freelancer marketplace. Fix that route, and BotPool's clearer pricing and its human experts become real advantages.";
@@ -1008,13 +1068,13 @@ const AUDIENCE={
   "Their own words":{bp:"“Create a Website in Minutes”",lov:"“Build something Lovable”",b44:"“Every builder needs a base”"},
   "Tone":{bp:"Calm, practical, reassuring (“Boring where it counts”)",lov:"Ambitious: big numbers and famous logos",b44:"Energetic, with jargon (“vibe coding”)"},
   "Technical skill expected":{bp:"None: “No code, no templates”",lov:"None, but code is there if you want it",b44:"None, with optional code"},
-  "Proof they use":{bp:"26,000+ registered members; 6 real sites it made",lov:"Adidas, Nvidia, Zendesk; 60 million projects",b44:"10M+ users; owned by Wix (250M+ users)"},
+  "Proof they use":{bp:"26,000+ registered members; 6 example sites (not live)",lov:"Adidas, Nvidia, Zendesk; 60 million projects",b44:"10M+ users; owned by Wix (250M+ users)"},
   "Starting price":{bp:"Free, or Pro at $15 a month paid yearly",lov:"Free, or Pro at $21 a month paid yearly",b44:"Free, or Starter at $16 a month paid yearly"}
 };
 const WIN={head:"Small-business owners who want a finished website, not an app",points:[
-  "Both competitors talk about apps and software, with jargon. BotPool is the only one speaking plainly to a bakery or a dental practice.",
-  "The most generous free plan for a website: 2 full sites a month, with contact forms, search settings and visitor stats included. Say it in those words.",
-  "The only builder with a human expert one click away. Make it the answer to “what if the AI can't do it?”"
+  "Lovable and Base44 talk about apps and software, with jargon; BotPool speaks plainly to a bakery or a dental practice.",
+  "A clear free plan: 1 website with 2 full builds a month, contact forms, search settings and visitor stats included. Say it in those words.",
+  "The only builder with an integrated expert handover. Make it the answer to “what if the AI can't do it?”"
 ]};
 
 const FEATURES=[
@@ -1039,10 +1099,10 @@ const FEATURES=[
     {f:"Connect other tools (payments, email, maps)",bp:"no",lov:"yes",b44:"yes",matters:"Medium",note:"Maps and booking tools are common requests"},
     {f:"Download the site's code",bp:"paid",lov:"yes",b44:"paid",matters:"Low",note:"BotPool: on Pro; Lovable: free; Base44: on higher plans"},
     {f:"Work on it as a team",bp:"no",lov:"yes",b44:"yes",matters:"Low",note:"Not mentioned for BotPool"},
-    {f:"A human expert takes over your site",bp:"yes",lov:"part",b44:"part",matters:"High",note:"Competitors only link to lists of partners"}]},
+    {f:"A human expert takes over your site",bp:"yes",lov:"part",b44:"part",matters:"High",note:"Lovable and Base44 link to partner directories; Wix and Squarespace offer matching outside the editor"}]},
   {group:"Plans",items:[
     {f:"Free plan without a card",bp:"yes",lov:"yes",b44:"yes",matters:"High",note:"All three"},
-    {f:"Free allowance",bp:"2 full sites a month",lov:"5 a day, up to 30 a month",b44:"5 a day, up to 25 a month",matters:"High",note:"Credits aren't directly comparable between products"},
+    {f:"Free allowance",bp:"1 website, 2 full builds a month",lov:"5 a day, up to 30 a month",b44:"5 a day, up to 25 a month",matters:"High",note:"Credits aren't directly comparable between products"},
     {f:"Cheapest paid plan",bp:"$15 a month",lov:"$21 a month",b44:"$16 a month",matters:"Medium",note:"When paid yearly"}]}
 ];
 
@@ -1104,7 +1164,7 @@ $("featTable").innerHTML=`<thead><tr><th>Feature</th>${head(PRODUCTS)}<th>Matter
 
 /* funnel */
 $("funnelLegend").innerHTML=PRODUCTS.map(p=>`<span><i class="dot" style="background:${p.color}"></i>${p.name}</span>`).join("")+
-  `<span><i class="bar detour" style="width:28px;height:10px;display:inline-block;padding:0;min-width:0"></i>Extra stage inside BotPool</span><span><b style="color:var(--ink)">~</b>&nbsp;estimate (real test TBD)</span>`;
+  `<span><i class="bar detour" style="width:28px;height:10px;display:inline-block;padding:0;min-width:0"></i>Extra stage inside BotPool</span><span><b style="color:var(--ink)">~</b>&nbsp;estimate</span>`;
 const maxC=Math.max(6,...STEPS.flatMap(s=>PRODUCTS.map(p=>Math.max(s.data[p.key].clicks||0,s.data[p.key].clicksMax||0))));
 $("funnelScale").innerHTML=[0,5,10].map(n=>`<i style="left:${n/maxC*100}%">${n}</i>`).join("");
 const ticks=[5,10].map(n=>`<i class="tick" style="left:${n/maxC*100}%"></i>`).join("");
@@ -1144,7 +1204,7 @@ $("steps").innerHTML=STEPS.map(s=>{
       <div><h2>${s.title} ${s.only?'<span class="tag only">Only in BotPool</span>':""}</h2><p>${s.desc}</p></div></div>
     <div class="diff"><span class="lab">Biggest difference</span><p class="${s.diff?"":"ph"}">${s.diff||"[One sentence: what the best product does here that BotPool doesn't]"}</p></div>
   </div>
-  ${s.manual?`<div class="manual-note"><b>Hand test: TBD.</b> Time to a first draft, its quality and the credits used in each product (it spends credits, so ${s.manual} will run it). Everything else in this stage comes from the products' own pages and the staging sign-up.</div>`:""}
+  
   <div class="why" style="margin-top:16px"><span class="lab">Why it works</span>${s.why||ph("What the best product at this stage does right, and the principle behind it")}</div>
   <details class="evtoggle"><summary><span class="evl"><b class="show">Show evidence</b><b class="hide">Hide evidence</b><small>Side-by-side comparison table and what was observed in each product</small></span><i class="chev" aria-hidden="true"></i></summary>
     <div class="tbl"><table class="cmp"><thead><tr><th>Compared</th>${head(cols)}</tr></thead><tbody>
@@ -1197,6 +1257,14 @@ $("marketFixes").innerHTML=MF.map(f=>`
       </div>
     </article>`).join("");
 
+/* free plans and pricing, all six */
+const pc=v=>Array.isArray(v)?`<td class="${v[1]==="win"?"win":""}">${v[0]}</td>`:`<td>${v}</td>`;
+if($("planCmpTable"))$("planCmpTable").innerHTML=`<thead><tr><th>Builder</th><th>Free plan</th><th>Cheapest plan with your own domain (yearly)</th><th>Domain</th><th>First year</th><th>AI usage on that plan</th><th>Expert help</th></tr></thead><tbody>`+
+  PLANCMP.map(r=>`<tr class="${r.us?"us":""}"><td><b>${r.n}</b></td>${pc(r.free)}${pc(r.paid)}${pc(r.dom)}${pc(r.first)}${pc(r.ai)}${pc(r.exp)}</tr>`).join("")+`</tbody>`;
+
+/* expert engagement workflow */
+if($("flowRows"))$("flowRows").innerHTML=FLOWS.map(f=>`<div class="flow-row${f.own?" own":""}"><div class="fr-name"><i class="dot" style="background:${f.c}"></i>${f.n}</div><div class="fr-steps">${f.s.map((x,i)=>`${i?'<span class="fr-arr">→</span>':""}<span class="fr-step">${x}</span>`).join("")}</div><div class="fr-sum">${f.sum}</div></div>`).join("");
+
 /* ui polish */
 $("shotsTemplates").innerHTML=shotHTML(SHOT.templates);
 $("shotsHome").innerHTML=shotHTML(SHOT.home);
@@ -1237,10 +1305,14 @@ if($("criteria"))$("criteria").innerHTML=CRITERIA.map(c=>`<div><b>${c[0]}</b><sp
 
 /* back to where you were after following an in-page link */
 /* evidence sections open and close */
-if(document.querySelectorAll)[["tactics","Show the tactics table","15 tactics, side by side"],["features","Show the feature table","21 features, grouped"],["mobile","Show the phone and speed table","9 checks"],["polish","Show the checklist and screenshots","11 checks and 9 screenshots"]].forEach(([id,lab,sub])=>{const s=document.getElementById(id);if(!s)return;const lede=s.querySelector(".lede");const d=document.createElement("details");d.className="evtoggle";d.innerHTML=`<summary><span class="evl"><b class="show">${lab}</b><b class="hide">Hide</b><small>${sub}</small></span><i class="chev" aria-hidden="true"></i></summary>`;let n=lede.nextElementSibling;while(n&&n.id!=="polishFixesHead"){const nx=n.nextElementSibling;d.appendChild(n);n=nx;}lede.after(d);});
+if(document.querySelectorAll)[["tactics","Show the tactics table","15 tactics, side by side"],["features","Show the feature table","21 features, grouped"],["mobile","Show the phone and speed table","12 checks"],["polish","Show the checklist and screenshots","11 checks and 9 screenshots"]].forEach(([id,lab,sub])=>{const s=document.getElementById(id);if(!s)return;const lede=s.querySelector(".lede");const d=document.createElement("details");d.className="evtoggle";d.innerHTML=`<summary><span class="evl"><b class="show">${lab}</b><b class="hide">Hide</b><small>${sub}</small></span><i class="chev" aria-hidden="true"></i></summary>`;let n=lede.nextElementSibling;while(n&&n.id!=="polishFixesHead"){const nx=n.nextElementSibling;d.appendChild(n);n=nx;}lede.after(d);});
 
 /* phone layout: label each cell with its column heading */
 if(document.querySelectorAll)document.querySelectorAll("table").forEach(tb=>{const hs=[...tb.querySelectorAll("thead th")].map(th=>th.textContent.trim());tb.classList.add("stack");tb.querySelectorAll("tbody tr").forEach(tr=>[...tr.children].forEach((td,i)=>{if(i>0&&td.colSpan===1&&hs[i])td.setAttribute("data-label",hs[i]);}));});
+
+/* links from outside: open the closed section or drawer that holds the target */
+function openTarget(){const id=decodeURIComponent(location.hash.slice(1));if(!id)return;const el=document.getElementById(id);if(!el)return;let d=el.closest("details");while(d){d.open=true;d=d.parentElement&&d.parentElement.closest("details");}requestAnimationFrame(()=>el.scrollIntoView({block:"start"}));}
+if(document.querySelectorAll){window.addEventListener("hashchange",openTarget);openTarget();}
 
 (function(){let saved=null;const b=document.getElementById("backBtn");
 document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#"]');if(!a||a.id==="backBtn")return;saved=window.scrollY;b.hidden=false;const el=document.getElementById(a.getAttribute("href").slice(1));const d=el&&el.closest("details");if(d&&!d.open){d.open=true;}});
